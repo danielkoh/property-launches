@@ -9,9 +9,54 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Pinery Residences | Luxury Living in Singapore",
+  metadataBase: new URL("https://pinery-residences.bluebed.ai"),
+  title: "Pinery Residences | Experience Convenience & Value",
   description:
-    "A sanctuary of luxury nestled in the heart of Singapore’s green corridor.",
+    "Direct access to MRT, situated above a retail mall, and within 1km of top primary schools. Discover Pinery Residences - the smart choice for modern living in Singapore.",
+  keywords: [
+    "Pinery Residences",
+    "Singapore Property",
+    "New Launch",
+    "Tampines Condo",
+    "Luxury Living",
+    "Real Estate Singapore",
+  ],
+  authors: [{ name: "Daniel Koh", url: "https://www.era.com.sg" }],
+  openGraph: {
+    title: "Pinery Residences | Experience Convenience & Value",
+    description:
+      "Direct access to MRT, situated above a retail mall, and within 1km of top primary schools. Discover Pinery Residences - the smart choice for modern living in Singapore.",
+    url: "https://pinery-residences.bluebed.ai",
+    siteName: "Pinery Residences",
+    images: [
+      {
+        url: "/hero.png",
+        width: 1200,
+        height: 630,
+        alt: "Pinery Residences Facade",
+      },
+    ],
+    locale: "en_SG",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pinery Residences | Experience Convenience & Value",
+    description:
+      "Direct access to MRT, situated above a retail mall, and within 1km of top primary schools.",
+    images: ["/hero.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   icons: {
     icon: "/logo.png",
   },
