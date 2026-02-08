@@ -100,8 +100,7 @@ export default function RegistrationForm() {
                     required
                 />
                 <label className="text-xs text-slate-500 leading-tight">
-                    I consent to receive marketing updates and communications regarding
-                    Pinery Residences via Email, SMS and Phone Call.
+                    I consent to receive marketing updates and communications
                 </label>
             </div>
             <button
