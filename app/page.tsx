@@ -65,7 +65,7 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="relative h-screen flex items-center justify-start overflow-hidden pt-16">
+      <section className="relative h-[65vh] md:h-screen flex items-center justify-start overflow-hidden pt-16">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 hero-overlay z-10"></div>
           {/* Using img tag with external URL as per plan. For Next.js Image, we'd need to configure domains. keeping it simple for now as requested. */}
@@ -79,11 +79,11 @@ export default function Home() {
           <span className="inline-block text-gold-accent font-bold tracking-widest uppercase mb-4 text-sm">
             Now Launching in Singapore
           </span>
-          <h1 className="text-white text-5xl md:text-7xl font-black leading-[1.1] tracking-tight mb-6">
+          <h1 className="text-white text-3xl md:text-7xl font-black leading-[1.1] tracking-tight mb-6">
             Experience <span className="text-primary">Elevated Living</span> at
             Pinery Residences
           </h1>
-          <p className="text-white/80 text-lg md:text-xl font-light leading-relaxed max-w-2xl mb-10">
+          <p className="text-white/80 text-lg md:text-xl font-light leading-relaxed max-w-2xl mb-10 hidden md:block">
             A sanctuary of luxury nestled in the heart of Singapore’s green
             corridor. Discover exclusive amenities and prime connectivity in a
             biophilic masterpiece.
