@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-display: var(--font-inter), sans-serif;
+
+  --color-primary: #17cf54;
+  --color-background-light: #f6f8f6;
+  --color-background-dark: #112116;
+  --color-forest-green: #0b2b16;
+  --color-gold-accent: #d4af37;
+  
+  --color-background: var(--color-background-light);
+  --color-foreground: var(--color-forest-green);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Custom Utilities */
+.gold-border {
+  border-bottom: 2px solid var(--color-gold-accent);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.hero-overlay {
+  background: linear-gradient(
+    to right,
+    rgba(11, 43, 22, 0.9) 0%,
+    rgba(11, 43, 22, 0.4) 50%,
+    rgba(11, 43, 22, 0.1) 100%
+  );
+}
+
+.masonry-grid {
+  column-count: 1;
+  column-gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .masonry-grid {
+    column-count: 2;
   }
 }
 
+@media (min-width: 1024px) {
+  .masonry-grid {
+    column-count: 3;
+  }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
+
+/* Base styles */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-display);
+  background-color: var(--color-background-light);
+  color: #0f172a; /* slate-900 */
+}
+
+@media (prefers-color-scheme: dark) {
+  /* :root {
+    --color-background: var(--color-background-dark);
+    --color-foreground: #f1f5f9; 
+  } */
+  /* For now keeping explicit dark mode classes as per mockup's reliance on `dark:` classes
+     The mockup uses class="light" on html, so it might be forced light mode or manual toggle.
+     I'll support system dark mode via media query if needed, or just let Tailwind handle `dark:` prefix if configured strategy.
+     The mockup config had `darkMode: "class"`. 
+     Tailwind v4 detects dark mode automatically by default (media). 
+     If we want 'class' strategy in v4, we need to add `darkMode: 'selector'` or similar in CSS config, 
+     but standard v4 uses `@custom-variant dark (&:where(.dark, .dark *));` type approach if not media.
+     For simplicity in v4, `dark:` variant works with `media` preference by default. 
+     If the mockup relies on a class toggle, I'll stick to media for now unless user asks.
+  */
+}
+
+/* Ensure smooth transitions */
+body {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
 }

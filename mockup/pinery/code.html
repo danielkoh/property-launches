@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pinery Residences | Luxury Living in Singapore</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#17cf54",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#112116",
+                        "forest-green": "#0b2b16",
+                        "gold-accent": "#d4af37",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        .gold-border {
+            border-bottom: 2px solid #d4af37;
+        }
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(11, 43, 22, 0.9) 0%, rgba(11, 43, 22, 0.4) 50%, rgba(11, 43, 22, 0.1) 100%);
+        }
+        .masonry-grid {
+            column-count: 2;
+            column-gap: 1.5rem;
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 transition-colors duration-300">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="fixed top-0 z-50 w-full bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-forest-green/10 px-4 md:px-10 lg:px-40 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="text-primary size-8">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_330)">
+<path clip-rule="evenodd" d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z" fill="currentColor" fill-rule="evenodd"></path>
+</g>
+<defs><clipPath id="clip0_6_330"><rect fill="white" height="48" width="48"></rect></clipPath></defs>
+</svg>
+</div>
+<h2 class="text-forest-green dark:text-primary text-xl font-extrabold leading-tight tracking-tight">Pinery Residences</h2>
+</div>
+<nav class="hidden md:flex flex-1 justify-center gap-10">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#location">Location</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#lifestyle">Lifestyle</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#developer">Developer</a>
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#units">Unit Types</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="bg-primary hover:bg-primary/90 text-forest-green px-6 py-2 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/20">
+                Register Now
+            </button>
+</div>
+</header>
+<section class="relative h-screen flex items-center justify-start overflow-hidden pt-16">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 hero-overlay z-10"></div>
+<img alt="Pinery Residences Exterior" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_REPegczWmUrts1k1Q7WvdobJBfQKFWBQDMRkoU0xt4cM40PsHkznc89Z2j9tn3qp9Bf0QeFtmZ5ldj_EG_Bx7tgAnu3fyNOaWbgoX5Qcjso_bdR3kJZy-saVEDKLxZa-8zsof3XGOV251V4-2cSlJhr2DrS85Y32wD4AhfITn5ieENY-hv0bma-RUU4qxH4bLtD-Py8LS0I0CVfTVNDKFdHgc3aiLF2g_j-A2Y201W0BENMz9wxnZLnCu8UoO7tHdrryu7tkxrcq"/>
+</div>
+<div class="relative z-20 px-4 md:px-10 lg:px-40 max-w-4xl">
+<span class="inline-block text-gold-accent font-bold tracking-widest uppercase mb-4 text-sm">Now Launching in Singapore</span>
+<h1 class="text-white text-5xl md:text-7xl font-black leading-[1.1] tracking-tight mb-6">
+                Experience <span class="text-primary">Elevated Living</span> at Pinery Residences
+            </h1>
+<p class="text-white/80 text-lg md:text-xl font-light leading-relaxed max-w-2xl mb-10">
+                A sanctuary of luxury nestled in the heart of Singapore’s green corridor. Discover exclusive amenities and prime connectivity in a biophilic masterpiece.
+            </p>
+<div class="flex flex-wrap gap-4">
+<a class="bg-primary hover:bg-primary/90 text-forest-green px-8 py-4 rounded-lg font-bold transition-transform hover:-translate-y-1" href="#register">
+                    Download E-Brochure
+                </a>
+<a class="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded-lg font-bold backdrop-blur-sm transition-all" href="#units">
+                    View Unit Plans
+                </a>
+</div>
+</div>
+</section>
+<section class="py-24 px-4 md:px-10 lg:px-40 bg-white dark:bg-background-dark" id="location">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<div class="lg:col-span-4">
+<h2 class="text-forest-green dark:text-white text-3xl md:text-4xl font-bold mb-6">Strategic Location</h2>
+<div class="w-16 h-1 bg-gold-accent mb-8"></div>
+<p class="text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">
+                    Centrally positioned in the upscale District 10, Pinery Residences offers unparalleled access to the city's most prestigious landmarks, transport hubs, and lifestyle hotspots.
+                </p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="bg-primary/10 p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined">train</span>
+</div>
+<div>
+<h4 class="font-bold text-forest-green dark:text-white">Transport Hubs</h4>
+<p class="text-sm text-slate-500">Orchard Blvd MRT (3 min walk)</p>
+<p class="text-sm text-slate-500">Napier MRT (8 min walk)</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-primary/10 p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined">school</span>
+</div>
+<div>
+<h4 class="font-bold text-forest-green dark:text-white">Education</h4>
+<p class="text-sm text-slate-500">Anglo-Chinese School (5 min drive)</p>
+<p class="text-sm text-slate-500">River Valley Primary (10 min drive)</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="bg-primary/10 p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined">shopping_bag</span>
+</div>
+<div>
+<h4 class="font-bold text-forest-green dark:text-white">Shopping &amp; Dining</h4>
+<p class="text-sm text-slate-500">Ion Orchard (4 min drive)</p>
+<p class="text-sm text-slate-500">Dempsey Hill (6 min drive)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-8 relative rounded-2xl overflow-hidden shadow-2xl border border-slate-100 dark:border-forest-green/20">
+<div class="aspect-video w-full bg-slate-200 dark:bg-slate-800 relative">
+<img alt="Map View of Singapore Area" class="w-full h-full object-cover opacity-60 mix-blend-multiply dark:mix-blend-normal" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAB3VLAzZzGMvDdFSdZHBWAQ46D3eyMI-oZXlB8789x1BrFOnjzdVFJC0uyy-7TTgU9ikXN9Bf1y9zXNyZtSlKUkLzEQRsUWde0uqjrQhb992S5XZaeMen7hoEj-xMZ-dfP2DO1YUwqJ-O0iEc1oiS2oUD1k5KfYpZvKfskE40OGqPgiJf4rRg_aXuaHqK5XiAcHQiIJ_m6bn0B_3GYPwoI2ZRyKAXxvfVDensAUwo24F3Xdq9yFEPuzHFxW618xS4VsPN1pyf65ezV"/>
+<div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 group">
+<div class="bg-forest-green text-white p-3 rounded-full shadow-lg border-2 border-primary animate-bounce">
+<span class="material-symbols-outlined block">home</span>
+</div>
+<div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-forest-green text-primary text-[10px] font-bold py-1 px-3 rounded whitespace-nowrap">PINERY RESIDENCES</div>
+</div>
+<div class="absolute top-1/3 left-1/4">
+<div class="bg-white dark:bg-slate-900 p-2 rounded-full shadow-md text-primary flex items-center gap-2 pr-4">
+<span class="material-symbols-outlined text-sm">train</span>
+<span class="text-[10px] font-bold text-slate-800 dark:text-white uppercase">Orchard Blvd MRT</span>
+</div>
+</div>
+<div class="absolute bottom-1/4 right-1/4">
+<div class="bg-white dark:bg-slate-900 p-2 rounded-full shadow-md text-gold-accent flex items-center gap-2 pr-4">
+<span class="material-symbols-outlined text-sm">park</span>
+<span class="text-[10px] font-bold text-slate-800 dark:text-white uppercase">Botanic Gardens</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 px-4 md:px-10 lg:px-40 bg-background-light dark:bg-slate-900/30">
+<div class="text-center mb-16">
+<h2 class="text-forest-green dark:text-white text-3xl md:text-4xl font-bold mb-4">The Epitome of Modern Luxury</h2>
+<div class="w-20 h-1 bg-gold-accent mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="group p-8 rounded-xl bg-white dark:bg-forest-green/20 border border-slate-100 dark:border-forest-green/30 hover:shadow-2xl transition-all duration-300">
+<div class="text-primary mb-6">
+<span class="material-symbols-outlined text-5xl">location_on</span>
+</div>
+<h3 class="text-xl font-bold mb-3 text-forest-green dark:text-white">Prime Location</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Strategically located minutes from Orchard Road and world-renowned international schools. Connectivity meets convenience.
+                </p>
+</div>
+<div class="group p-8 rounded-xl bg-white dark:bg-forest-green/20 border border-slate-100 dark:border-forest-green/30 hover:shadow-2xl transition-all duration-300">
+<div class="text-primary mb-6">
+<span class="material-symbols-outlined text-5xl">pool</span>
+</div>
+<h3 class="text-xl font-bold mb-3 text-forest-green dark:text-white">Exclusive Facilities</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Features a 50m olympic-sized lap pool, state-of-the-art sky gym, and an ultra-private resident's clubhouse for social events.
+                </p>
+</div>
+<div class="group p-8 rounded-xl bg-white dark:bg-forest-green/20 border border-slate-100 dark:border-forest-green/30 hover:shadow-2xl transition-all duration-300">
+<div class="text-primary mb-6">
+<span class="material-symbols-outlined text-5xl">eco</span>
+</div>
+<h3 class="text-xl font-bold mb-3 text-forest-green dark:text-white">Lush Greenery</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    Award-winning landscape design featuring over 40 species of native plants and private sky terraces for every resident.
+                </p>
+</div>
+</div>
+</section>
+<section class="py-24 px-4 md:px-10 lg:px-40 bg-white dark:bg-background-dark" id="lifestyle">
+<div class="text-center mb-16">
+<h2 class="text-forest-green dark:text-white text-3xl md:text-4xl font-bold mb-4">Curated Lifestyle</h2>
+<div class="w-20 h-1 bg-gold-accent mx-auto mb-6"></div>
+<p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Experience a life of convenience with the city's finest offerings right at your doorstep.</p>
+</div>
+<div class="masonry-grid">
+<div class="masonry-item group relative overflow-hidden rounded-2xl">
+<img alt="Artisan Cafes" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5NXlzDbFLrtEYfNjqZxqgzje9NoUoxf9J0WEYSf-Wzms6IOvpoH4um6f0XcLW2ppSCE0Zm4_RKJg65ykm4tZvd0mGko9HdhgUNGyiz_kmD9AvQTJ2ecyJvKnKgMn1er6vbLxHfVaA7GTwLuD-t7tNkm_Jy3c3Nk5JQbsz00DwS_x28XKLgk1E3PfLiyoNwPYny2Ln3aygzRuzqVKAI-EnNHaCKelb2v9hMQPC5t1s-ilHeun9ZztO8rDIIXnZUDTmHJ57yha8-FbI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<div>
+<h4 class="text-white font-bold text-lg">Artisan Cafes</h4>
+<p class="text-white/70 text-sm">Boutique roasteries in Dempsey</p>
+</div>
+</div>
+</div>
+<div class="masonry-item group relative overflow-hidden rounded-2xl">
+<img alt="Luxury Shopping" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVq1CshYcViyWzrl59qQ4dPpzXCDO87y5jU2HNX5EZnBv-lg3CiPlsrjgsIP8XJZTB0BlKJQgBrvQ7d3vUs6TYolJFCdVmpxhw_gRowyoWLYQwWOyO6igClC3zjNX8L331VIcz30X6pN8SEHxVK_gYXSR1rUw0YIYIbxzKACx7zVcQCkQN32DEo1kpCFVEmRM7whQwPypIpi-OnhVa8trMHjLgzg0n8KGAIqzDcZXdYbGBZn6nv4Vq0wV1j8nNGLOs0tpRGCY0muDU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<div>
+<h4 class="text-white font-bold text-lg">Luxury Retail</h4>
+<p class="text-white/70 text-sm">Flagship stores along Orchard Road</p>
+</div>
+</div>
+</div>
+<div class="masonry-item group relative overflow-hidden rounded-2xl">
+<img alt="Serene Parks" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE0lTmLJYFXOQjlkGyRYEpkvC2pQv63e19mDDx8TLoJo7KW1cvoo-yAxyqcWM7qpnhCGejQBByONR5YdnxyjeEDS8LErAurDD4zrBM5nC8VwlquKbr9jTI_inxF-xBaPuEl2DgCeCY6644_sL58H9ucqc3DvL5-x2qI2sWjfgDTcK1aFHVdhrxgwvzlJBU0sgzv_nZU1gAPm964uAikUJdP2xEnxEhag5odS_tsQWoVNUI85GjtqTItwzUMp4XaaRXd-xYIbM2idNQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<div>
+<h4 class="text-white font-bold text-lg">Nature Trails</h4>
+<p class="text-white/70 text-sm">Weekend walks at Botanic Gardens</p>
+</div>
+</div>
+</div>
+<div class="masonry-item group relative overflow-hidden rounded-2xl">
+<img alt="Fine Dining" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAprxGIZq7ix1_52Y96bnJqqzr9V8tDcupS0ZIekebIN0wPTtjteNzW8f2AvVzeMq9DAQSdkjohGFIUCtHc5LSsSZMV0wXKjIcgD5SWHMotzNfT6SgxxMDiOeHXzNulgwTO2XHNEjIwW6PXDluodoC4iwtHmiRB4jJ5CcnX0own0xOgA0-D3gGd6YYTqxnlZLDMY7RoRmI2pcxcPgDjbBky8nKTf0cgmDRCGmXAyJw_e6V2juFwzOMYUy5TJ9AA4PEvVDFrBoVwBjiJ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<div>
+<h4 class="text-white font-bold text-lg">Michelin Dining</h4>
+<p class="text-white/70 text-sm">Gourmet experiences nearby</p>
+</div>
+</div>
+</div>
+<div class="masonry-item group relative overflow-hidden rounded-2xl">
+<img alt="Private Galleries" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIWGTLFmQGdG9zymTSkuEOWddKXIZ9-vRk03722CDwM9Mh-u_JMtFNCr7nM-B9m9tplRB4tvTBFZ0U6dK7ZVjjrxcAyoWEkFDkJFwk1T8rTinBoaIle_ubHnaLBaCHNdKKdNJ4bvf-EYGwNCDPAfllMUvPcIeCkkUIhFB8fkiyGn04yQLOnAz_xQeaEdpPHuJyjAdD8cmcRZLba2mStXhfJPWcZyolOt7Tnz3U7ntCVsr3sT6a8I01LLpN-vkgeO4DSqwhBLPaXW3e"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<div>
+<h4 class="text-white font-bold text-lg">Art &amp; Culture</h4>
+<p class="text-white/70 text-sm">Exclusive galleries in the vicinity</p>
+</div>
+</div>
+</div>
+<div class="masonry-item group relative overflow-hidden rounded-2xl">
+<img alt="Wellness" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9hjY5m1uIa2O-VyuvT3iHvvnrd_mX1AV_UVdRmprQm1ULYjUK9a44aV1bLNM1e-7uhq-Q8_0-jCVGIW9RuYTxp0pvjeh1XG9SbdTnGPHj3lpgcr7VGNPzcGe9P2bLIYMNh9iVKArGz64khT1RJKcIWPw9e_YgGMY89ZStSqxMbdgOk6mPpbFLZ_iGaGWV7OYiyOMTd7V-NMNtPSWeiHdIfcdGTUZmDkEJvGf_cXQMfN-wRYXo8sGtgWJaLZ4gUBztJ3JGy0J-jFsA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+<div>
+<h4 class="text-white font-bold text-lg">Wellness Centers</h4>
+<p class="text-white/70 text-sm">Premium yoga and fitness studios</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 px-4 md:px-10 lg:px-40 bg-forest-green text-white" id="developer">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div>
+<span class="text-gold-accent font-bold tracking-widest uppercase text-sm mb-4 block">Crafted By the Best</span>
+<h2 class="text-4xl md:text-5xl font-black mb-8 leading-tight">Visionary Developers: Landmark Group</h2>
+<p class="text-white/70 text-lg mb-8 leading-relaxed">
+                    With over three decades of excellence, Landmark Group has shaped the skyline of global cities. Our commitment to sustainable luxury and architectural innovation is evident in every project we deliver.
+                </p>
+<div class="grid grid-cols-2 gap-8 mb-10">
+<div class="border-l-2 border-primary pl-4">
+<div class="text-3xl font-bold text-primary">25+</div>
+<div class="text-xs uppercase tracking-wider text-white/50">Award Winning Projects</div>
+</div>
+<div class="border-l-2 border-primary pl-4">
+<div class="text-3xl font-bold text-primary">15k+</div>
+<div class="text-xs uppercase tracking-wider text-white/50">Happy Homeowners</div>
+</div>
+</div>
+<button class="border border-gold-accent text-gold-accent hover:bg-gold-accent hover:text-forest-green px-8 py-3 rounded-lg font-bold transition-all">View Group Portfolio</button>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<h4 class="text-gold-accent font-bold uppercase text-xs tracking-widest mb-2">Iconic Track Record</h4>
+<div class="bg-white/5 p-6 rounded-2xl border border-white/10 flex gap-6 items-center group hover:bg-white/10 transition-all cursor-pointer">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Past Project 1" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLgXoFJQ6FTUowexGZMGEX27ZF3FaKdLGXxZzQNqwTMM46_yTB_wn4C4vlp6zkc9wzNuHT0oeo4sDqovoIC5Vdk_Zb1U3cl-H0qjFPlCtigurn2lFgRDnqcV9CqDBRdaOIzOFKYgfno1AOdTFgmWKCp5WwGYxKOG7a7Ze7mlHwscTTW8Qjy2T2z-RMxg-5_kxEy1S4V-bgxAX0iklJ2d_8k6msZEqAZZDHvYRAEdmZFr9aiWG2QOCCj0oCshHhYxoFCKEHKYXbt4sk"/>
+</div>
+<div>
+<h5 class="font-bold text-xl mb-1 group-hover:text-primary transition-colors">The Emerald Marina</h5>
+<p class="text-sm text-white/50">Luxury Waterfront Living • Completed 2021</p>
+</div>
+</div>
+<div class="bg-white/5 p-6 rounded-2xl border border-white/10 flex gap-6 items-center group hover:bg-white/10 transition-all cursor-pointer">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Past Project 2" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaxzpR8aFCuh62Clcz6tuZaN6EobSihb6FDOc_tYAOaGCl-tNujqQo7lEfS4sNLKDEDRnuwTkmuUNSAyLC2jIK2KIeRGemGReXIeifF4o8rAvngf440ZaWrFLJPK3XZOtAkD2RIcUO7rubw0BbUZ8CeflSehNmc6NB8rM0lZOkHv2cnEerB5G0BzA0DRNBhwZ8P-2ZRREJx9t37kxNgog7hNJkaZUyyMX4CUH6wFhLAE1R3SYp2JrPY56avdWu1izLBc2ckkis3lFL"/>
+</div>
+<div>
+<h5 class="font-bold text-xl mb-1 group-hover:text-primary transition-colors">Landmark Sky Towers</h5>
+<p class="text-sm text-white/50">BCA Green Mark Platinum • Completed 2019</p>
+</div>
+</div>
+<div class="bg-white/5 p-6 rounded-2xl border border-white/10 flex gap-6 items-center group hover:bg-white/10 transition-all cursor-pointer">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Past Project 3" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8SVVVAQ2E_VSnHoZpt42yshim-j2M1jCAhrdj-7hFcW_0XjLLE_6OgCWNc_E4fgqyWtZx9pfBW8QlSPPPcyqdKMjfplcZOf3HtouBZgyGCdJFseOLe1E7USI_e4SAYPt0lMTZf8VIfCFvx7UKsH32Zm7q95qjyRKzjTLQE44GFgw4dNEYSKQ3zet3AZcHcz6xj1DRht8GzcDIB8R--gF_DJ_iFub34xOF8F7Rvhlk-THQvGbHblNMPYTS578_muzDeGdqLt3RHuEK"/>
+</div>
+<div>
+<h5 class="font-bold text-xl mb-1 group-hover:text-primary transition-colors">Oakwood Heritage</h5>
+<p class="text-sm text-white/50">Prime Conservation Estate • Completed 2023</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-24 px-4 md:px-10 lg:px-40 bg-background-light dark:bg-slate-900/50" id="units">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div class="max-w-xl">
+<h2 class="text-forest-green dark:text-white text-3xl md:text-4xl font-bold mb-4">Refined Unit Types</h2>
+<p class="text-slate-600 dark:text-slate-400">Thoughtfully designed layouts with floor-to-ceiling windows and premium Miele appliances.</p>
+</div>
+<a class="text-primary font-bold flex items-center gap-2 group" href="#">
+                Explore all layouts <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[4/5] mb-4">
+<img alt="1-Bedroom Suite" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD672IX375pO3Ohcf6-mtz8YIRVFZmBU9PcNjzh-ygRSkcbtBXryBzUBIGZj4krzVNDD6fiYm9892HLjQFWMThDGYXx9eQuxjIiuAGDRBuCb5ou_zVxShMec4sZGeIR1FTy9CiitSkVmRnm79gyv5C4upMR9ujTBcdSTh4UbJiQmsxiceH5SB8EP1HL5GD9xTe700sYbvsnpPmASC62QSGcBYO_b71ZfkT2ygeR0tn2YzcUb0PwgkDMx0xgB0oSiR9zVvr-mSKqj3hQ"/>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded text-xs font-bold text-forest-green">Limited Units</div>
+</div>
+<h4 class="text-xl font-bold text-forest-green dark:text-white">1-Bedroom Suite</h4>
+<p class="text-slate-500 text-sm">540 - 680 sqft • Perfect for professionals</p>
+</div>
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[4/5] mb-4">
+<img alt="3-Bedroom Family" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs3Fer0Qoq6eiisRbmyd--dcWoM_CcFU037PzLu3qhKoz9toIKZQCzdcjlu98UQtvzIvYvE63hSXLDGKUFPwHAM-JebLYIufDhuTKKrzbZBZe_8lnQ27jbqL7vxxDnZH6ryVYogVl8Y-KRgo7vJj5dpIbxbC65qRo-iIg0bFi0lScGucZ9gByzxARgsG_ljtSuQUKE-tabET6fvZTsV8HczH0NvXhvU22qVVUoZSLCvUJ_Qyb2PNkMNaEcyGtbaO9_vi8us-QESps8"/>
+</div>
+<h4 class="text-xl font-bold text-forest-green dark:text-white">3-Bedroom Family</h4>
+<p class="text-slate-500 text-sm">1,150 - 1,420 sqft • For modern family living</p>
+</div>
+<div class="group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[4/5] mb-4">
+<img alt="5-Bedroom Penthouse" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeOB0He5O1eUj24z-_FQ28MmZ9k8AAUT4ZUS31JtX4rm28bborwDS1UI3NyXT5eoSb8ue_M07BjXP-sFD3ZodqFP9iqjdO4avk9Obwez3-WS6MZ-NwUmasp_3FvGXQXzBuLbNoY799eoV7TD7bSrFupCwNyMmJwfBTLbku4lB5LilPSieZY53mIPTz63g_mnxujFkHjgryBIJJTvl15vY6l3HEDiqyNU-goJcMaoVSdu3R-1A8sgaZvwcTj7hzTzcnvj8ALLI5NQrt"/>
+<div class="absolute top-4 left-4 bg-primary px-3 py-1 rounded text-xs font-bold text-forest-green shadow-lg">Exclusive</div>
+</div>
+<h4 class="text-xl font-bold text-forest-green dark:text-white">5-Bedroom Penthouse</h4>
+<p class="text-slate-500 text-sm">3,800 - 5,200 sqft • The pinnacle of luxury</p>
+</div>
+</div>
+</section>
+<section class="py-24 px-4 md:px-10 lg:px-40 bg-forest-green relative overflow-hidden" id="register">
+<div class="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+<div class="absolute bottom-0 left-0 w-96 h-96 bg-gold-accent/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<div class="text-white">
+<h2 class="text-4xl md:text-5xl font-black mb-6">Register for Early Access &amp; E-Brochure</h2>
+<p class="text-white/70 text-lg mb-8 leading-relaxed">
+                    Be the first to receive exclusive pricing, floor plans, and priority viewing slots for the upcoming VVIP preview. Join the waitlist for Singapore's most anticipated residential launch.
+                </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Direct Developer Discounts</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Priority VVIP Showsuite Access</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">check_circle</span>
+<span>Full Digital E-Brochure &amp; Floor Plans</span>
+</li>
+</ul>
+</div>
+<div class="bg-white dark:bg-background-dark p-8 md:p-12 rounded-2xl shadow-2xl border border-white/10">
+<form class="flex flex-col gap-5">
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">Full Name</label>
+<input class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-forest-green focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="Enter your name" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">Email Address</label>
+<input class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-forest-green focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="email@example.com" type="email"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">Phone Number</label>
+<input class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-forest-green focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="+65 XXXX XXXX" type="tel"/>
+</div>
+<div class="flex items-start gap-3 mt-2">
+<input class="mt-1 rounded border-slate-300 text-primary focus:ring-primary" type="checkbox"/>
+<label class="text-xs text-slate-500 leading-tight">
+                            I consent to receive marketing updates and communications regarding Pinery Residences via Email, SMS and Phone Call.
+                        </label>
+</div>
+<button class="bg-primary hover:bg-primary/90 text-forest-green font-black py-4 rounded-lg shadow-lg shadow-primary/20 transition-all active:scale-[0.98] mt-4" type="submit">
+                        GET VVIP ACCESS NOW
+                    </button>
+<p class="text-center text-[10px] text-slate-400 mt-2">
+                        No spam. Your privacy is our priority. Terms and conditions apply.
+                    </p>
+</form>
+</div>
+</div>
+</section>
+<footer class="bg-slate-50 dark:bg-background-dark py-16 px-4 md:px-10 lg:px-40 border-t border-slate-200 dark:border-slate-800">
+<div class="flex flex-col md:flex-row justify-between gap-12 mb-12">
+<div class="max-w-xs">
+<div class="flex items-center gap-2 mb-6">
+<span class="text-primary text-2xl font-black">PINERY</span>
+</div>
+<p class="text-sm text-slate-500 leading-relaxed mb-6">
+                    An iconic residential development representing the pinnacle of luxury architecture in Singapore. Developed by Landmark Group.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">mail</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-8 flex-1 justify-end max-w-2xl">
+<div class="flex flex-col gap-4">
+<h5 class="font-bold text-forest-green dark:text-white">Property</h5>
+<a class="text-sm text-slate-500 hover:text-primary" href="#">Master Plan</a>
+<a class="text-sm text-slate-500 hover:text-primary" href="#">Amenities</a>
+<a class="text-sm text-slate-500 hover:text-primary" href="#">E-Brochure</a>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-bold text-forest-green dark:text-white">Legal</h5>
+<a class="text-sm text-slate-500 hover:text-primary" href="#">Privacy Policy</a>
+<a class="text-sm text-slate-500 hover:text-primary" href="#">Disclaimer</a>
+<a class="text-sm text-slate-500 hover:text-primary" href="#">Agency License</a>
+</div>
+<div class="flex flex-col gap-4">
+<h5 class="font-bold text-forest-green dark:text-white">Support</h5>
+<a class="text-sm text-slate-500 hover:text-primary" href="#">Sales Team</a>
+<a class="text-sm text-slate-500 hover:text-primary" href="#">Viewing Request</a>
+<a class="text-sm text-slate-500 hover:text-primary" href="#">FAQ</a>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+<p>© 2024 Pinery Residences Singapore. All rights reserved.</p>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[12px]">verified</span>
+<span>CEA Reg No: L3008022J / R064321A</span>
+</div>
+</div>
+</footer>
+</div>
+
+</body></html>
