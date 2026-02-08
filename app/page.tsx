@@ -9,7 +9,7 @@ export default function Home() {
           <div className="flex items-center gap-4 z-50">
             <img
               alt="Pinery Residences Logo"
-              className="h-16 w-auto object-contain"
+              className="h-9 w-auto object-contain"
               src="/logo.png"
             />
           </div>
@@ -58,17 +58,14 @@ export default function Home() {
           />
         </div>
         <div className="relative z-20 px-4 md:px-10 lg:px-40 max-w-4xl">
-          <span className="inline-block text-gold-accent font-bold tracking-widest uppercase mb-4 text-sm">
-            Now Launching in Singapore
-          </span>
+
           <h1 className="text-white text-3xl md:text-7xl font-black leading-[1.1] tracking-tight mb-6">
-            Experience <span className="text-primary">Elevated Living</span> at
-            Pinery Residences
+            Experience <span className="text-primary">Convenience & Value</span>{" "}
+            at Pinery Residences
           </h1>
           <p className="text-white/80 text-lg md:text-xl font-light leading-relaxed max-w-2xl mb-10 hidden md:block">
-            A sanctuary of luxury nestled in the heart of Singapore’s green
-            corridor. Discover exclusive amenities and prime connectivity in a
-            biophilic masterpiece.
+            Direct access to MRT, situated above a retail mall, and within 1km
+            of top primary schools. The smart choice for modern living.
           </p>
           <div className="flex flex-wrap gap-4">
             <a
@@ -322,28 +319,28 @@ export default function Home() {
               Register for Early Access & E-Brochure
             </h2>
             <p className="text-white/70 text-lg mb-8 leading-relaxed">
-              Be the first to receive exclusive pricing, floor plans, and priority
-              viewing slots for the upcoming VVIP preview. Join the waitlist for
-              Singapore's most anticipated residential launch.
+              Register for early access to receive exclusive project information,
+              floor plans, and an invitation to view the showflat. Be among the
+              first to explore Singapore's most anticipated residential launch.
             </p>
             <ul className="space-y-4">
               <li className="flex items-center gap-3">
                 <span className="material-symbols-outlined text-primary">
                   check_circle
                 </span>
-                <span>Direct Developer Discounts</span>
+                <span>Digital E-Brochure & Floor Plans</span>
               </li>
               <li className="flex items-center gap-3">
                 <span className="material-symbols-outlined text-primary">
                   check_circle
                 </span>
-                <span>Priority VVIP Showsuite Access</span>
+                <span>Book a visit to Show Flat</span>
               </li>
               <li className="flex items-center gap-3">
                 <span className="material-symbols-outlined text-primary">
                   check_circle
                 </span>
-                <span>Full Digital E-Brochure & Floor Plans</span>
+                <span>Developer pricing</span>
               </li>
             </ul>
           </div>
