@@ -62,6 +62,8 @@ export const metadata: Metadata = {
   },
 };
 
+import RecaptchaProvider from "./components/RecaptchaProvider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -76,7 +78,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        {children}
+        <RecaptchaProvider>{children}</RecaptchaProvider>
       </body>
     </html>
   );

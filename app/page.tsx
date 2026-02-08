@@ -1,6 +1,8 @@
 
 import Image from "next/image";
 
+import RegistrationForm from "./components/RegistrationForm";
+
 export default function Home() {
   return (
     <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden">
@@ -46,6 +48,7 @@ export default function Home() {
           </button>
         </div>
       </header>
+
 
       <section className="relative h-[65vh] md:h-screen flex items-center justify-start overflow-hidden pt-16">
         <div className="absolute inset-0 z-0">
@@ -345,58 +348,7 @@ export default function Home() {
             </ul>
           </div>
           <div className="bg-white dark:bg-background-dark p-8 md:p-12 rounded-2xl shadow-2xl border border-white/10">
-            <form className="flex flex-col gap-5">
-              <div className="flex flex-col gap-2">
-                <label className="text-sm font-bold text-slate-700 dark:text-slate-300">
-                  Full Name
-                </label>
-                <input
-                  className="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-forest-green focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
-                  placeholder="Enter your name"
-                  type="text"
-                />
-              </div>
-              <div className="flex flex-col gap-2">
-                <label className="text-sm font-bold text-slate-700 dark:text-slate-300">
-                  Email Address
-                </label>
-                <input
-                  className="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-forest-green focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
-                  placeholder="email@example.com"
-                  type="email"
-                />
-              </div>
-              <div className="flex flex-col gap-2">
-                <label className="text-sm font-bold text-slate-700 dark:text-slate-300">
-                  Phone Number
-                </label>
-                <input
-                  className="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-forest-green focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
-                  placeholder="+65 XXXX XXXX"
-                  type="tel"
-                />
-              </div>
-              <div className="flex items-start gap-3 mt-2">
-                <input
-                  className="mt-1 rounded border-slate-300 text-primary focus:ring-primary"
-                  type="checkbox"
-                />
-                <label className="text-xs text-slate-500 leading-tight">
-                  I consent to receive marketing updates and communications
-                  regarding Pinery Residences via Email, SMS and Phone Call.
-                </label>
-              </div>
-              <button
-                className="bg-primary hover:bg-primary/90 text-forest-green font-black py-4 rounded-lg shadow-lg shadow-primary/20 transition-all active:scale-[0.98] mt-4 cursor-pointer"
-                type="submit"
-              >
-                GET VVIP ACCESS NOW
-              </button>
-              <p className="text-center text-[10px] text-slate-400 mt-2">
-                No spam. Your privacy is our priority. Terms and conditions
-                apply.
-              </p>
-            </form>
+            <RegistrationForm />
           </div>
         </div>
       </section>
