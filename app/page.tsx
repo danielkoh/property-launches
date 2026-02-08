@@ -6,31 +6,13 @@ export default function Home() {
     <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden">
       <header className="fixed top-0 z-50 w-full bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-forest-green/10 px-4 md:px-10 lg:px-40 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="text-primary size-8">
-            <svg
-              fill="none"
-              viewBox="0 0 48 48"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-full h-full"
-            >
-              <g clipPath="url(#clip0_6_330)">
-                <path
-                  clipRule="evenodd"
-                  d="M24 0.757355L47.2426 24L24 47.2426L0.757355 24L24 0.757355ZM21 35.7574V12.2426L9.24264 24L21 35.7574Z"
-                  fill="currentColor"
-                  fillRule="evenodd"
-                ></path>
-              </g>
-              <defs>
-                <clipPath id="clip0_6_330">
-                  <rect fill="white" height="48" width="48"></rect>
-                </clipPath>
-              </defs>
-            </svg>
+          <div className="flex items-center gap-4 z-50">
+            <img
+              alt="Pinery Residences Logo"
+              className="h-16 w-auto object-contain"
+              src="/logo.png"
+            />
           </div>
-          <h2 className="text-forest-green dark:text-primary text-xl font-extrabold leading-tight tracking-tight">
-            Pinery Residences
-          </h2>
         </div>
         <nav className="hidden md:flex flex-1 justify-center gap-10">
           <a
@@ -128,10 +110,10 @@ export default function Home() {
                 </div>
                 <div>
                   <h4 className="font-bold text-forest-green dark:text-white">
-                    Prime Location
+                    Tampines Street 94
                   </h4>
                   <p className="text-sm text-slate-500">
-                    Located in the heart of one of Singapore’s most popular towns
+                    Located in one of Singapore’s most popular towns
                   </p>
                 </div>
               </div>
@@ -425,81 +407,88 @@ export default function Home() {
       <footer className="bg-slate-50 dark:bg-background-dark py-16 px-4 md:px-10 lg:px-40 border-t border-slate-200 dark:border-slate-800">
         <div className="flex flex-col md:flex-row justify-between gap-12 mb-12">
           <div className="max-w-xs">
-            <div className="flex items-center gap-2 mb-6">
-              <span className="text-primary text-2xl font-black">PINERY</span>
+            <div className="flex flex-col gap-1 mb-6">
+              <p className="text-xs text-slate-500 uppercase tracking-widest font-bold mb-2">
+                Appointed Marketing Agency
+              </p>
+              <h3 className="text-xl font-bold text-forest-green dark:text-white">
+                ERA Realty Network Pte Ltd
+              </h3>
+              <p className="text-sm text-slate-500">
+                Licence number: L3002382K
+              </p>
             </div>
             <p className="text-sm text-slate-500 leading-relaxed mb-6">
-              An iconic residential development representing the pinnacle of
-              luxury architecture in Singapore. Developed by Landmark Group.
+              ERA APAC Centre, 450 Lorong 6 Toa Payoh, Singapore 319394
             </p>
-            <div className="flex gap-4">
-              <a
-                className="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center hover:bg-primary transition-colors"
-                href="#"
-              >
-                <span className="material-symbols-outlined text-lg">share</span>
-              </a>
-              <a
-                className="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center hover:bg-primary transition-colors"
-                href="#"
-              >
-                <span className="material-symbols-outlined text-lg">mail</span>
-              </a>
-            </div>
+            <a
+              className="text-primary font-bold hover:underline block mb-6"
+              href="https://www.era.com.sg"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              www.era.com.sg
+            </a>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 flex-1 justify-end max-w-2xl">
-            <div className="flex flex-col gap-4">
-              <h5 className="font-bold text-forest-green dark:text-white">
-                Property
+          <div className="flex flex-col gap-6 justify-end text-left sm:text-right">
+            <div>
+              <h5 className="font-bold text-forest-green dark:text-white mb-2">
+                About Us
               </h5>
-              <a className="text-sm text-slate-500 hover:text-primary" href="#">
-                Master Plan
-              </a>
-              <a className="text-sm text-slate-500 hover:text-primary" href="#">
-                Amenities
-              </a>
-              <a className="text-sm text-slate-500 hover:text-primary" href="#">
-                E-Brochure
-              </a>
+              <p className="font-bold text-slate-700 dark:text-slate-200">
+                DANIEL KOH
+              </p>
+              <p className="text-sm text-slate-500">CEA NO. : R073362I</p>
             </div>
-            <div className="flex flex-col gap-4">
-              <h5 className="font-bold text-forest-green dark:text-white">
-                Legal
-              </h5>
-              <a className="text-sm text-slate-500 hover:text-primary" href="#">
+            <div>
+              <a
+                className="text-sm text-slate-500 hover:text-primary transition-colors"
+                href="https://96278266-pinery-residences.eraprojects.sg/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 Privacy Policy
-              </a>
-              <a className="text-sm text-slate-500 hover:text-primary" href="#">
-                Disclaimer
-              </a>
-              <a className="text-sm text-slate-500 hover:text-primary" href="#">
-                Agency License
-              </a>
-            </div>
-            <div className="flex flex-col gap-4">
-              <h5 className="font-bold text-forest-green dark:text-white">
-                Support
-              </h5>
-              <a className="text-sm text-slate-500 hover:text-primary" href="#">
-                Sales Team
-              </a>
-              <a className="text-sm text-slate-500 hover:text-primary" href="#">
-                Viewing Request
-              </a>
-              <a className="text-sm text-slate-500 hover:text-primary" href="#">
-                FAQ
               </a>
             </div>
           </div>
         </div>
         <div className="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
-          <p>© 2024 Pinery Residences Singapore. All rights reserved.</p>
+          <p>
+            Copyright 2026 ERA Realty Network Pte Ltd. (CEA Licence No.
+            L3002382K). All Rights Reserved
+          </p>
           <div className="flex items-center gap-2">
             <span className="material-symbols-outlined text-[12px]">
               verified
             </span>
-            <span>CEA Reg No: L3008022J / R064321A</span>
+            <span>CEA Reg No: L3002382K / R073362I</span>
           </div>
+        </div>
+        <div className="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800">
+          <p className="text-[10px] text-slate-400 leading-relaxed text-justify">
+            Disclaimer: ERA Realty Network Pte Ltd is the appointed marketing
+            agency for Pinery Residences. This website is independently managed
+            by ERA marketing agents and is not the official website of the
+            developer. All content is provided for general information purposes
+            only. Our role is to share updated project information and assist
+            with arranging showflat appointments. Buyers do not pay any
+            commission; all fees are paid directly by the developer. This site
+            may contain forward-looking statements that involve assumptions,
+            risks, and uncertainties. While every effort is made to ensure
+            accuracy, neither the developer nor ERA Realty Network Pte Ltd shall
+            be held liable for any inaccuracies, omissions, or changes. To the
+            fullest extent permitted by law, all information, visuals, and
+            illustrations are not contractual and may differ from the final
+            product. Artist impressions are for illustration purposes only. ERA
+            Realty Network Pte Ltd shall not be liable for any special, direct,
+            indirect, incidental, or consequential damages arising from the use
+            of the information provided on this website. ERA Realty Network Pte
+            Ltd reserves the right to update, modify, or remove any content at
+            any time without prior notice. We are committed to providing the
+            latest updates for this development and will continue to work
+            closely with the developer and partners to ensure information
+            remains current and reliable.
+          </p>
         </div>
       </footer>
     </div>

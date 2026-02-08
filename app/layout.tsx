@@ -10,7 +10,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Pinery Residences | Luxury Living in Singapore",
-  description: "A sanctuary of luxury nestled in the heart of Singapore’s green corridor.",
+  description:
+    "A sanctuary of luxury nestled in the heart of Singapore’s green corridor.",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({
