@@ -1,7 +1,11 @@
+"use client";
 
+import MortgageEstimator from "./components/MortgageEstimator";
+import { useState } from "react";
 
 
 export default function Home() {
+  const [isMortgageEstimatorOpen, setIsMortgageEstimatorOpen] = useState(false);
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden bg-background-light dark:bg-background-dark text-[#111418] dark:text-white font-display">
       <header className="sticky top-0 z-50 bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-solid border-[#f0f2f4] dark:border-gray-800 px-6 lg:px-20 py-4">
@@ -145,15 +149,15 @@ export default function Home() {
                   Calculate monthly repayments based on latest TDSR/MSR cooling
                   measures.
                 </p>
-                <a
-                  className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all"
-                  href="#"
+                <button
+                  onClick={() => setIsMortgageEstimatorOpen(true)}
+                  className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all cursor-pointer"
                 >
                   Analyze Now{" "}
                   <span className="material-symbols-outlined text-sm">
                     arrow_forward
                   </span>
-                </a>
+                </button>
               </div>
               <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all group">
                 <div className="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
@@ -220,7 +224,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </section >
         <section className="bg-white dark:bg-background-dark py-20 px-6 lg:px-20">
           <div className="max-w-[1280px] mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
@@ -500,7 +504,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-      </main>
+      </main >
       <footer className="bg-[#111418] text-white py-16 px-6 lg:px-20 border-t border-gray-800">
         <div className="max-w-[1280px] mx-auto">
           <div className="flex flex-col md:flex-row justify-between gap-12 mb-12">
@@ -565,6 +569,10 @@ export default function Home() {
 
         </div>
       </footer>
-    </div>
+      <MortgageEstimator
+        isOpen={isMortgageEstimatorOpen}
+        onClose={() => setIsMortgageEstimatorOpen(false)}
+      />
+    </div >
   );
 }
