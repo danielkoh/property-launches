@@ -1,443 +1,568 @@
 
-import Image from "next/image";
 
-import RegistrationForm from "./components/RegistrationForm";
 
 export default function Home() {
   return (
-    <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden">
-      <header className="fixed top-0 z-50 w-full bg-white/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-forest-green/10 px-4 md:px-10 lg:px-40 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="flex items-center gap-4 z-50">
-            <img
-              alt="Pinery Residences Logo"
-              className="h-9 w-auto object-contain"
-              src="/logo.png"
-            />
+    <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden bg-background-light dark:bg-background-dark text-[#111418] dark:text-white font-display">
+      <header className="sticky top-0 z-50 bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-solid border-[#f0f2f4] dark:border-gray-800 px-6 lg:px-20 py-4">
+        <div className="max-w-[1280px] mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-10">
+            <div className="flex items-center gap-2 text-primary">
+              <span className="material-symbols-outlined text-3xl">apartment</span>
+              <h2 className="text-[#111418] dark:text-white text-xl font-extrabold leading-tight tracking-tight">
+                LaunchPortal<span className="text-primary">SG</span>
+              </h2>
+            </div>
+            <nav className="hidden md:flex items-center gap-8">
+              <a
+                className="text-sm font-semibold hover:text-primary transition-colors flex items-center gap-1.5"
+                href="#"
+              >
+                <span className="material-symbols-outlined text-lg">rocket_launch</span>{" "}
+                Latest Launches
+              </a>
+              <a
+                className="text-sm font-semibold hover:text-primary transition-colors flex items-center gap-1.5"
+                href="#"
+              >
+                <span className="material-symbols-outlined text-lg">query_stats</span>{" "}
+                Investment Tools
+              </a>
+              <a
+                className="text-sm font-semibold hover:text-primary transition-colors flex items-center gap-1.5"
+                href="#"
+              >
+                <span className="material-symbols-outlined text-lg">verified</span>{" "}
+                VVIP Registration
+              </a>
+            </nav>
           </div>
-        </div>
-        <nav className="hidden md:flex flex-1 justify-center gap-10">
-          <a
-            className="text-sm font-semibold text-forest-green dark:text-white hover:text-primary transition-colors"
-            href="#location"
-          >
-            Location
-          </a>
-          <a
-            className="text-sm font-semibold text-forest-green dark:text-white hover:text-primary transition-colors"
-            href="#lifestyle"
-          >
-            Lifestyle
-          </a>
-          <a
-            className="text-sm font-semibold text-forest-green dark:text-white hover:text-primary transition-colors"
-            href="#developer"
-          >
-            Developer
-          </a>
-          <a
-            className="text-sm font-semibold text-forest-green dark:text-white hover:text-primary transition-colors"
-            href="#units"
-          >
-            Unit Types
-          </a>
-        </nav>
-        <div className="flex items-center gap-4">
-          <button className="bg-primary hover:bg-primary/90 text-forest-green px-6 py-2 rounded-lg text-sm font-bold transition-all shadow-lg shadow-primary/20 cursor-pointer">
-            Register Now
-          </button>
+          <div className="flex items-center gap-4">
+            <button className="flex items-center gap-2 px-5 py-2 bg-primary text-white rounded-lg font-bold text-sm shadow-lg shadow-primary/20 hover:brightness-110 transition-all cursor-pointer">
+              <span className="material-symbols-outlined text-lg">chat</span>{" "}
+              WhatsApp Enquiry
+            </button>
+          </div>
         </div>
       </header>
-
-
-      <section className="relative h-[65vh] md:h-screen flex items-center justify-start overflow-hidden pt-16">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 hero-overlay z-10"></div>
-          {/* Using img tag with external URL as per plan. For Next.js Image, we'd need to configure domains. keeping it simple for now as requested. */}
-          <img
-            alt="Pinery Residences Exterior"
-            className="w-full h-full object-cover object-right-bottom"
-            src="/hero.png"
-          />
-        </div>
-        <div className="relative z-20 px-4 md:px-10 lg:px-40 max-w-4xl">
-
-          <h1 className="text-white text-3xl md:text-7xl font-black leading-[1.1] tracking-tight mb-6">
-            Experience <span className="text-primary">Convenience & Value</span>{" "}
-            at Pinery Residences
-          </h1>
-          <p className="text-white/80 text-lg md:text-xl font-light leading-relaxed max-w-2xl mb-10 hidden md:block">
-            Direct access to MRT, situated above a retail mall, and within 1km
-            of top primary schools. The smart choice for modern living.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <a
-              className="bg-primary hover:bg-primary/90 text-forest-green px-8 py-4 rounded-lg font-bold transition-transform hover:-translate-y-1 block"
-              href="#register"
-            >
-              Download E-Brochure
-            </a>
-            <a
-              className="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded-lg font-bold backdrop-blur-sm transition-all block"
-              href="#units"
-            >
-              View Unit Plans
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section
-        className="py-24 px-4 md:px-10 lg:px-40 bg-white dark:bg-background-dark"
-        id="location"
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          <div className="lg:col-span-4">
-            <h2 className="text-forest-green dark:text-white text-3xl md:text-4xl font-bold mb-6">
-              Strategic Location
-            </h2>
-            <div className="w-16 h-1 bg-gold-accent mb-8"></div>
-            <p className="text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">
-              Situated in Tampines, one of the most popular locations in Eastern
-              Singapore, Pinery Residences offers a wealth of amenities at your
-              doorstep. Enjoy the ultimate convenience of living right above the
-              MRT and within 1km of popular primary schools.
-            </p>
-            <div className="space-y-8">
-              <div className="flex items-start gap-4">
-                <div className="bg-primary/10 p-2 rounded-lg text-primary">
-                  <span className="material-symbols-outlined">location_city</span>
+      <main className="flex-1">
+        <section className="bg-white dark:bg-background-dark pt-12 pb-20 px-6 lg:px-20 border-b border-gray-100 dark:border-gray-800">
+          <div className="max-w-[1280px] mx-auto">
+            <div className="grid lg:grid-cols-12 gap-12 items-center bg-gray-50 dark:bg-gray-800/40 rounded-[2.5rem] p-8 lg:p-16 border border-gray-100 dark:border-gray-700">
+              <div className="lg:col-span-8 flex flex-col gap-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider w-fit">
+                  <span className="material-symbols-outlined text-sm">groups</span>
+                  Join Our Community
                 </div>
-                <div>
-                  <h4 className="font-bold text-forest-green dark:text-white">
-                    Tampines Street 94
-                  </h4>
-                  <p className="text-sm text-slate-500">
-                    Located in one of Singapore’s most popular towns
-                  </p>
+                <h1 className="text-4xl lg:text-6xl font-black text-[#111418] dark:text-white leading-[1.1] tracking-tight">
+                  Curated <span className="text-primary">Developer Deals</span>{" "}
+                  Direct to Your Phone
+                </h1>
+                <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed">
+                  Be part of Daniel's property investor community.
+                  Receive (near) instant notifications on price drops, fire sales, and
+                  VVIP preview slots.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 mt-4">
+                  <a
+                    href="https://t.me/danielproperty_sg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-3 bg-[#0088cc] text-white px-8 py-4 rounded-xl font-black text-lg shadow-xl hover:brightness-110 transition-all cursor-pointer"
+                  >
+                    <span className="material-symbols-outlined">send</span>
+                    Join Telegram Channel
+                  </a>
+                  <div className="flex flex-col justify-center">
+                    <div className="bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">
+                      Hot
+                    </div>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-x-8 gap-y-3 mt-4">
+                  <div className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-300">
+                    <span className="material-symbols-outlined text-primary text-lg">
+                      local_offer
+                    </span>
+                    Direct Developer Pricing
+                  </div>
+                  <div className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-300">
+                    <span className="material-symbols-outlined text-primary text-lg">
+                      verified_user
+                    </span>
+                    0% Agent Commission
+                  </div>
+                  <div className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-300">
+                    <span className="material-symbols-outlined text-primary text-lg">
+                      assignment_turned_in
+                    </span>
+                    Verified Project Lists
+                  </div>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
-                <div className="bg-primary/10 p-2 rounded-lg text-primary">
-                  <span className="material-symbols-outlined">school</span>
-                </div>
-                <div>
-                  <h4 className="font-bold text-forest-green dark:text-white">
-                    Elite Education
-                  </h4>
-                  <p className="text-sm text-slate-500">
-                    Within 1KM to St Hilda’s Primary and close to many good schools
+              <div className="lg:col-span-4 flex justify-center lg:justify-end">
+                <div className="bg-white dark:bg-gray-800 p-6 rounded-3xl shadow-2xl border border-gray-100 dark:border-gray-700 w-full max-w-[320px] text-center">
+                  <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 mb-4 border-2 border-dashed border-gray-200 dark:border-gray-700 aspect-square flex items-center justify-center relative overflow-hidden group">
+                    <img
+                      alt="QR Code"
+                      className="w-full h-full object-contain"
+                      src="/telegram_qr.jpg"
+                    />
+                  </div>
+                  <p className="text-primary font-black text-xl mb-1 flex items-center justify-center gap-2">
+                    <span className="material-symbols-outlined">
+                      qr_code_scanner
+                    </span>{" "}
+                    Scan to Join
                   </p>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="bg-primary/10 p-2 rounded-lg text-primary">
-                  <span className="material-symbols-outlined">train</span>
-                </div>
-                <div>
-                  <h4 className="font-bold text-forest-green dark:text-white">
-                    Integrated Hub
-                  </h4>
-                  <p className="text-sm text-slate-500">
-                    Integrated with Tampines West MRT, mall, community plaza and childcare
-                  </p>
+
                 </div>
               </div>
             </div>
           </div>
-          <div className="lg:col-span-8 relative rounded-2xl overflow-hidden shadow-2xl border border-slate-100 dark:border-forest-green/20">
-            <div className="aspect-video w-full bg-slate-200 dark:bg-slate-800 relative">
-              <img
-                alt="Map View of Singapore Area"
-                className="w-full h-full object-cover"
-                src="/location.png"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-24 px-4 md:px-10 lg:px-40 bg-background-light dark:bg-slate-900/30">
-        <div className="text-center mb-16">
-          <h2 className="text-forest-green dark:text-white text-3xl md:text-4xl font-bold mb-4">
-            Positioned for Success
-          </h2>
-          <div className="w-20 h-1 bg-gold-accent mx-auto"></div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="group p-8 rounded-xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 hover:shadow-2xl transition-all duration-300">
-            <div className="text-primary mb-6">
-              <span className="material-symbols-outlined text-5xl">
-                apartment
-              </span>
-            </div>
-            <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white">
-              Residential Units
-            </h3>
-            <p className="text-forest-green dark:text-primary leading-relaxed font-bold text-2xl">
-              588 Modern Homes
-            </p>
-            <p className="text-slate-600 dark:text-slate-300 text-sm mt-2">
-              Thoughtfully designed for exclusive living
-            </p>
-          </div>
-          <div className="group p-8 rounded-xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 hover:shadow-2xl transition-all duration-300">
-            <div className="text-primary mb-6">
-              <span className="material-symbols-outlined text-5xl">
-                storefront
-              </span>
-            </div>
-            <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white">
-              Commercial Space
-            </h3>
-            <p className="text-forest-green dark:text-primary leading-relaxed font-bold text-2xl">
-              Est. 120,000 sqft
-            </p>
-            <p className="text-slate-600 dark:text-slate-300 text-sm mt-2">
-              Premium retail and dining integration
-            </p>
-          </div>
-          <div className="group p-8 rounded-xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 hover:shadow-2xl transition-all duration-300">
-            <div className="text-primary mb-6">
-              <span className="material-symbols-outlined text-5xl">
-                calendar_month
-              </span>
-            </div>
-            <h3 className="text-xl font-bold mb-3 text-slate-900 dark:text-white">
-              Estimated TOP
-            </h3>
-            <p className="text-forest-green dark:text-primary leading-relaxed font-bold text-2xl">
-              April 2030
-            </p>
-            <p className="text-slate-600 dark:text-slate-300 text-sm mt-2">
-              Move into the future of luxury
-            </p>
-          </div>
-
-          <div className="group p-10 rounded-xl bg-forest-green border border-gold-accent hover:shadow-2xl transition-all duration-300 md:col-span-2 lg:col-span-3 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
-            <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
-              <div className="text-forest-green bg-gold-accent p-6 rounded-full shadow-lg shrink-0">
-                <span className="material-symbols-outlined text-4xl">
-                  trending_up
+        </section>
+        <section className="py-16 px-6 lg:px-20 bg-background-light dark:bg-background-dark/50">
+          <div className="max-w-[1280px] mx-auto">
+            <div className="flex items-center gap-4 mb-10">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                <span className="material-symbols-outlined text-2xl">
+                  calculate
                 </span>
               </div>
+              <h2 className="text-2xl font-black uppercase tracking-tight">
+                Investment &amp; Evaluation Tools
+              </h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all group">
+                <div className="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                  <span className="material-symbols-outlined text-3xl">
+                    account_balance
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold mb-2">Mortgage Estimator</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
+                  Calculate monthly repayments based on latest TDSR/MSR cooling
+                  measures.
+                </p>
+                <a
+                  className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all"
+                  href="#"
+                >
+                  Analyze Now{" "}
+                  <span className="material-symbols-outlined text-sm">
+                    arrow_forward
+                  </span>
+                </a>
+              </div>
+              <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all group">
+                <div className="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                  <span className="material-symbols-outlined text-3xl">
+                    receipt
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold mb-2">ABSD Calculator</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
+                  Identify your exact Stamp Duty costs for multi-property
+                  portfolios.
+                </p>
+                <a
+                  className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all"
+                  href="#"
+                >
+                  Check Duties{" "}
+                  <span className="material-symbols-outlined text-sm">
+                    arrow_forward
+                  </span>
+                </a>
+              </div>
+              <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all group">
+                <div className="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                  <span className="material-symbols-outlined text-3xl">
+                    trending_up
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold mb-2">Investment ROI</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
+                  Predict rental yields and capital growth for specific
+                  districts.
+                </p>
+                <a
+                  className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all"
+                  href="#"
+                >
+                  View Analytics{" "}
+                  <span className="material-symbols-outlined text-sm">
+                    arrow_forward
+                  </span>
+                </a>
+              </div>
+              <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all group">
+                <div className="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                  <span className="material-symbols-outlined text-3xl">
+                    calendar_today
+                  </span>
+                </div>
+                <h3 className="text-lg font-bold mb-2">Progression Planner</h3>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
+                  Visualize payment timelines for BUC (Building Under
+                  Construction) units.
+                </p>
+                <a
+                  className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all"
+                  href="#"
+                >
+                  Map Payments{" "}
+                  <span className="material-symbols-outlined text-sm">
+                    arrow_forward
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="bg-white dark:bg-background-dark py-20 px-6 lg:px-20">
+          <div className="max-w-[1280px] mx-auto">
+            <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
               <div>
-                <h3 className="text-2xl md:text-3xl font-bold mb-3 text-white">
-                  Potential Entry Price Advantage
-                </h3>
-                <p className="text-white/90 leading-relaxed text-lg max-w-2xl">
-                  Developer secured land at attractive <span className="font-bold text-gold-accent text-xl">$1,004 psf ppr</span>, offering significant value potential for early buyers.
+                <div className="flex items-center gap-2 text-primary mb-2">
+                  <span className="material-symbols-outlined">analytics</span>
+                  <span className="text-sm font-bold uppercase tracking-widest">
+                    Market Insights
+                  </span>
+                </div>
+                <h2 className="text-3xl font-black">Featured New Launches</h2>
+                <p className="text-gray-500">
+                  New launches that even I feel like buying.
                 </p>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-
-      <section
-        className="py-24 px-4 md:px-10 lg:px-40 bg-forest-green text-white"
-        id="developer"
-      >
-        <div className="max-w-4xl mx-auto text-center">
-          <span className="text-gold-accent font-bold tracking-widest uppercase text-sm mb-4 block">
-            Joint Venture
-          </span>
-          <h2 className="text-4xl md:text-5xl font-black mb-8 leading-tight">
-            HOI HUP SUNWAY TAMPINES
-          </h2>
-          <div className="w-20 h-1 bg-gold-accent mx-auto mb-10"></div>
-          <p className="text-white/80 text-xl mb-12 leading-relaxed">
-            A strategic partnership between
-          </p>
-          <div className="flex flex-col md:flex-row justify-center gap-8">
-            <a
-              className="group bg-white/10 hover:bg-white/20 border border-white/20 p-8 rounded-xl transition-all hover:-translate-y-1 block w-full md:w-auto min-w-[280px]"
-              href="https://www.hoihup.com/Portfolio/Residential"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-gold-accent transition-colors">
-                Hoi Hup Realty
-              </h3>
-              <div className="text-gold-accent text-sm uppercase tracking-wider flex items-center justify-center gap-2">
-                View Portfolio
-                <span className="material-symbols-outlined text-sm">
-                  open_in_new
-                </span>
+              <div className="flex gap-2">
+                <button className="p-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all cursor-pointer">
+                  <span className="material-symbols-outlined">arrow_back</span>
+                </button>
+                <button className="p-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all cursor-pointer">
+                  <span className="material-symbols-outlined">arrow_forward</span>
+                </button>
               </div>
-            </a>
-            <a
-              className="group bg-white/10 hover:bg-white/20 border border-white/20 p-8 rounded-xl transition-all hover:-translate-y-1 block w-full md:w-auto min-w-[280px]"
-              href="https://sunwaymcl.com.sg/our-masterpieces"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-gold-accent transition-colors">
-                Sunway Property
-              </h3>
-              <div className="text-gold-accent text-sm uppercase tracking-wider flex items-center justify-center gap-2">
-                View Portfolio
-                <span className="material-symbols-outlined text-sm">
-                  open_in_new
-                </span>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="group bg-background-light dark:bg-gray-800/50 rounded-2xl overflow-hidden border border-transparent hover:border-primary/20 transition-all shadow-sm cursor-pointer">
+                <div className="relative aspect-video overflow-hidden">
+                  <img
+                    alt="Luxury condo"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeo87zCNlu6HGuRLMrBXdpiZYPeEMO0-e1YUmRCwyHP5WS6AsGYg-iOZvzk1Nm_sNur1tNL1Ev6tMDwxpI-O9PeOV9hpwyCMSzIHYSRc03oEDYFjzxHZRRXcE5jcozcbca7t7fEHMBsX7SJoJ3Pg1-TfinJuFdzOJvkz3A-DkCVSWah1F3Ga0kkq-a3ayNOj9vhfY5VbMzxI4uptC4qv8OooPR27RPddcVXx57-LMX_xI3J2n9ZSLfXekzfIbsstz5YIif8T-DXgaq"
+                  />
+                  <div className="absolute top-4 left-4 bg-primary text-white text-[10px] font-black uppercase px-2 py-1 rounded flex items-center gap-1">
+                    <span className="material-symbols-outlined text-[12px]">
+                      bolt
+                    </span>{" "}
+                    Selling Fast
+                  </div>
+                  <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded">
+                    D15 • Freehold
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-1">The Continuum</h3>
+                  <p className="text-gray-500 text-sm mb-4 flex items-center gap-1">
+                    <span className="material-symbols-outlined text-sm">
+                      location_on
+                    </span>{" "}
+                    Thiam Siew Avenue
+                  </p>
+                  <div className="flex justify-between items-center py-4 border-y border-gray-200 dark:border-gray-700">
+                    <div>
+                      <p className="text-xs text-gray-400 uppercase font-bold">
+                        Starting From
+                      </p>
+                      <p className="text-lg font-black text-primary">
+                        $1,680,000
+                      </p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-xs text-gray-400 uppercase font-bold">
+                        Units Left
+                      </p>
+                      <p className="text-lg font-black">12%</p>
+                    </div>
+                  </div>
+                  <button className="w-full mt-6 py-3 bg-white dark:bg-gray-700 text-[#111418] dark:text-white rounded-lg font-bold text-sm border border-gray-200 dark:border-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center gap-2 cursor-pointer">
+                    <span className="material-symbols-outlined text-sm">
+                      floor
+                    </span>{" "}
+                    View Floor Plans
+                  </button>
+                </div>
               </div>
-            </a>
-          </div>
-        </div>
-      </section>
 
-      <section
-        className="py-24 px-4 md:px-10 lg:px-40 bg-white"
-        id="units"
-      >
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-          <div className="max-w-xl">
-            <h2 className="text-forest-green text-3xl md:text-4xl font-bold mb-4">
-              Unit Mix
-            </h2>
+              {/* Linked Pinery Residences Here if we want to add it as a card, but adhering to mockup first */}
 
-          </div>
-        </div>
-        <div className="w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-gold-accent/30">
-          <img
-            alt="Pinery Residences Unit Mix"
-            className="w-full h-auto object-cover"
-            src="/unit_mix.png"
-          />
-        </div>
-      </section>
-
-      <section
-        className="py-24 px-4 md:px-10 lg:px-40 bg-forest-green relative overflow-hidden"
-        id="register"
-      >
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold-accent/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
-        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="text-white">
-            <h2 className="text-4xl md:text-5xl font-black mb-6">
-              Register for Early Access & E-Brochure
-            </h2>
-            <p className="text-white/70 text-lg mb-8 leading-relaxed">
-              Register for early access to receive exclusive project information,
-              floor plans, and an invitation to view the showflat. Be among the
-              first to explore Singapore's most anticipated residential launch.
-            </p>
-            <ul className="space-y-4">
-              <li className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-primary">
-                  check_circle
-                </span>
-                <span>Digital E-Brochure & Floor Plans</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-primary">
-                  check_circle
-                </span>
-                <span>Book a visit to Show Flat</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-primary">
-                  check_circle
-                </span>
-                <span>Developer pricing</span>
-              </li>
-            </ul>
-          </div>
-          <div className="bg-white dark:bg-background-dark p-8 md:p-12 rounded-2xl shadow-2xl border border-white/10">
-            <RegistrationForm />
-          </div>
-        </div>
-      </section>
-
-      <footer className="bg-slate-50 dark:bg-background-dark py-16 px-4 md:px-10 lg:px-40 border-t border-slate-200 dark:border-slate-800">
-        <div className="flex flex-col md:flex-row justify-between gap-12 mb-12">
-          <div className="max-w-xs">
-            <div className="flex flex-col gap-1 mb-6">
-              <p className="text-xs text-slate-500 uppercase tracking-widest font-bold mb-2">
-                Appointed Marketing Agency
-              </p>
-              <h3 className="text-xl font-bold text-forest-green dark:text-white">
-                ERA Realty Network Pte Ltd
-              </h3>
-              <p className="text-sm text-slate-500">
-                Licence number: L3002382K
-              </p>
+              <a href="/pinery" className="block group bg-background-light dark:bg-gray-800/50 rounded-2xl overflow-hidden border border-transparent hover:border-primary/20 transition-all shadow-sm cursor-pointer">
+                <div className="relative aspect-video overflow-hidden">
+                  <img
+                    alt="Pinery Residences"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    src="/hero.png"
+                  />
+                  <div className="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-black uppercase px-2 py-1 rounded flex items-center gap-1">
+                    <span className="material-symbols-outlined text-[12px]">
+                      schedule
+                    </span>{" "}
+                    Preview Soon
+                  </div>
+                  <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded">
+                    D18 • 99 Years
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-1">Pinery Residences</h3>
+                  <p className="text-gray-500 text-sm mb-4 flex items-center gap-1">
+                    <span className="material-symbols-outlined text-sm">
+                      location_on
+                    </span>{" "}
+                    Tampines Street 94
+                  </p>
+                  <div className="flex justify-between items-center py-4 border-y border-gray-200 dark:border-gray-700">
+                    <div>
+                      <p className="text-xs text-gray-400 uppercase font-bold">
+                        Starting From
+                      </p>
+                      <p className="text-lg font-black text-primary">
+                        TBD
+                      </p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-xs text-gray-400 uppercase font-bold">
+                        Status
+                      </p>
+                      <p className="text-lg font-black">Register Interest</p>
+                    </div>
+                  </div>
+                  <button className="w-full mt-6 py-3 bg-white dark:bg-gray-700 text-[#111418] dark:text-white rounded-lg font-bold text-sm border border-gray-200 dark:border-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center gap-2 cursor-pointer">
+                    <span className="material-symbols-outlined text-sm">
+                      app_registration
+                    </span>{" "}
+                    View Project Details
+                  </button>
+                </div>
+              </a>
+              <div className="group bg-background-light dark:bg-gray-800/50 rounded-2xl overflow-hidden border border-transparent hover:border-primary/20 transition-all shadow-sm cursor-pointer">
+                <div className="relative aspect-video overflow-hidden">
+                  <img
+                    alt="Skyscraper facade"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2J-5tONEq5hi5a3_5TxakHkDZORREywWKU0dY9yQU_hPLnhB6bhnUvPlvzoCN2DFDCxmbGRXTjRL1WWN06IkGGRZBBSilmWI53O3AA5V2ostDhwluKETHigJMZvgEmdEoTpr1wwVAytLxoMxqx-AQZ0pkD1P988mPlGpQ_jpM3E-e5hoBdgGdYDfzqB5J2Thsej1SKFIL-oxOnDhYWiq82yrHTMOkSo5aWWAnpVxHgROrXcLJBJgTsoXK0n_FegWiODDbkxX1sIJl"
+                  />
+                  <div className="absolute top-4 left-4 bg-black text-white text-[10px] font-black uppercase px-2 py-1 rounded flex items-center gap-1">
+                    <span className="material-symbols-outlined text-[12px]">
+                      priority_high
+                    </span>{" "}
+                    Limited Units
+                  </div>
+                  <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded">
+                    D11 • Freehold
+                  </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-1">Watten House</h3>
+                  <p className="text-gray-500 text-sm mb-4 flex items-center gap-1">
+                    <span className="material-symbols-outlined text-sm">
+                      location_on
+                    </span>{" "}
+                    Watten Estate
+                  </p>
+                  <div className="flex justify-between items-center py-4 border-y border-gray-200 dark:border-gray-700">
+                    <div>
+                      <p className="text-xs text-gray-400 uppercase font-bold">
+                        Starting From
+                      </p>
+                      <p className="text-lg font-black text-primary">
+                        $3,200,000
+                      </p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-xs text-gray-400 uppercase font-bold">
+                        Remaining
+                      </p>
+                      <p className="text-lg font-black">8 Units</p>
+                    </div>
+                  </div>
+                  <button className="w-full mt-6 py-3 bg-white dark:bg-gray-700 text-[#111418] dark:text-white rounded-lg font-bold text-sm border border-gray-200 dark:border-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center gap-2 cursor-pointer">
+                    <span className="material-symbols-outlined text-sm">
+                      payments
+                    </span>{" "}
+                    Enquire Price List
+                  </button>
+                </div>
+              </div>
             </div>
-            <p className="text-sm text-slate-500 leading-relaxed mb-6">
-              ERA APAC Centre, 450 Lorong 6 Toa Payoh, Singapore 319394
-            </p>
-            <a
-              className="text-primary font-bold hover:underline block mb-6"
-              href="https://www.era.com.sg"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              www.era.com.sg
-            </a>
           </div>
-          <div className="flex flex-col gap-6 justify-end text-left sm:text-right">
-            <div>
-              <h5 className="font-bold text-forest-green dark:text-white mb-2">
-                About Us
-              </h5>
-              <p className="font-bold text-slate-700 dark:text-slate-200">
-                DANIEL KOH
-              </p>
-              <p className="text-sm text-slate-500">CEA NO. : R073362I</p>
+        </section>
+        <section className="py-20 px-6 lg:px-20 bg-gray-50 dark:bg-background-dark">
+          <div className="max-w-[1280px] mx-auto bg-white dark:bg-gray-800/30 rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-100 dark:border-gray-700">
+            <div className="grid lg:grid-cols-2">
+              <div className="p-8 lg:p-16 bg-primary text-white flex flex-col justify-center">
+                <h2 className="text-4xl font-black mb-6">Consult a Specialist</h2>
+                <p className="text-white/80 text-lg mb-10">
+                  Our consultants provide floor plans, e-brochures, and latest
+                  unit availability. Get your direct developer pricing today.
+                </p>
+                <div className="space-y-6">
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
+                      <span className="material-symbols-outlined text-2xl">
+                        call
+                      </span>
+                    </div>
+                    <div>
+                      <p className="text-xs text-white/60 font-bold uppercase tracking-widest">
+                        Hotline
+                      </p>
+                      <p className="text-lg font-bold">+65 6123 4567</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
+                      <span className="material-symbols-outlined text-2xl">
+                        mail
+                      </span>
+                    </div>
+                    <div>
+                      <p className="text-xs text-white/60 font-bold uppercase tracking-widest">
+                        Email
+                      </p>
+                      <p className="text-lg font-bold">vip@launchportal.sg</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="p-8 lg:p-16">
+                <form action="#" className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-600 dark:text-gray-400 flex items-center gap-2">
+                        <span className="material-symbols-outlined text-xs">
+                          person
+                        </span>{" "}
+                        Full Name
+                      </label>
+                      <input
+                        className="w-full bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700 rounded-lg focus:ring-primary focus:border-primary px-4 py-3 text-sm outline-none transition-all"
+                        placeholder="John Doe"
+                        type="text"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-gray-600 dark:text-gray-400 flex items-center gap-2">
+                        <span className="material-symbols-outlined text-xs">
+                          smartphone
+                        </span>{" "}
+                        Mobile Number
+                      </label>
+                      <input
+                        className="w-full bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700 rounded-lg focus:ring-primary focus:border-primary px-4 py-3 text-sm outline-none transition-all"
+                        placeholder="+65"
+                        type="tel"
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-gray-600 dark:text-gray-400 flex items-center gap-2">
+                      <span className="material-symbols-outlined text-xs">
+                        home_work
+                      </span>{" "}
+                      Project Interest
+                    </label>
+                    <select className="w-full bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700 rounded-lg focus:ring-primary focus:border-primary px-4 py-3 text-sm outline-none transition-all appearance-none">
+                      <option>Select a project</option>
+                      <option>The Continuum (D15)</option>
+                      <option>Lentoria (D26)</option>
+                      <option>Watten House (D11)</option>
+                      <option>Pinery Residences (D18)</option>
+                    </select>
+                  </div>
+                  <button
+                    className="w-full bg-primary text-white py-4 rounded-xl font-black text-lg hover:brightness-110 shadow-lg shadow-primary/20 transition-all flex items-center justify-center gap-3 cursor-pointer"
+                    type="submit"
+                  >
+                    <span className="material-symbols-outlined">send</span>{" "}
+                    Register for VVIP Access
+                  </button>
+                  <p className="text-[10px] text-gray-400 text-center flex items-center justify-center gap-1">
+                    <span className="material-symbols-outlined text-[10px]">
+                      lock
+                    </span>{" "}
+                    Your data is secured in accordance with PDPA regulations.
+                  </p>
+                </form>
+              </div>
             </div>
-            <div>
+          </div>
+        </section>
+      </main>
+      <footer className="bg-[#111418] text-white py-16 px-6 lg:px-20 border-t border-gray-800">
+        <div className="max-w-[1280px] mx-auto">
+          <div className="flex flex-col md:flex-row justify-between gap-12 mb-12">
+            <div className="max-w-xs">
+              <div className="flex flex-col gap-1 mb-6">
+                <p className="text-xs text-gray-500 uppercase tracking-widest font-bold mb-2">
+                  Daniel works under
+                </p>
+                <h3 className="text-xl font-bold text-white">
+                  ERA Realty Network Pte Ltd
+                </h3>
+                <p className="text-sm text-gray-500">
+                  Licence number: L3002382K
+                </p>
+              </div>
+              <p className="text-sm text-gray-500 leading-relaxed mb-6">
+                ERA APAC Centre, 450 Lorong 6 Toa Payoh, Singapore 319394
+              </p>
               <a
-                className="text-sm text-slate-500 hover:text-primary transition-colors"
-                href="https://96278266-pinery-residences.eraprojects.sg/"
+                className="text-primary font-bold hover:underline block mb-6"
+                href="https://www.era.com.sg"
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Privacy Policy
+                www.era.com.sg
               </a>
             </div>
+            <div className="flex flex-col gap-6 justify-end text-left sm:text-right">
+              <div>
+                <h5 className="font-bold text-white mb-2">
+                  About Us
+                </h5>
+                <p className="font-bold text-gray-200">
+                  DANIEL KOH
+                </p>
+                <p className="text-sm text-gray-500">CEA NO. : R073362I</p>
+              </div>
+              <div>
+                <a
+                  className="text-sm text-gray-500 hover:text-primary transition-colors"
+                  href="https://bluebed.ai/privacy-policy"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Privacy Policy
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
-          <p>
-            Copyright 2026 ERA Realty Network Pte Ltd. (CEA Licence No.
-            L3002382K). All Rights Reserved
-          </p>
-          <div className="flex items-center gap-2">
-            <span className="material-symbols-outlined text-[12px]">
-              verified
-            </span>
-            <span>CEA Reg No: L3002382K / R073362I</span>
+          <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+            <p>
+              Copyright 2026 ERA Realty Network Pte Ltd. (CEA Licence No.
+              L3002382K). All Rights Reserved
+            </p>
+            <div className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-[12px]">
+                verified
+              </span>
+              <span>CEA Reg No: L3002382K / R073362I</span>
+            </div>
           </div>
-        </div>
-        <div className="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800">
-          <p className="text-[10px] text-slate-400 leading-relaxed text-justify">
-            Disclaimer: ERA Realty Network Pte Ltd is the appointed marketing
-            agency for Pinery Residences. This website is independently managed
-            by ERA marketing agents and is not the official website of the
-            developer. All content is provided for general information purposes
-            only. Our role is to share updated project information and assist
-            with arranging showflat appointments. Buyers do not pay any
-            commission; all fees are paid directly by the developer. This site
-            may contain forward-looking statements that involve assumptions,
-            risks, and uncertainties. While every effort is made to ensure
-            accuracy, neither the developer nor ERA Realty Network Pte Ltd shall
-            be held liable for any inaccuracies, omissions, or changes. To the
-            fullest extent permitted by law, all information, visuals, and
-            illustrations are not contractual and may differ from the final
-            product. Artist impressions are for illustration purposes only. ERA
-            Realty Network Pte Ltd shall not be liable for any special, direct,
-            indirect, incidental, or consequential damages arising from the use
-            of the information provided on this website. ERA Realty Network Pte
-            Ltd reserves the right to update, modify, or remove any content at
-            any time without prior notice. We are committed to providing the
-            latest updates for this development and will continue to work
-            closely with the developer and partners to ensure information
-            remains current and reliable.
-          </p>
+
         </div>
       </footer>
     </div>

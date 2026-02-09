@@ -3,12 +3,18 @@
 @theme {
   --font-display: var(--font-inter), sans-serif;
 
-  --color-primary: #17cf54;
-  --color-background-light: #f6f8f6;
-  --color-background-dark: #112116;
+  /* Pinery Specific Theme */
+  --color-pinery-primary: #17cf54;
+  --color-pinery-dark: #112116;
+
+  /* Main Theme (Mockup) */
+  --color-primary: #137fec;
+  --color-background-light: #f6f7f8;
+  --color-background-dark: #101922;
+
   --color-forest-green: #0b2b16;
   --color-gold-accent: #d4af37;
-  
+
   --color-background: var(--color-background-light);
   --color-foreground: var(--color-forest-green);
 }
@@ -19,12 +25,10 @@
 }
 
 .hero-overlay {
-  background: linear-gradient(
-    to right,
-    rgba(11, 43, 22, 0.9) 0%,
-    rgba(11, 43, 22, 0.4) 50%,
-    rgba(11, 43, 22, 0.1) 100%
-  );
+  background: linear-gradient(to right,
+      rgba(11, 43, 22, 0.9) 0%,
+      rgba(11, 43, 22, 0.4) 50%,
+      rgba(11, 43, 22, 0.1) 100%);
 }
 
 .masonry-grid {
@@ -53,7 +57,8 @@
 body {
   font-family: var(--font-display);
   background-color: var(--color-background-light);
-  color: #0f172a; /* slate-900 */
+  color: #0f172a;
+  /* slate-900 */
 }
 
 @media (prefers-color-scheme: dark) {

@@ -35,7 +35,7 @@ export default function RegistrationForm() {
     if (state.success) {
         return (
             <div className="flex flex-col items-center justify-center py-12 text-center">
-                <div className="bg-primary/20 p-4 rounded-full text-primary mb-4">
+                <div className="bg-pinery-primary/20 p-4 rounded-full text-pinery-primary mb-4">
                     <span className="material-symbols-outlined text-4xl">check_circle</span>
                 </div>
                 <h3 className="text-2xl font-bold text-forest-green dark:text-white mb-2">
@@ -62,7 +62,7 @@ export default function RegistrationForm() {
                 </label>
                 <input
                     name="name"
-                    className="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-forest-green focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-forest-green focus:ring-2 focus:ring-pinery-primary focus:border-transparent outline-none transition-all"
                     placeholder="Enter your name"
                     type="text"
                     required
@@ -74,7 +74,7 @@ export default function RegistrationForm() {
                 </label>
                 <input
                     name="email"
-                    className="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-forest-green focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-forest-green focus:ring-2 focus:ring-pinery-primary focus:border-transparent outline-none transition-all"
                     placeholder="email@example.com"
                     type="email"
                     required
@@ -86,7 +86,7 @@ export default function RegistrationForm() {
                 </label>
                 <input
                     name="phone"
-                    className="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-forest-green focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-forest-green focus:ring-2 focus:ring-pinery-primary focus:border-transparent outline-none transition-all"
                     placeholder="+65 XXXX XXXX"
                     type="tel"
                     required
@@ -95,7 +95,7 @@ export default function RegistrationForm() {
             <div className="flex items-start gap-3 mt-2">
                 <input
                     name="consent"
-                    className="mt-1 rounded border-slate-300 text-primary focus:ring-primary"
+                    className="mt-1 rounded border-slate-300 text-pinery-primary focus:ring-pinery-primary"
                     type="checkbox"
                     required
                 />
@@ -105,7 +105,7 @@ export default function RegistrationForm() {
             </div>
             <button
                 disabled={isPending}
-                className="bg-primary hover:bg-primary/90 text-forest-green font-black py-4 rounded-lg shadow-lg shadow-primary/20 transition-all active:scale-[0.98] mt-4 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center"
+                className="bg-pinery-primary hover:bg-pinery-primary/90 text-forest-green font-black py-4 rounded-lg shadow-lg shadow-pinery-primary/20 transition-all active:scale-[0.98] mt-4 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center"
                 type="submit"
             >
                 {isPending ? (
