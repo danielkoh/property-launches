@@ -1,11 +1,16 @@
 "use client";
 
 import MortgageEstimator from "./components/MortgageEstimator";
+import StampDutyCalculator from "./components/StampDutyCalculator";
 import { useState } from "react";
 
 
 export default function Home() {
   const [isMortgageEstimatorOpen, setIsMortgageEstimatorOpen] = useState(false);
+  const [isStampDutyCalculatorOpen, setIsStampDutyCalculatorOpen] = useState(false);
+
+
+
   return (
     <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden bg-background-light dark:bg-background-dark text-[#111418] dark:text-white font-display">
       <header className="sticky top-0 z-50 bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-solid border-[#f0f2f4] dark:border-gray-800 px-6 lg:px-20 py-4">
@@ -165,20 +170,20 @@ export default function Home() {
                     receipt
                   </span>
                 </div>
-                <h3 className="text-lg font-bold mb-2">ABSD Calculator</h3>
+                <h3 className="text-lg font-bold mb-2">Stamp Duty Calculator</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
                   Identify your exact Stamp Duty costs for multi-property
                   portfolios.
                 </p>
-                <a
-                  className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all"
-                  href="#"
+                <button
+                  onClick={() => setIsStampDutyCalculatorOpen(true)}
+                  className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all cursor-pointer"
                 >
                   Check Duties{" "}
                   <span className="material-symbols-outlined text-sm">
                     arrow_forward
                   </span>
-                </a>
+                </button>
               </div>
               <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all group">
                 <div className="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
@@ -572,6 +577,10 @@ export default function Home() {
       <MortgageEstimator
         isOpen={isMortgageEstimatorOpen}
         onClose={() => setIsMortgageEstimatorOpen(false)}
+      />
+      <StampDutyCalculator
+        isOpen={isStampDutyCalculatorOpen}
+        onClose={() => setIsStampDutyCalculatorOpen(false)}
       />
     </div >
   );
