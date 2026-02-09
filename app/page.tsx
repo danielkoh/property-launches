@@ -2,12 +2,16 @@
 
 import MortgageEstimator from "./components/MortgageEstimator";
 import StampDutyCalculator from "./components/StampDutyCalculator";
+import InvestmentRoiCalculator from "./components/InvestmentRoiCalculator";
 import { useState } from "react";
 
 
 export default function Home() {
   const [isMortgageEstimatorOpen, setIsMortgageEstimatorOpen] = useState(false);
   const [isStampDutyCalculatorOpen, setIsStampDutyCalculatorOpen] = useState(false);
+  const [isInvestmentRoiCalculatorOpen, setIsInvestmentRoiCalculatorOpen] = useState(false);
+
+
 
 
 
@@ -193,18 +197,18 @@ export default function Home() {
                 </div>
                 <h3 className="text-lg font-bold mb-2">Investment ROI</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
-                  Predict rental yields and capital growth for specific
-                  districts.
+                  Simulate potential returns given variables like interest rates,
+                  holding period, and expected rate of capital gain
                 </p>
-                <a
-                  className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all"
-                  href="#"
+                <button
+                  onClick={() => setIsInvestmentRoiCalculatorOpen(true)}
+                  className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all cursor-pointer"
                 >
-                  View Analytics{" "}
+                  Simulate Returns{" "}
                   <span className="material-symbols-outlined text-sm">
                     arrow_forward
                   </span>
-                </a>
+                </button>
               </div>
               <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all group">
                 <div className="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
@@ -581,6 +585,10 @@ export default function Home() {
       <StampDutyCalculator
         isOpen={isStampDutyCalculatorOpen}
         onClose={() => setIsStampDutyCalculatorOpen(false)}
+      />
+      <InvestmentRoiCalculator
+        isOpen={isInvestmentRoiCalculatorOpen}
+        onClose={() => setIsInvestmentRoiCalculatorOpen(false)}
       />
     </div >
   );

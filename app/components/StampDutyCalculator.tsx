@@ -10,7 +10,7 @@ interface StampDutyCalculatorProps {
 type ResidencyStatus = "SC" | "PR" | "FR" | "ENTITY";
 
 export default function StampDutyCalculator({ isOpen, onClose }: StampDutyCalculatorProps) {
-    const [price, setPrice] = useState(1500000);
+    const [price, setPrice] = useState(2500000);
     const [residency, setResidency] = useState<ResidencyStatus>("SC");
     const [propertyCount, setPropertyCount] = useState(0); // 0 means buying 1st property
     const [isFTA, setIsFTA] = useState(false);
@@ -194,8 +194,8 @@ export default function StampDutyCalculator({ isOpen, onClose }: StampDutyCalcul
                                             key={count}
                                             onClick={() => setPropertyCount(count)}
                                             className={`flex-1 py-1.5 rounded-md text-sm font-bold transition-all ${propertyCount === count
-                                                    ? "bg-white dark:bg-gray-600 shadow-sm text-primary"
-                                                    : "text-gray-500 dark:text-gray-400 hover:text-gray-700"
+                                                ? "bg-white dark:bg-gray-600 shadow-sm text-primary"
+                                                : "text-gray-500 dark:text-gray-400 hover:text-gray-700"
                                                 }`}
                                         >
                                             {count === 2 ? "2+" : count}
