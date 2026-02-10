@@ -266,25 +266,25 @@ export default function Home() {
                   <img
                     alt="Luxury condo"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeo87zCNlu6HGuRLMrBXdpiZYPeEMO0-e1YUmRCwyHP5WS6AsGYg-iOZvzk1Nm_sNur1tNL1Ev6tMDwxpI-O9PeOV9hpwyCMSzIHYSRc03oEDYFjzxHZRRXcE5jcozcbca7t7fEHMBsX7SJoJ3Pg1-TfinJuFdzOJvkz3A-DkCVSWah1F3Ga0kkq-a3ayNOj9vhfY5VbMzxI4uptC4qv8OooPR27RPddcVXx57-LMX_xI3J2n9ZSLfXekzfIbsstz5YIif8T-DXgaq"
+                    src="/alana.png"
                   />
                   <div className="absolute top-4 left-4 bg-primary text-white text-[10px] font-black uppercase px-2 py-1 rounded flex items-center gap-1">
                     <span className="material-symbols-outlined text-[12px]">
                       bolt
                     </span>{" "}
-                    Selling Fast
+                    Spacious Living
                   </div>
                   <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded">
-                    D15 • Freehold
+                    D28, 99 years
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-1">The Continuum</h3>
+                  <h3 className="text-xl font-bold mb-1">Alana</h3>
                   <p className="text-gray-500 text-sm mb-4 flex items-center gap-1">
                     <span className="material-symbols-outlined text-sm">
                       location_on
                     </span>{" "}
-                    Thiam Siew Avenue
+                    102 Sunrise Terrace
                   </p>
                   <div className="flex justify-between items-center py-4 border-y border-gray-200 dark:border-gray-700">
                     <div>
@@ -292,22 +292,27 @@ export default function Home() {
                         Starting From
                       </p>
                       <p className="text-lg font-black text-primary">
-                        $1,680,000
+                        $3,585,120
                       </p>
                     </div>
                     <div className="text-right">
                       <p className="text-xs text-gray-400 uppercase font-bold">
-                        Units Left
+                        Status
                       </p>
-                      <p className="text-lg font-black">12%</p>
+                      <p className="text-lg font-black">Available</p>
                     </div>
                   </div>
-                  <button className="w-full mt-6 py-3 bg-white dark:bg-gray-700 text-[#111418] dark:text-white rounded-lg font-bold text-sm border border-gray-200 dark:border-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center gap-2 cursor-pointer">
+                  <a
+                    href="https://96278266-alana.eraprojects.sg/site-plans"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full mt-6 py-3 bg-white dark:bg-gray-700 text-[#111418] dark:text-white rounded-lg font-bold text-sm border border-gray-200 dark:border-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  >
                     <span className="material-symbols-outlined text-sm">
                       floor
                     </span>{" "}
                     View Floor Plans
-                  </button>
+                  </a>
                 </div>
               </div>
 
@@ -373,19 +378,19 @@ export default function Home() {
                     <span className="material-symbols-outlined text-[12px]">
                       priority_high
                     </span>{" "}
-                    Limited Units
+                    Star Buy
                   </div>
                   <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded">
-                    D11 • Freehold
+                    D15, Freehold
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-1">Watten House</h3>
+                  <h3 className="text-xl font-bold mb-1">Arina East</h3>
                   <p className="text-gray-500 text-sm mb-4 flex items-center gap-1">
                     <span className="material-symbols-outlined text-sm">
                       location_on
                     </span>{" "}
-                    Watten Estate
+                    Tanjong Rhu Road
                   </p>
                   <div className="flex justify-between items-center py-4 border-y border-gray-200 dark:border-gray-700">
                     <div>
@@ -393,14 +398,14 @@ export default function Home() {
                         Starting From
                       </p>
                       <p className="text-lg font-black text-primary">
-                        $3,200,000
+                        $1,328,000
                       </p>
                     </div>
                     <div className="text-right">
                       <p className="text-xs text-gray-400 uppercase font-bold">
-                        Remaining
+                        Status
                       </p>
-                      <p className="text-lg font-black">8 Units</p>
+                      <p className="text-lg font-black">Available</p>
                     </div>
                   </div>
                   <button className="w-full mt-6 py-3 bg-white dark:bg-gray-700 text-[#111418] dark:text-white rounded-lg font-bold text-sm border border-gray-200 dark:border-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center gap-2 cursor-pointer">
@@ -491,9 +496,9 @@ export default function Home() {
                     </label>
                     <select className="w-full bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700 rounded-lg focus:ring-primary focus:border-primary px-4 py-3 text-sm outline-none transition-all appearance-none">
                       <option>Select a project</option>
-                      <option>The Continuum (D15)</option>
+                      <option>Alana (D28)</option>
                       <option>Lentoria (D26)</option>
-                      <option>Watten House (D11)</option>
+                      <option>Arina East (D15)</option>
                       <option>Pinery Residences (D18)</option>
                     </select>
                   </div>
