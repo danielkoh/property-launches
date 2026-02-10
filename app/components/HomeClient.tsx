@@ -146,6 +146,30 @@ export default function HomeClient() {
                             </h2>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl border-2 border-primary hover:-translate-y-1 transition-all group relative overflow-hidden">
+                                <div className="absolute top-0 right-0 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">
+                                    Featured
+                                </div>
+                                <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                                    <span className="material-symbols-outlined text-3xl">
+                                        trending_up
+                                    </span>
+                                </div>
+                                <h3 className="text-lg font-bold mb-2 text-primary">Investment ROI</h3>
+                                <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
+                                    Simulate potential returns given variables like interest rates,
+                                    holding period, and expected rate of capital gain
+                                </p>
+                                <button
+                                    onClick={() => setIsInvestmentRoiCalculatorOpen(true)}
+                                    className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all cursor-pointer"
+                                >
+                                    Simulate Returns{" "}
+                                    <span className="material-symbols-outlined text-sm">
+                                        arrow_forward
+                                    </span>
+                                </button>
+                            </div>
                             <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all group">
                                 <div className="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
                                     <span className="material-symbols-outlined text-3xl">
@@ -183,27 +207,6 @@ export default function HomeClient() {
                                     className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all cursor-pointer"
                                 >
                                     Check Duties{" "}
-                                    <span className="material-symbols-outlined text-sm">
-                                        arrow_forward
-                                    </span>
-                                </button>
-                            </div>
-                            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all group">
-                                <div className="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                                    <span className="material-symbols-outlined text-3xl">
-                                        trending_up
-                                    </span>
-                                </div>
-                                <h3 className="text-lg font-bold mb-2">Investment ROI</h3>
-                                <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
-                                    Simulate potential returns given variables like interest rates,
-                                    holding period, and expected rate of capital gain
-                                </p>
-                                <button
-                                    onClick={() => setIsInvestmentRoiCalculatorOpen(true)}
-                                    className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all cursor-pointer"
-                                >
-                                    Simulate Returns{" "}
                                     <span className="material-symbols-outlined text-sm">
                                         arrow_forward
                                     </span>

@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import HomeClient from "./components/HomeClient";
 
 export const metadata: Metadata = {
-  title: "New Launch Singapore | Property Investment Tools & Analysis",
+  title: "New Launches in Singapore | Curated Developer Deals | Investment Analysis",
   description:
-    "Comprehensive property launch analysis, mortgage calculators, and investment insights by Daniel Koh. Find your next property gem with data-backed decisions.",
+    "Calculate your potential property returns with our Investment ROI tool. Plus, comprehensive property launch analysis, mortgage calculators, and investment insights by Daniel Koh.",
   keywords: [
+    "Investment ROI",
+    "ROI Calculator",
     "Singapore Property",
     "New Launch",
     "Property Investment",
@@ -16,9 +18,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Daniel Koh", url: "https://www.era.com.sg" }],
   openGraph: {
-    title: "New Launch Singapore | Property Investment Tools & Analysis",
+    title: "New Launches in Singapore | Curated Developer Deals | Investment Analysis",
     description:
-      "Comprehensive property launch analysis, mortgage calculators, and investment insights by Daniel Koh.",
+      "Calculate your potential property returns with our Investment ROI tool. Plus, comprehensive property launch analysis, mortgage calculators, and investment insights by Daniel Koh.",
     url: "https://property-launches.vercel.app", // Adjust if user has a custom domain
     siteName: "New Launch Singapore",
     images: [
@@ -34,9 +36,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "New Launch Singapore | Property Investment Tools & Analysis",
+    title: "New Launches in Singapore | Curated Developer Deals | Investment Analysis",
     description:
-      "Comprehensive property launch analysis, mortgage calculators, and investment insights by Daniel Koh.",
+      "Calculate your potential property returns with our Investment ROI tool. Plus, comprehensive property launch analysis, mortgage calculators, and investment insights by Daniel Koh.",
     images: ["/logo.png"],
   },
   robots: {
