@@ -356,9 +356,13 @@ export default function PineryHome() {
                 <div className="flex flex-col md:flex-row justify-between gap-12 mb-12">
                     <div className="max-w-xs">
                         <div className="flex flex-col gap-1 mb-6">
-                            <p className="text-xs text-slate-500 uppercase tracking-widest font-bold mb-2">
-                                Appointed Marketing Agency
+                            <h5 className="font-bold text-forest-green dark:text-white mb-2">
+                                About Us
+                            </h5>
+                            <p className="font-bold text-slate-700 dark:text-slate-200">
+                                DANIEL KOH
                             </p>
+                            <p className="text-sm text-slate-500 mb-4">CEA NO. : R073362I</p>
                             <h3 className="text-xl font-bold text-forest-green dark:text-white">
                                 ERA Realty Network Pte Ltd
                             </h3>
@@ -379,15 +383,7 @@ export default function PineryHome() {
                         </a>
                     </div>
                     <div className="flex flex-col gap-6 justify-end text-left sm:text-right">
-                        <div>
-                            <h5 className="font-bold text-forest-green dark:text-white mb-2">
-                                About Us
-                            </h5>
-                            <p className="font-bold text-slate-700 dark:text-slate-200">
-                                DANIEL KOH
-                            </p>
-                            <p className="text-sm text-slate-500">CEA NO. : R073362I</p>
-                        </div>
+
                         <div>
                             <a
                                 className="text-sm text-slate-500 hover:text-pinery-primary transition-colors"

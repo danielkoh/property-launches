@@ -371,10 +371,10 @@ export default function InvestmentRoiCalculator({ isOpen, onClose }: InvestmentR
 
                 <div className="p-6 border-t border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
                     <p className="text-[10px] text-gray-400 text-center leading-relaxed">
-                        Disclaimer: This simulation provides estimates based on current market assumptions and 2026 regulations. Actual returns may vary due to market fluctuations, policy changes, and specific property attributes. Consult a financial advisor for personalized advice.
+                        Disclaimer: This simulation provides estimates based on current market assumptions and 2026 regulations. Actual returns may vary due to market fluctuations, policy changes, and specific property attributes. Book an appointment for personalized advice.
                     </p>
                 </div>
             </div>
-        </div>
+        </div >
     );
 }

@@ -3,6 +3,7 @@
 import MortgageEstimator from "./components/MortgageEstimator";
 import StampDutyCalculator from "./components/StampDutyCalculator";
 import InvestmentRoiCalculator from "./components/InvestmentRoiCalculator";
+import ProgressionPlanner from "./components/ProgressionPlanner";
 import { useState } from "react";
 
 
@@ -10,6 +11,7 @@ export default function Home() {
   const [isMortgageEstimatorOpen, setIsMortgageEstimatorOpen] = useState(false);
   const [isStampDutyCalculatorOpen, setIsStampDutyCalculatorOpen] = useState(false);
   const [isInvestmentRoiCalculatorOpen, setIsInvestmentRoiCalculatorOpen] = useState(false);
+  const [isProgressionPlannerOpen, setIsProgressionPlannerOpen] = useState(false);
 
 
 
@@ -221,15 +223,15 @@ export default function Home() {
                   Visualize payment timelines for BUC (Building Under
                   Construction) units.
                 </p>
-                <a
-                  className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all"
-                  href="#"
+                <button
+                  onClick={() => setIsProgressionPlannerOpen(true)}
+                  className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all cursor-pointer"
                 >
                   Map Payments{" "}
                   <span className="material-symbols-outlined text-sm">
                     arrow_forward
                   </span>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -519,9 +521,13 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between gap-12 mb-12">
             <div className="max-w-xs">
               <div className="flex flex-col gap-1 mb-6">
-                <p className="text-xs text-gray-500 uppercase tracking-widest font-bold mb-2">
-                  Daniel works under
+                <h5 className="font-bold text-white mb-2">
+                  About Us
+                </h5>
+                <p className="font-bold text-gray-200">
+                  DANIEL KOH
                 </p>
+                <p className="text-sm text-gray-500 mb-4">CEA NO. : R073362I</p>
                 <h3 className="text-xl font-bold text-white">
                   ERA Realty Network Pte Ltd
                 </h3>
@@ -542,15 +548,7 @@ export default function Home() {
               </a>
             </div>
             <div className="flex flex-col gap-6 justify-end text-left sm:text-right">
-              <div>
-                <h5 className="font-bold text-white mb-2">
-                  About Us
-                </h5>
-                <p className="font-bold text-gray-200">
-                  DANIEL KOH
-                </p>
-                <p className="text-sm text-gray-500">CEA NO. : R073362I</p>
-              </div>
+
               <div>
                 <a
                   className="text-sm text-gray-500 hover:text-primary transition-colors"
@@ -589,6 +587,10 @@ export default function Home() {
       <InvestmentRoiCalculator
         isOpen={isInvestmentRoiCalculatorOpen}
         onClose={() => setIsInvestmentRoiCalculatorOpen(false)}
+      />
+      <ProgressionPlanner
+        isOpen={isProgressionPlannerOpen}
+        onClose={() => setIsProgressionPlannerOpen(false)}
       />
     </div >
   );
