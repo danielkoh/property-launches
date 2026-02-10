@@ -3,8 +3,10 @@ CREATE TABLE IF NOT EXISTS public.leads (
     id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT timezone('utc'::text, now()) NOT NULL,
     name TEXT NOT NULL,
-    email TEXT NOT NULL,
-    phone TEXT NOT NULL
+    email TEXT, -- Made optional for contact form
+    phone TEXT NOT NULL,
+    preferences TEXT, -- For "What are you looking for?"
+    source TEXT -- To track origin (registration_form vs contact_form)
 );
 
 -- Optional: Enable Row Level Security (RLS)

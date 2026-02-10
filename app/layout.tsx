@@ -57,9 +57,7 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  icons: {
-    icon: "/logo.png",
-  },
+
 };
 
 import RecaptchaProvider from "./components/RecaptchaProvider";

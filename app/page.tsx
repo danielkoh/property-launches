@@ -4,6 +4,7 @@ import MortgageEstimator from "./components/MortgageEstimator";
 import StampDutyCalculator from "./components/StampDutyCalculator";
 import InvestmentRoiCalculator from "./components/InvestmentRoiCalculator";
 import ProgressionPlanner from "./components/ProgressionPlanner";
+import ContactForm from "./components/ContactForm";
 import { useState } from "react";
 
 
@@ -25,27 +26,27 @@ export default function Home() {
             <div className="flex items-center gap-2 text-primary">
               <span className="material-symbols-outlined text-3xl">apartment</span>
               <h2 className="text-[#111418] dark:text-white text-xl font-extrabold leading-tight tracking-tight">
-                LaunchPortal<span className="text-primary">SG</span>
+                New<span className="text-primary">Launch</span>
               </h2>
             </div>
             <nav className="hidden md:flex items-center gap-8">
               <a
                 className="text-sm font-semibold hover:text-primary transition-colors flex items-center gap-1.5"
-                href="#"
+                href="#featured-launches"
               >
                 <span className="material-symbols-outlined text-lg">rocket_launch</span>{" "}
-                Latest Launches
+                Featured Launches
               </a>
               <a
                 className="text-sm font-semibold hover:text-primary transition-colors flex items-center gap-1.5"
-                href="#"
+                href="#investment-tools"
               >
                 <span className="material-symbols-outlined text-lg">query_stats</span>{" "}
                 Investment Tools
               </a>
               <a
                 className="text-sm font-semibold hover:text-primary transition-colors flex items-center gap-1.5"
-                href="#"
+                href="#vvip-registration"
               >
                 <span className="material-symbols-outlined text-lg">verified</span>{" "}
                 VVIP Registration
@@ -53,10 +54,10 @@ export default function Home() {
             </nav>
           </div>
           <div className="flex items-center gap-4">
-            <button className="flex items-center gap-2 px-5 py-2 bg-primary text-white rounded-lg font-bold text-sm shadow-lg shadow-primary/20 hover:brightness-110 transition-all cursor-pointer">
+            <a href="#vvip-registration" className="flex items-center gap-2 px-5 py-2 bg-primary text-white rounded-lg font-bold text-sm shadow-lg shadow-primary/20 hover:brightness-110 transition-all cursor-pointer">
               <span className="material-symbols-outlined text-lg">chat</span>{" "}
-              WhatsApp Enquiry
-            </button>
+              Discuss about Property
+            </a>
           </div>
         </div>
       </header>
@@ -136,7 +137,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="py-16 px-6 lg:px-20 bg-background-light dark:bg-background-dark/50">
+        <section id="investment-tools" className="py-16 px-6 lg:px-20 bg-background-light dark:bg-background-dark/50">
           <div className="max-w-[1280px] mx-auto">
             <div className="flex items-center gap-4 mb-10">
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
@@ -236,7 +237,7 @@ export default function Home() {
             </div>
           </div>
         </section >
-        <section className="bg-white dark:bg-background-dark py-20 px-6 lg:px-20">
+        <section id="featured-launches" className="bg-white dark:bg-background-dark py-20 px-6 lg:px-20">
           <div className="max-w-[1280px] mx-auto">
             <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
               <div>
@@ -372,7 +373,7 @@ export default function Home() {
                   <img
                     alt="Skyscraper facade"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2J-5tONEq5hi5a3_5TxakHkDZORREywWKU0dY9yQU_hPLnhB6bhnUvPlvzoCN2DFDCxmbGRXTjRL1WWN06IkGGRZBBSilmWI53O3AA5V2ostDhwluKETHigJMZvgEmdEoTpr1wwVAytLxoMxqx-AQZ0pkD1P988mPlGpQ_jpM3E-e5hoBdgGdYDfzqB5J2Thsej1SKFIL-oxOnDhYWiq82yrHTMOkSo5aWWAnpVxHgROrXcLJBJgTsoXK0n_FegWiODDbkxX1sIJl"
+                    src="/arina.png"
                   />
                   <div className="absolute top-4 left-4 bg-black text-white text-[10px] font-black uppercase px-2 py-1 rounded flex items-center gap-1">
                     <span className="material-symbols-outlined text-[12px]">
@@ -408,114 +409,37 @@ export default function Home() {
                       <p className="text-lg font-black">Available</p>
                     </div>
                   </div>
-                  <button className="w-full mt-6 py-3 bg-white dark:bg-gray-700 text-[#111418] dark:text-white rounded-lg font-bold text-sm border border-gray-200 dark:border-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center gap-2 cursor-pointer">
+                  <a
+                    href="https://96278266-arina-east-residences.eraprojects.sg/units"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full mt-6 py-3 bg-white dark:bg-gray-700 text-[#111418] dark:text-white rounded-lg font-bold text-sm border border-gray-200 dark:border-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  >
                     <span className="material-symbols-outlined text-sm">
                       payments
                     </span>{" "}
                     Enquire Price List
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </section>
-        <section className="py-20 px-6 lg:px-20 bg-gray-50 dark:bg-background-dark">
+        <section id="vvip-registration" className="py-20 px-6 lg:px-20 bg-gray-50 dark:bg-background-dark">
           <div className="max-w-[1280px] mx-auto bg-white dark:bg-gray-800/30 rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-100 dark:border-gray-700">
             <div className="grid lg:grid-cols-2">
               <div className="p-8 lg:p-16 bg-primary text-white flex flex-col justify-center">
-                <h2 className="text-4xl font-black mb-6">Consult a Specialist</h2>
+                <h2 className="text-4xl font-black mb-6">Lets Chat</h2>
                 <p className="text-white/80 text-lg mb-10">
-                  Our consultants provide floor plans, e-brochures, and latest
-                  unit availability. Get your direct developer pricing today.
+                  We can send you brochures and unit availability if you want, but we
+                  are more than happy to sit down with you to discuss your goals in
+                  real estate ownership
                 </p>
                 <div className="space-y-6">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                      <span className="material-symbols-outlined text-2xl">
-                        call
-                      </span>
-                    </div>
-                    <div>
-                      <p className="text-xs text-white/60 font-bold uppercase tracking-widest">
-                        Hotline
-                      </p>
-                      <p className="text-lg font-bold">+65 6123 4567</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
-                      <span className="material-symbols-outlined text-2xl">
-                        mail
-                      </span>
-                    </div>
-                    <div>
-                      <p className="text-xs text-white/60 font-bold uppercase tracking-widest">
-                        Email
-                      </p>
-                      <p className="text-lg font-bold">vip@launchportal.sg</p>
-                    </div>
-                  </div>
                 </div>
               </div>
               <div className="p-8 lg:p-16">
-                <form action="#" className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label className="text-sm font-bold text-gray-600 dark:text-gray-400 flex items-center gap-2">
-                        <span className="material-symbols-outlined text-xs">
-                          person
-                        </span>{" "}
-                        Full Name
-                      </label>
-                      <input
-                        className="w-full bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700 rounded-lg focus:ring-primary focus:border-primary px-4 py-3 text-sm outline-none transition-all"
-                        placeholder="John Doe"
-                        type="text"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-sm font-bold text-gray-600 dark:text-gray-400 flex items-center gap-2">
-                        <span className="material-symbols-outlined text-xs">
-                          smartphone
-                        </span>{" "}
-                        Mobile Number
-                      </label>
-                      <input
-                        className="w-full bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700 rounded-lg focus:ring-primary focus:border-primary px-4 py-3 text-sm outline-none transition-all"
-                        placeholder="+65"
-                        type="tel"
-                      />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-gray-600 dark:text-gray-400 flex items-center gap-2">
-                      <span className="material-symbols-outlined text-xs">
-                        home_work
-                      </span>{" "}
-                      Project Interest
-                    </label>
-                    <select className="w-full bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700 rounded-lg focus:ring-primary focus:border-primary px-4 py-3 text-sm outline-none transition-all appearance-none">
-                      <option>Select a project</option>
-                      <option>Alana (D28)</option>
-                      <option>Lentoria (D26)</option>
-                      <option>Arina East (D15)</option>
-                      <option>Pinery Residences (D18)</option>
-                    </select>
-                  </div>
-                  <button
-                    className="w-full bg-primary text-white py-4 rounded-xl font-black text-lg hover:brightness-110 shadow-lg shadow-primary/20 transition-all flex items-center justify-center gap-3 cursor-pointer"
-                    type="submit"
-                  >
-                    <span className="material-symbols-outlined">send</span>{" "}
-                    Register for VVIP Access
-                  </button>
-                  <p className="text-[10px] text-gray-400 text-center flex items-center justify-center gap-1">
-                    <span className="material-symbols-outlined text-[10px]">
-                      lock
-                    </span>{" "}
-                    Your data is secured in accordance with PDPA regulations.
-                  </p>
-                </form>
+                <ContactForm />
               </div>
             </div>
           </div>
@@ -566,18 +490,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
-            <p>
-              Copyright 2026 ERA Realty Network Pte Ltd. (CEA Licence No.
-              L3002382K). All Rights Reserved
-            </p>
-            <div className="flex items-center gap-2">
-              <span className="material-symbols-outlined text-[12px]">
-                verified
-              </span>
-              <span>CEA Reg No: L3002382K / R073362I</span>
-            </div>
-          </div>
+
 
         </div>
       </footer>
