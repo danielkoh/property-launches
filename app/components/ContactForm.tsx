@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { submitContactQuery } from "../actions";
 
@@ -42,6 +42,17 @@ export default function ContactForm() {
         },
         initialState
     );
+
+    useEffect(() => {
+        if (state.success) {
+            if (typeof window !== "undefined" && (window as any).gtag) {
+                (window as any).gtag("event", "generate_lead", {
+                    event_category: "conversion",
+                    event_label: "contact_form_submit",
+                });
+            }
+        }
+    }, [state.success]);
 
     if (state.success) {
         return (

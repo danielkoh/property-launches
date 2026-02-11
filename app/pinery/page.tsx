@@ -1,8 +1,17 @@
+"use client";
 
 import Image from "next/image";
 import RegistrationForm from "../components/RegistrationForm";
 
 export default function PineryHome() {
+    const trackEvent = (action: string, label: string) => {
+        if (typeof window !== "undefined" && (window as any).gtag) {
+            (window as any).gtag("event", action, {
+                event_category: "engagement",
+                event_label: label,
+            });
+        }
+    };
     return (
         <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden">
             <header className="fixed top-0 z-50 w-full bg-white/90 dark:bg-pinery-dark/90 backdrop-blur-md border-b border-forest-green/10 px-4 md:px-10 lg:px-40 py-4 flex items-center justify-between">
@@ -42,7 +51,10 @@ export default function PineryHome() {
                     </a>
                 </nav>
                 <div className="flex items-center gap-4">
-                    <button className="bg-pinery-primary hover:bg-pinery-primary/90 text-forest-green px-6 py-2 rounded-lg text-sm font-bold transition-all shadow-lg shadow-pinery-primary/20 cursor-pointer">
+                    <button
+                        onClick={() => trackEvent("conversion", "register_interest_header")}
+                        className="bg-pinery-primary hover:bg-pinery-primary/90 text-forest-green px-6 py-2 rounded-lg text-sm font-bold transition-all shadow-lg shadow-pinery-primary/20 cursor-pointer"
+                    >
                         Register Now
                     </button>
                 </div>
@@ -73,12 +85,14 @@ export default function PineryHome() {
                         <a
                             className="bg-pinery-primary hover:bg-pinery-primary/90 text-forest-green px-8 py-4 rounded-lg font-bold transition-transform hover:-translate-y-1 block"
                             href="#register"
+                            onClick={() => trackEvent("file_download", "pinery_brochure_hero")}
                         >
                             Download E-Brochure
                         </a>
                         <a
                             className="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded-lg font-bold backdrop-blur-sm transition-all block"
                             href="#units"
+                            onClick={() => trackEvent("navigation", "view_units_hero")}
                         >
                             View Unit Plans
                         </a>
@@ -257,6 +271,7 @@ export default function PineryHome() {
                             href="https://www.hoihup.com/Portfolio/Residential"
                             rel="noopener noreferrer"
                             target="_blank"
+                            onClick={() => trackEvent("outbound_link", "hoihup_portfolio")}
                         >
                             <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-gold-accent transition-colors">
                                 Hoi Hup Realty
@@ -273,6 +288,7 @@ export default function PineryHome() {
                             href="https://sunwaymcl.com.sg/our-masterpieces"
                             rel="noopener noreferrer"
                             target="_blank"
+                            onClick={() => trackEvent("outbound_link", "sunway_portfolio")}
                         >
                             <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-gold-accent transition-colors">
                                 Sunway Property

@@ -61,6 +61,7 @@ export const metadata: Metadata = {
 };
 
 import RecaptchaProvider from "./components/RecaptchaProvider";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 
 export default function RootLayout({
   children,
@@ -77,6 +78,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         <RecaptchaProvider>{children}</RecaptchaProvider>
+        <GoogleAnalytics />
       </body>
     </html>
   );

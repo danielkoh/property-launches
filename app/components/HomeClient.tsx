@@ -14,6 +14,15 @@ export default function HomeClient() {
     const [isInvestmentRoiCalculatorOpen, setIsInvestmentRoiCalculatorOpen] = useState(false);
     const [isProgressionPlannerOpen, setIsProgressionPlannerOpen] = useState(false);
 
+    const trackEvent = (action: string, category: string, label: string) => {
+        if (typeof window !== "undefined" && (window as any).gtag) {
+            (window as any).gtag("event", action, {
+                event_category: category,
+                event_label: label,
+            });
+        }
+    };
+
     return (
         <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden bg-background-light dark:bg-background-dark text-[#111418] dark:text-white font-display">
             <header className="sticky top-0 z-50 bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-solid border-[#f0f2f4] dark:border-gray-800 px-6 lg:px-20 py-4">
@@ -50,7 +59,11 @@ export default function HomeClient() {
                         </nav>
                     </div>
                     <div className="flex items-center gap-4">
-                        <a href="#vvip-registration" className="flex items-center gap-2 px-5 py-2 bg-primary text-white rounded-lg font-bold text-sm shadow-lg shadow-primary/20 hover:brightness-110 transition-all cursor-pointer">
+                        <a
+                            href="#vvip-registration"
+                            className="flex items-center gap-2 px-5 py-2 bg-primary text-white rounded-lg font-bold text-sm shadow-lg shadow-primary/20 hover:brightness-110 transition-all cursor-pointer"
+                            onClick={() => trackEvent("conversion", "engagement", "chat_now_header")}
+                        >
                             <span className="material-symbols-outlined text-lg">chat</span>{" "}
                             Chat now
                         </a>
@@ -81,6 +94,7 @@ export default function HomeClient() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="flex items-center justify-center gap-3 bg-[#0088cc] text-white px-8 py-4 rounded-xl font-black text-lg shadow-xl hover:brightness-110 transition-all cursor-pointer"
+                                        onClick={() => trackEvent("conversion", "engagement", "join_telegram_hero")}
                                     >
                                         <span className="material-symbols-outlined">send</span>
                                         Join Telegram Channel
@@ -161,7 +175,10 @@ export default function HomeClient() {
                                     holding period, and expected rate of capital gain
                                 </p>
                                 <button
-                                    onClick={() => setIsInvestmentRoiCalculatorOpen(true)}
+                                    onClick={() => {
+                                        setIsInvestmentRoiCalculatorOpen(true);
+                                        trackEvent("tool_usage", "engagement", "InvestmentRoiCalculator");
+                                    }}
                                     className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all cursor-pointer"
                                 >
                                     Simulate Returns{" "}
@@ -182,7 +199,10 @@ export default function HomeClient() {
                                     measures.
                                 </p>
                                 <button
-                                    onClick={() => setIsMortgageEstimatorOpen(true)}
+                                    onClick={() => {
+                                        setIsMortgageEstimatorOpen(true);
+                                        trackEvent("tool_usage", "engagement", "MortgageEstimator");
+                                    }}
                                     className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all cursor-pointer"
                                 >
                                     Analyze Now{" "}
@@ -203,7 +223,10 @@ export default function HomeClient() {
                                     portfolios.
                                 </p>
                                 <button
-                                    onClick={() => setIsStampDutyCalculatorOpen(true)}
+                                    onClick={() => {
+                                        setIsStampDutyCalculatorOpen(true);
+                                        trackEvent("tool_usage", "engagement", "StampDutyCalculator");
+                                    }}
                                     className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all cursor-pointer"
                                 >
                                     Check Duties{" "}
@@ -224,7 +247,10 @@ export default function HomeClient() {
                                     Construction) units.
                                 </p>
                                 <button
-                                    onClick={() => setIsProgressionPlannerOpen(true)}
+                                    onClick={() => {
+                                        setIsProgressionPlannerOpen(true);
+                                        trackEvent("tool_usage", "engagement", "ProgressionPlanner");
+                                    }}
                                     className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all cursor-pointer"
                                 >
                                     Map Payments{" "}
@@ -307,6 +333,7 @@ export default function HomeClient() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="w-full mt-6 py-3 bg-white dark:bg-gray-700 text-[#111418] dark:text-white rounded-lg font-bold text-sm border border-gray-200 dark:border-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center gap-2 cursor-pointer"
+                                        onClick={() => trackEvent("outbound_link", "engagement", "view_floor_plans_alana")}
                                     >
                                         <span className="material-symbols-outlined text-sm">
                                             floor
@@ -318,7 +345,12 @@ export default function HomeClient() {
 
                             {/* Linked Pinery Residences Here if we want to add it as a card, but adhering to mockup first */}
 
-                            <a href="/pinery" className="block group bg-background-light dark:bg-gray-800/50 rounded-2xl overflow-hidden border border-transparent hover:border-primary/20 transition-all shadow-sm cursor-pointer">
+                            {/* Linked Pinery Residences Here if we want to add it as a card, but adhering to mockup first */}
+                            <a
+                                href="/pinery"
+                                className="block group bg-background-light dark:bg-gray-800/50 rounded-2xl overflow-hidden border border-transparent hover:border-primary/20 transition-all shadow-sm cursor-pointer"
+                                onClick={() => trackEvent("navigation", "engagement", "view_project_pinery")}
+                            >
                                 <div className="relative aspect-video overflow-hidden">
                                     <img
                                         alt="Pinery Residences"
@@ -413,6 +445,7 @@ export default function HomeClient() {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="w-full mt-6 py-3 bg-white dark:bg-gray-700 text-[#111418] dark:text-white rounded-lg font-bold text-sm border border-gray-200 dark:border-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center gap-2 cursor-pointer"
+                                        onClick={() => trackEvent("outbound_link", "engagement", "enquire_arina_price")}
                                     >
                                         <span className="material-symbols-outlined text-sm">
                                             payments

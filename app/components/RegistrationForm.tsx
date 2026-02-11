@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { submitRegistration } from "../actions";
 
@@ -31,6 +31,17 @@ export default function RegistrationForm() {
         },
         initialState
     );
+
+    useEffect(() => {
+        if (state.success) {
+            if (typeof window !== "undefined" && (window as any).gtag) {
+                (window as any).gtag("event", "generate_lead", {
+                    event_category: "conversion",
+                    event_label: "registration_form_submit",
+                });
+            }
+        }
+    }, [state.success]);
 
     if (state.success) {
         return (
