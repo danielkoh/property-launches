@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://pinery-residences.bluebed.ai"),
+  metadataBase: new URL("https://newlaunch.bluebed.ai"),
   title: "Pinery Residences | Experience Convenience & Value",
   description:
     "Direct access to MRT, situated above a retail mall, and within 1km of top primary schools. Discover Pinery Residences - the smart choice for modern living in Singapore.",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "Luxury Living",
     "Real Estate Singapore",
   ],
-  authors: [{ name: "Daniel Koh", url: "https://www.era.com.sg" }],
+  authors: [{ name: "Daniel Koh", url: "https://www.bluebed.ai" }],
   openGraph: {
     title: "Pinery Residences | Experience Convenience & Value",
     description:

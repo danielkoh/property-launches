@@ -52,7 +52,7 @@ export default function HomeClient() {
                     <div className="flex items-center gap-4">
                         <a href="#vvip-registration" className="flex items-center gap-2 px-5 py-2 bg-primary text-white rounded-lg font-bold text-sm shadow-lg shadow-primary/20 hover:brightness-110 transition-all cursor-pointer">
                             <span className="material-symbols-outlined text-lg">chat</span>{" "}
-                            Discuss about Property
+                            Chat now
                         </a>
                     </div>
                 </div>

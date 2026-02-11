@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "Daniel Koh",
     "Real Estate Singapore",
   ],
-  authors: [{ name: "Daniel Koh", url: "https://www.era.com.sg" }],
+  authors: [{ name: "Daniel Koh", url: "https://bluebed.ai" }],
   openGraph: {
     title: "New Launches in Singapore | Curated Developer Deals | Investment Analysis",
     description:
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "New Launch Singapore",
     images: [
       {
-        url: "/logo.png", // Or a specific OG image for the main site
+        url: "/bluebed_icon.png", // Or a specific OG image for the main site
         width: 1200,
         height: 630,
         alt: "New Launch Singapore",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: "New Launches in Singapore | Curated Developer Deals | Investment Analysis",
     description:
       "Calculate your potential property returns with our Investment ROI tool. Plus, comprehensive property launch analysis, mortgage calculators, and investment insights by Daniel Koh.",
-    images: ["/logo.png"],
+    images: ["/bluebed_icon.png"],
   },
   robots: {
     index: true,
