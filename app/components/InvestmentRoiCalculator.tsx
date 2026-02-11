@@ -36,6 +36,7 @@ export default function InvestmentRoiCalculator({ isOpen, onClose }: InvestmentR
     const [annualizedRoi, setAnnualizedRoi] = useState(0);
     const [projectedSalePrice, setProjectedSalePrice] = useState(0);
     const [ssdAmount, setSsdAmount] = useState(0);
+    const [outstandingLoanState, setOutstandingLoanState] = useState(0);
 
     // Initialize dates on mount
     useEffect(() => {
@@ -212,6 +213,7 @@ export default function InvestmentRoiCalculator({ isOpen, onClose }: InvestmentR
         const profit = netCashInHand - totalCashInvested;
 
         setTotalCashOut(totalCashInvested);
+        setOutstandingLoanState(outstandingLoan);
         setNetProfit(profit);
 
         const roiVal = (profit / totalCashInvested) * 100;
@@ -334,9 +336,14 @@ export default function InvestmentRoiCalculator({ isOpen, onClose }: InvestmentR
 
                         <div className="space-y-6 flex-1">
                             <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
-                                <p className="text-xs text-gray-500 uppercase font-bold mb-1">Total Cash Outlay</p>
+                                <div className="flex justify-between items-baseline mb-1">
+                                    <p className="text-xs text-gray-500 uppercase font-bold">Total Cash Outlay</p>
+                                    <span className="text-[10px] text-gray-500 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 px-1.5 py-0.5 rounded font-bold" title="Remaining loan amount at point of sale">
+                                        Loan Bal: ${outstandingLoanState.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                                    </span>
+                                </div>
                                 <p className="text-2xl font-bold text-gray-800 dark:text-white">${totalCashOut.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
-                                <p className="text-[10px] text-gray-400 mt-1">Includes Downpayment, BSD, Legal Fees, Interest Costs, MCST</p>
+                                <p className="text-[10px] text-gray-400 mt-1">Includes Downpayment, BSD, Legal, Interest, MCST & Principal Repaid</p>
                             </div>
 
                             <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
