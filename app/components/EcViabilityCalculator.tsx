@@ -23,7 +23,7 @@ export default function EcViabilityCalculator({ isOpen, onClose }: EcViabilityCa
     const [monthlyInstallment, setMonthlyInstallment] = useState(0);
     const [cashOutlay, setCashOutlay] = useState({
         minCash5: 0,
-        balanceDown20: 0,
+        balanceDown15: 0,
         bsd: 0,
         legalFee: 3000,
         totalInitial: 0
@@ -90,8 +90,8 @@ export default function EcViabilityCalculator({ isOpen, onClose }: EcViabilityCa
         // Required Downpayment and Costs
         // 5% minimum cash
         const minCash5 = purchasePrice * 0.05;
-        // 20% remaining downpayment (CPF/Cash)
-        const balanceDown20 = purchasePrice * 0.20;
+        // 15% remaining downpayment (CPF/Cash) - Total 20% downpayment
+        const balanceDown15 = purchasePrice * 0.15;
 
         // Buyer Stamp Duty (BSD) - residential rates
         let bsd = 0;
@@ -112,11 +112,11 @@ export default function EcViabilityCalculator({ isOpen, onClose }: EcViabilityCa
         }
 
         const legalFee = 3000;
-        const totalInitial = minCash5 + balanceDown20 + bsd + legalFee;
+        const totalInitial = minCash5 + balanceDown15 + bsd + legalFee;
 
         setCashOutlay({
             minCash5,
-            balanceDown20,
+            balanceDown15,
             bsd,
             legalFee,
             totalInitial
@@ -310,27 +310,27 @@ export default function EcViabilityCalculator({ isOpen, onClose }: EcViabilityCa
                                 </div>
 
                                 <div>
-                                    <p className="text-xs text-gray-500 uppercase font-bold mb-2">Initial Cash/CPF Outlay</p>
-                                    <div className="space-y-2 text-sm">
-                                        <div className="flex justify-between">
-                                            <span>5% Cash (Mandatory)</span>
-                                            <span className="font-bold">${cashOutlay.minCash5.toLocaleString()}</span>
+                                    <p className="text-xs text-gray-500 uppercase font-bold mb-2">Initial Cash/CPF Outlay (DPS)</p>
+                                    <div className="space-y-3 text-sm">
+                                        <div className="flex justify-between items-start gap-4">
+                                            <span className="text-gray-600 dark:text-gray-300">5% Cash (Mandatory)</span>
+                                            <span className="font-bold whitespace-nowrap">${cashOutlay.minCash5.toLocaleString()}</span>
                                         </div>
-                                        <div className="flex justify-between text-gray-600 dark:text-gray-400">
-                                            <span>20% Downpayment</span>
-                                            <span>${cashOutlay.balanceDown20.toLocaleString()}</span>
+                                        <div className="flex justify-between items-start gap-4 text-gray-600 dark:text-gray-400">
+                                            <span>15% Balance Downpayment (CPF/Cash)</span>
+                                            <span className="font-medium whitespace-nowrap">${cashOutlay.balanceDown15.toLocaleString()}</span>
                                         </div>
-                                        <div className="flex justify-between text-gray-600 dark:text-gray-400">
+                                        <div className="flex justify-between items-start gap-4 text-gray-600 dark:text-gray-400">
                                             <span>Est. Buyer Stamp Duty</span>
-                                            <span>${cashOutlay.bsd.toLocaleString()}</span>
+                                            <span className="font-medium whitespace-nowrap">${cashOutlay.bsd.toLocaleString()}</span>
                                         </div>
-                                        <div className="flex justify-between text-gray-600 dark:text-gray-400">
+                                        <div className="flex justify-between items-start gap-4 text-gray-600 dark:text-gray-400">
                                             <span>Legal Fees (Est)</span>
-                                            <span>${cashOutlay.legalFee.toLocaleString()}</span>
+                                            <span className="font-medium whitespace-nowrap">${cashOutlay.legalFee.toLocaleString()}</span>
                                         </div>
-                                        <div className="pt-2 border-t border-gray-200 dark:border-gray-700 flex justify-between font-bold">
+                                        <div className="pt-3 border-t border-gray-200 dark:border-gray-700 flex justify-between items-center gap-4 font-bold text-base">
                                             <span>Total Initial Required</span>
-                                            <span>${cashOutlay.totalInitial.toLocaleString()}</span>
+                                            <span className="text-primary">${cashOutlay.totalInitial.toLocaleString()}</span>
                                         </div>
                                     </div>
                                 </div>
