@@ -156,7 +156,12 @@ export default function EcViabilityCalculator({ isOpen, onClose }: EcViabilityCa
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden animate-in fade-in zoom-in duration-200 max-h-[90vh] overflow-y-auto">
                 <div className="flex justify-between items-center p-6 border-b border-gray-100 dark:border-gray-700 sticky top-0 bg-white dark:bg-gray-800 z-10">
-                    <h3 className="text-xl font-bold">Executive Condo Viability</h3>
+                    <h3 className="text-xl font-bold flex items-center gap-2">
+                        Executive Condo Viability
+                        <span className="text-[10px] font-bold text-white bg-primary px-2 py-1 rounded uppercase tracking-wider shadow-lg shadow-primary/20">
+                            New Launch Only
+                        </span>
+                    </h3>
                     <button
                         onClick={onClose}
                         className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"

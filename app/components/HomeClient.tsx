@@ -205,6 +205,7 @@ export default function HomeClient() {
                                 <button
                                     onClick={() => {
                                         setIsInvestmentRoiCalculatorOpen(true);
+                                        window.location.hash = "roi-calculator";
                                         trackEvent("tool_usage", "engagement", "InvestmentRoiCalculator");
                                     }}
                                     className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all cursor-pointer"
@@ -229,6 +230,7 @@ export default function HomeClient() {
                                 <button
                                     onClick={() => {
                                         setIsMortgageEstimatorOpen(true);
+                                        window.location.hash = "mortgage-estimator";
                                         trackEvent("tool_usage", "engagement", "MortgageEstimator");
                                     }}
                                     className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all cursor-pointer"
@@ -253,6 +255,7 @@ export default function HomeClient() {
                                 <button
                                     onClick={() => {
                                         setIsStampDutyCalculatorOpen(true);
+                                        window.location.hash = "stamp-duty-calculator";
                                         trackEvent("tool_usage", "engagement", "StampDutyCalculator");
                                     }}
                                     className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all cursor-pointer"
@@ -277,6 +280,7 @@ export default function HomeClient() {
                                 <button
                                     onClick={() => {
                                         setIsProgressionPlannerOpen(true);
+                                        window.location.hash = "progression-planner";
                                         trackEvent("tool_usage", "engagement", "ProgressionPlanner");
                                     }}
                                     className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all cursor-pointer"
@@ -300,6 +304,7 @@ export default function HomeClient() {
                                 <button
                                     onClick={() => {
                                         setIsEcViabilityCalculatorOpen(true);
+                                        window.location.hash = "ec-calculator";
                                         trackEvent("tool_usage", "engagement", "EcViabilityCalculator");
                                     }}
                                     className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all cursor-pointer"
@@ -579,23 +584,39 @@ export default function HomeClient() {
             </footer>
             <MortgageEstimator
                 isOpen={isMortgageEstimatorOpen}
-                onClose={() => setIsMortgageEstimatorOpen(false)}
+                onClose={() => {
+                    setIsMortgageEstimatorOpen(false);
+                    // Clear hash without scrolling
+                    window.history.replaceState(null, "", window.location.pathname);
+                }}
             />
             <StampDutyCalculator
                 isOpen={isStampDutyCalculatorOpen}
-                onClose={() => setIsStampDutyCalculatorOpen(false)}
+                onClose={() => {
+                    setIsStampDutyCalculatorOpen(false);
+                    window.history.replaceState(null, "", window.location.pathname);
+                }}
             />
             <InvestmentRoiCalculator
                 isOpen={isInvestmentRoiCalculatorOpen}
-                onClose={() => setIsInvestmentRoiCalculatorOpen(false)}
+                onClose={() => {
+                    setIsInvestmentRoiCalculatorOpen(false);
+                    window.history.replaceState(null, "", window.location.pathname);
+                }}
             />
             <ProgressionPlanner
                 isOpen={isProgressionPlannerOpen}
-                onClose={() => setIsProgressionPlannerOpen(false)}
+                onClose={() => {
+                    setIsProgressionPlannerOpen(false);
+                    window.history.replaceState(null, "", window.location.pathname);
+                }}
             />
             <EcViabilityCalculator
                 isOpen={isEcViabilityCalculatorOpen}
-                onClose={() => setIsEcViabilityCalculatorOpen(false)}
+                onClose={() => {
+                    setIsEcViabilityCalculatorOpen(false);
+                    window.history.replaceState(null, "", window.location.pathname);
+                }}
             />
         </div >
     );
