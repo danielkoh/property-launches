@@ -4,8 +4,9 @@ import MortgageEstimator from "./MortgageEstimator";
 import StampDutyCalculator from "./StampDutyCalculator";
 import InvestmentRoiCalculator from "./InvestmentRoiCalculator";
 import ProgressionPlanner from "./ProgressionPlanner";
+import EcViabilityCalculator from "./EcViabilityCalculator";
 import ContactForm from "./ContactForm";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 export default function HomeClient() {
@@ -13,6 +14,33 @@ export default function HomeClient() {
     const [isStampDutyCalculatorOpen, setIsStampDutyCalculatorOpen] = useState(false);
     const [isInvestmentRoiCalculatorOpen, setIsInvestmentRoiCalculatorOpen] = useState(false);
     const [isProgressionPlannerOpen, setIsProgressionPlannerOpen] = useState(false);
+    const [isEcViabilityCalculatorOpen, setIsEcViabilityCalculatorOpen] = useState(false);
+
+    useEffect(() => {
+        const handleHashChange = () => {
+            const hash = window.location.hash;
+            if (!hash) return;
+
+            if (hash === "#roi-calculator") {
+                setIsInvestmentRoiCalculatorOpen(true);
+            } else if (hash === "#mortgage-estimator") {
+                setIsMortgageEstimatorOpen(true);
+            } else if (hash === "#stamp-duty-calculator") {
+                setIsStampDutyCalculatorOpen(true);
+            } else if (hash === "#progression-planner") {
+                setIsProgressionPlannerOpen(true);
+            } else if (hash === "#ec-calculator") {
+                setIsEcViabilityCalculatorOpen(true);
+            }
+        };
+
+        // Check on mount
+        handleHashChange();
+
+        // Listen for hash changes
+        window.addEventListener("hashchange", handleHashChange);
+        return () => window.removeEventListener("hashchange", handleHashChange);
+    }, []);
 
     const trackEvent = (action: string, category: string, label: string) => {
         if (typeof window !== "undefined" && (window as any).gtag) {
@@ -254,6 +282,29 @@ export default function HomeClient() {
                                     className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all cursor-pointer"
                                 >
                                     Map Payments{" "}
+                                    <span className="material-symbols-outlined text-sm">
+                                        arrow_forward
+                                    </span>
+                                </button>
+                            </div>
+                            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all group">
+                                <div className="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                                    <span className="material-symbols-outlined text-3xl">
+                                        fact_check
+                                    </span>
+                                </div>
+                                <h3 className="text-lg font-bold mb-2">EC Viability Check</h3>
+                                <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
+                                    Assess eligibility and affordability for Executive Condos (Income Ceiling, MSR).
+                                </p>
+                                <button
+                                    onClick={() => {
+                                        setIsEcViabilityCalculatorOpen(true);
+                                        trackEvent("tool_usage", "engagement", "EcViabilityCalculator");
+                                    }}
+                                    className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all cursor-pointer"
+                                >
+                                    Check Eligibility{" "}
                                     <span className="material-symbols-outlined text-sm">
                                         arrow_forward
                                     </span>
@@ -541,6 +592,10 @@ export default function HomeClient() {
             <ProgressionPlanner
                 isOpen={isProgressionPlannerOpen}
                 onClose={() => setIsProgressionPlannerOpen(false)}
+            />
+            <EcViabilityCalculator
+                isOpen={isEcViabilityCalculatorOpen}
+                onClose={() => setIsEcViabilityCalculatorOpen(false)}
             />
         </div >
     );
