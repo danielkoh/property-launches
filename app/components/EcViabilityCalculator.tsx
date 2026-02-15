@@ -200,7 +200,7 @@ export default function EcViabilityCalculator({ isOpen, onClose }: EcViabilityCa
                                     >
                                         <option value="SC+SC">SC + SC Household</option>
                                         <option value="SC+SPR">SC + SPR Household</option>
-                                        <option value="SC+FR">SC + Foreigner (Ineligible)</option>
+                                        <option value="SC+FR">SC + Foreigner</option>
                                         <option value="Others">Others / Single</option>
                                     </select>
                                 </div>
@@ -288,11 +288,32 @@ export default function EcViabilityCalculator({ isOpen, onClose }: EcViabilityCa
                                         <span className="material-symbols-outlined">cancel</span>
                                         Not Eligible
                                     </div>
-                                    <ul className="list-disc list-inside text-xs opacity-90">
+                                    <ul className="list-disc list-inside text-xs opacity-90 mb-3">
                                         {eligibilityIssues.map((issue, idx) => (
                                             <li key={idx}>{issue}</li>
                                         ))}
                                     </ul>
+                                    <div className="pt-3 border-t border-red-200 dark:border-red-800/50">
+                                        <p className="text-xs font-normal mb-3 opacity-90">
+                                            Don't worry! There might be appeals or alternative options available for your situation.
+                                        </p>
+                                        <button
+                                            onClick={() => {
+                                                onClose();
+                                                setTimeout(() => {
+                                                    const element = document.getElementById("vvip-registration");
+                                                    if (element) {
+                                                        element.scrollIntoView({ behavior: "smooth" });
+                                                        window.history.replaceState(null, "", "#vvip-registration");
+                                                    }
+                                                }, 100);
+                                            }}
+                                            className="w-full py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs font-bold transition-colors flex items-center justify-center gap-2 shadow-sm"
+                                        >
+                                            <span className="material-symbols-outlined text-sm">chat</span>
+                                            Speak to Us for Solutions
+                                        </button>
+                                    </div>
                                 </div>
                             )}
                         </div>
