@@ -1,6 +1,9 @@
 "use server";
 
 import { supabase } from "@/lib/supabaseClient";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 
 
@@ -100,6 +103,19 @@ export async function submitContactQuery(formData: FormData) {
             console.error("Supabase error:", error);
             return { error: "Failed to submit. Please try again later." };
         }
+
+        // Send Email Notification
+        await resend.emails.send({
+            from: "hi@notifications.bluebed.ai",
+            to: ["danielkoh@bluebed.ai", "daniel.wkoh@yahoo.com.sg"],
+            subject: `New Contact Form Submission: ${name}`,
+            html: `
+        <h2>New Lead from Contact Form</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Preferences:</strong><br/>${preferences || "N/A"}</p>
+      `,
+        });
 
         return { success: true };
     } catch (err) {
