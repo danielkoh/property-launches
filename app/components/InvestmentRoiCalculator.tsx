@@ -37,6 +37,7 @@ export default function InvestmentRoiCalculator({ isOpen, onClose }: InvestmentR
     const [projectedSalePrice, setProjectedSalePrice] = useState(0);
     const [ssdAmount, setSsdAmount] = useState(0);
     const [outstandingLoanState, setOutstandingLoanState] = useState(0);
+    const [cashProceeds, setCashProceeds] = useState(0);
 
     // Initialize dates on mount
     useEffect(() => {
@@ -215,6 +216,7 @@ export default function InvestmentRoiCalculator({ isOpen, onClose }: InvestmentR
         setTotalCashOut(totalCashInvested);
         setOutstandingLoanState(outstandingLoan);
         setNetProfit(profit);
+        setCashProceeds(netCashInHand);
 
         const roiVal = (profit / totalCashInvested) * 100;
         setRoi(roiVal);
@@ -362,6 +364,12 @@ export default function InvestmentRoiCalculator({ isOpen, onClose }: InvestmentR
                                 </div>
                             </div>
 
+                            <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
+                                <p className="text-xs text-gray-500 uppercase font-bold mb-1">Cash/CPF Proceeds</p>
+                                <p className="text-lg font-bold text-gray-800 dark:text-white">${cashProceeds.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
+                                <p className="text-[10px] text-gray-400 mt-1">Cash you get back after paying loan & fees</p>
+                            </div>
+
                             <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-100 dark:border-green-800 flex items-center justify-between">
                                 <div>
                                     <p className="text-xs text-green-700 dark:text-green-400 uppercase font-bold">Total ROI</p>
@@ -377,6 +385,18 @@ export default function InvestmentRoiCalculator({ isOpen, onClose }: InvestmentR
                 </div>
 
                 <div className="p-6 border-t border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50">
+                    <div className="flex justify-center mb-4">
+                        <button
+                            onClick={() => {
+                                onClose();
+                                window.location.hash = "vvip-registration";
+                            }}
+                            className="text-primary text-xs font-bold flex items-center gap-1 hover:underline cursor-pointer bg-transparent border-none p-0"
+                        >
+                            <span className="material-symbols-outlined text-sm">chat</span>
+                            Want a detailed investment analysis? Contact us
+                        </button>
+                    </div>
                     <p className="text-[10px] text-gray-400 text-center leading-relaxed">
                         Disclaimer: This simulation provides estimates based on current market assumptions and 2026 regulations. Actual returns may vary due to market fluctuations, policy changes, and specific property attributes. Book an appointment for personalized advice.
                     </p>

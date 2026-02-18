@@ -5,6 +5,7 @@ import StampDutyCalculator from "./StampDutyCalculator";
 import InvestmentRoiCalculator from "./InvestmentRoiCalculator";
 import ProgressionPlanner from "./ProgressionPlanner";
 import EcViabilityCalculator from "./EcViabilityCalculator";
+import HouseholdIncomeCalculator from "./HouseholdIncomeCalculator";
 import ContactForm from "./ContactForm";
 import { useState, useEffect } from "react";
 
@@ -15,6 +16,7 @@ export default function HomeClient() {
     const [isInvestmentRoiCalculatorOpen, setIsInvestmentRoiCalculatorOpen] = useState(false);
     const [isProgressionPlannerOpen, setIsProgressionPlannerOpen] = useState(false);
     const [isEcViabilityCalculatorOpen, setIsEcViabilityCalculatorOpen] = useState(false);
+    const [isHouseholdIncomeCalculatorOpen, setIsHouseholdIncomeCalculatorOpen] = useState(false);
 
     useEffect(() => {
         const handleHashChange = () => {
@@ -31,6 +33,8 @@ export default function HomeClient() {
                 setIsProgressionPlannerOpen(true);
             } else if (hash === "#ec-calculator") {
                 setIsEcViabilityCalculatorOpen(true);
+            } else if (hash === "#household-income-calculator") {
+                setIsHouseholdIncomeCalculatorOpen(true);
             }
         };
 
@@ -310,6 +314,30 @@ export default function HomeClient() {
                                     className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all cursor-pointer"
                                 >
                                     Check Eligibility{" "}
+                                    <span className="material-symbols-outlined text-sm">
+                                        arrow_forward
+                                    </span>
+                                </button>
+                            </div>
+                            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all group">
+                                <div className="w-14 h-14 bg-blue-50 dark:bg-blue-900/30 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                                    <span className="material-symbols-outlined text-3xl">
+                                        paid
+                                    </span>
+                                </div>
+                                <h3 className="text-lg font-bold mb-2">Household Income Req.</h3>
+                                <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
+                                    Determine the income needed to afford your dream home under TDSR rules.
+                                </p>
+                                <button
+                                    onClick={() => {
+                                        setIsHouseholdIncomeCalculatorOpen(true);
+                                        window.location.hash = "household-income-calculator";
+                                        trackEvent("tool_usage", "engagement", "HouseholdIncomeCalculator");
+                                    }}
+                                    className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all cursor-pointer"
+                                >
+                                    Check Income{" "}
                                     <span className="material-symbols-outlined text-sm">
                                         arrow_forward
                                     </span>
@@ -615,6 +643,13 @@ export default function HomeClient() {
                 isOpen={isEcViabilityCalculatorOpen}
                 onClose={() => {
                     setIsEcViabilityCalculatorOpen(false);
+                    window.history.replaceState(null, "", window.location.pathname);
+                }}
+            />
+            <HouseholdIncomeCalculator
+                isOpen={isHouseholdIncomeCalculatorOpen}
+                onClose={() => {
+                    setIsHouseholdIncomeCalculatorOpen(false);
                     window.history.replaceState(null, "", window.location.pathname);
                 }}
             />
