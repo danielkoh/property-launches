@@ -3,6 +3,7 @@
 import MortgageEstimator from "./MortgageEstimator";
 import StampDutyCalculator from "./StampDutyCalculator";
 import InvestmentRoiCalculator from "./InvestmentRoiCalculator";
+import ResaleRoiCalculator from "./ResaleRoiCalculator";
 import ProgressionPlanner from "./ProgressionPlanner";
 import EcViabilityCalculator from "./EcViabilityCalculator";
 import HouseholdIncomeCalculator from "./HouseholdIncomeCalculator";
@@ -14,6 +15,7 @@ export default function HomeClient() {
     const [isMortgageEstimatorOpen, setIsMortgageEstimatorOpen] = useState(false);
     const [isStampDutyCalculatorOpen, setIsStampDutyCalculatorOpen] = useState(false);
     const [isInvestmentRoiCalculatorOpen, setIsInvestmentRoiCalculatorOpen] = useState(false);
+    const [isResaleRoiCalculatorOpen, setIsResaleRoiCalculatorOpen] = useState(false);
     const [isProgressionPlannerOpen, setIsProgressionPlannerOpen] = useState(false);
     const [isEcViabilityCalculatorOpen, setIsEcViabilityCalculatorOpen] = useState(false);
     const [isHouseholdIncomeCalculatorOpen, setIsHouseholdIncomeCalculatorOpen] = useState(false);
@@ -194,17 +196,16 @@ export default function HomeClient() {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                             <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl border-2 border-primary hover:-translate-y-1 transition-all group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl uppercase tracking-wider">
-                                    Featured
+                                    New Launch
                                 </div>
                                 <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
                                     <span className="material-symbols-outlined text-3xl">
                                         trending_up
                                     </span>
                                 </div>
-                                <h3 className="text-lg font-bold mb-2 text-primary">Investment ROI</h3>
+                                <h3 className="text-lg font-bold mb-2 text-primary">New Launch ROI</h3>
                                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
-                                    Simulate potential returns given variables like interest rates,
-                                    holding period, and expected rate of capital gain
+                                    Simulate returns for New Launch based on progressive payment, SSD and projected growth.
                                 </p>
                                 <button
                                     onClick={() => {
@@ -214,7 +215,31 @@ export default function HomeClient() {
                                     }}
                                     className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all cursor-pointer"
                                 >
-                                    Simulate Returns{" "}
+                                    Simulate ROI{" "}
+                                    <span className="material-symbols-outlined text-sm">
+                                        arrow_forward
+                                    </span>
+                                </button>
+                            </div>
+                            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:-translate-y-1 transition-all group">
+                                <div className="w-14 h-14 bg-orange-50 dark:bg-orange-900/30 rounded-xl flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
+                                    <span className="material-symbols-outlined text-3xl">
+                                        home_work
+                                    </span>
+                                </div>
+                                <h3 className="text-lg font-bold mb-2">Resale ROI</h3>
+                                <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
+                                    Analyze potential returns for Resale properties with immediate rental income.
+                                </p>
+                                <button
+                                    onClick={() => {
+                                        setIsResaleRoiCalculatorOpen(true);
+                                        window.location.hash = "resale-roi-calculator";
+                                        trackEvent("tool_usage", "engagement", "ResaleRoiCalculator");
+                                    }}
+                                    className="text-primary font-bold text-sm flex items-center gap-2 group-hover:gap-3 transition-all cursor-pointer"
+                                >
+                                    Analyze Resale{" "}
                                     <span className="material-symbols-outlined text-sm">
                                         arrow_forward
                                     </span>
@@ -629,6 +654,13 @@ export default function HomeClient() {
                 isOpen={isInvestmentRoiCalculatorOpen}
                 onClose={() => {
                     setIsInvestmentRoiCalculatorOpen(false);
+                    window.history.replaceState(null, "", window.location.pathname);
+                }}
+            />
+            <ResaleRoiCalculator
+                isOpen={isResaleRoiCalculatorOpen}
+                onClose={() => {
+                    setIsResaleRoiCalculatorOpen(false);
                     window.history.replaceState(null, "", window.location.pathname);
                 }}
             />

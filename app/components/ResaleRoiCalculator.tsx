@@ -2,12 +2,12 @@
 
 import { useState, useEffect } from "react";
 
-interface InvestmentRoiCalculatorProps {
+interface ResaleRoiCalculatorProps {
     isOpen: boolean;
     onClose: () => void;
 }
 
-export default function InvestmentRoiCalculator({ isOpen, onClose }: InvestmentRoiCalculatorProps) {
+export default function ResaleRoiCalculator({ isOpen, onClose }: ResaleRoiCalculatorProps) {
     // --- Purchase Details ---
     const [purchasePrice, setPurchasePrice] = useState(2500000);
     const [downpaymentPercent, setDownpaymentPercent] = useState(25);
@@ -15,19 +15,18 @@ export default function InvestmentRoiCalculator({ isOpen, onClose }: InvestmentR
     const [loanTenure, setLoanTenure] = useState(30);
 
     // --- Timeline ---
-    // --- Timeline ---
     const [purchaseDate, setPurchaseDate] = useState(new Date().toISOString().split('T')[0]);
-    const [topDate, setTopDate] = useState("");
     const [holdingPeriod, setHoldingPeriod] = useState(8); // Years
 
     // --- Costs & Fees ---
     const [agentCommissionPercent, setAgentCommissionPercent] = useState(2);
     const [mcstFee, setMcstFee] = useState(500); // Monthly
     const [legalFee, setLegalFee] = useState(3000); // One-time estimate
+    const [renovationCost, setRenovationCost] = useState(50000); // Resale often needs reno
 
     // --- Projections ---
-    const [appreciationPreTop, setAppreciationPreTop] = useState(2); // % p.a.
-    const [appreciationPostTop, setAppreciationPostTop] = useState(4); // % p.a.
+    const [appreciationRate, setAppreciationRate] = useState(3); // % p.a.
+    const [monthlyRentalIncome, setMonthlyRentalIncome] = useState(4000);
 
     // --- Outputs ---
     const [totalCashOut, setTotalCashOut] = useState(0);
@@ -39,37 +38,20 @@ export default function InvestmentRoiCalculator({ isOpen, onClose }: InvestmentR
     const [outstandingLoanState, setOutstandingLoanState] = useState(0);
     const [cashProceeds, setCashProceeds] = useState(0);
 
-    // Initialize dates on mount
-    useEffect(() => {
-        const today = new Date();
-        // Default TOP: 3 years from now
-        const topYear = today.getFullYear() + 3;
-        const topMonth = String(today.getMonth() + 1).padStart(2, '0');
-        setTopDate(`${topYear}-${topMonth}`);
-    }, []);
-
     useEffect(() => {
         if (isOpen) {
             calculateRoi();
         }
     }, [
         purchasePrice, downpaymentPercent, interestRate, loanTenure,
-        purchaseDate, topDate, holdingPeriod,
-        agentCommissionPercent, mcstFee, legalFee,
-        appreciationPreTop, appreciationPostTop,
+        purchaseDate, holdingPeriod,
+        agentCommissionPercent, mcstFee, legalFee, renovationCost,
+        appreciationRate, monthlyRentalIncome,
         isOpen
     ]);
 
     const calculateRoi = () => {
         const pDate = new Date(purchaseDate);
-
-        // Handle TOP Date (YYYY-MM) safely
-        let toDate = new Date();
-        if (topDate) {
-            const [y, m] = topDate.split('-').map(Number);
-            // Month is 0-indexed in JS Date
-            toDate = new Date(y, m - 1, 1);
-        }
 
         // Calculate Sale Date based on Holding Period
         const sDate = new Date(pDate);
@@ -82,7 +64,7 @@ export default function InvestmentRoiCalculator({ isOpen, onClose }: InvestmentR
         const downpaymentAmt = purchasePrice * (downpaymentPercent / 100);
         const loanAmount = purchasePrice - downpaymentAmt;
 
-        // Auto-calculate BSD (2025/2026 Residential Rates)
+        // Auto-calculate BSD (Residential Rates)
         let bsd = 0;
         let remaining = purchasePrice;
         const tiers = [
@@ -100,72 +82,43 @@ export default function InvestmentRoiCalculator({ isOpen, onClose }: InvestmentR
             remaining -= amount;
         }
 
-        const initialCashOut = downpaymentAmt + bsd + legalFee;
+        const initialCashOut = downpaymentAmt + bsd + legalFee + renovationCost;
 
-        // --- 2. Monthly Outflows (Progressive Payment Simulation) ---
-        let totalMonthlyOutflow = 0;
-        let currentLoanDisbursed = 0;
+        // --- 2. Monthly Outflows (Full Loan) ---
+        let totalMonthlyNetCashflow = 0; // Negative means cost, Positive means profit
 
-        // Simplified Progressive Payment Schedule relative to Construction Phase (approximate)
-        // We'll map the time between Purchase and TOP to stages.
-        const monthsToTop = Math.max(1, (toDate.getTime() - pDate.getTime()) / (1000 * 60 * 60 * 24 * 30.44));
-        const monthsTopToSale = Math.max(0, (sDate.getTime() - toDate.getTime()) / (1000 * 60 * 60 * 24 * 30.44));
-
-        // Calculate full monthly installment (standard amortization)
         const monthlyRate = interestRate / 100 / 12;
         const numPayments = loanTenure * 12;
-        const fullMonthlyInstallment = (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
 
-        // Pre-TOP Outflows
-        // We assume a simplified S-curve or stepped disbursement roughly:
-        // 0-20% time: 10% disbursed (Foundation)
-        // 20-50% time: 30% disbursed (Reinf. Concrete)
-        // 50-80% time: 65% disbursed (Brick walls etc)
-        // 80-100% time: 85% disbursed (Roads/Drains/Carpark)
-        // At TOP: 100% disbursed (CSC/Key Collection usually hits 100% soon after)
-
-        for (let i = 1; i <= Math.floor(monthsToTop); i++) {
-            const progress = i / monthsToTop;
-            let disbursementRatio = 0;
-            if (progress < 0.2) disbursementRatio = 0.10;
-            else if (progress < 0.5) disbursementRatio = 0.30;
-            else if (progress < 0.8) disbursementRatio = 0.65;
-            else disbursementRatio = 0.85;
-
-            // Interest only on disbursed amount
-            const interestPayment = (loanAmount * disbursementRatio) * monthlyRate;
-            totalMonthlyOutflow += interestPayment;
+        let fullMonthlyInstallment = 0;
+        if (monthlyRate > 0) {
+            fullMonthlyInstallment = (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+        } else {
+            fullMonthlyInstallment = loanAmount / numPayments;
         }
 
-        // Post-TOP Outflows
-        for (let i = 1; i <= Math.floor(monthsTopToSale); i++) {
-            // Full installment + MCST
-            totalMonthlyOutflow += fullMonthlyInstallment + mcstFee;
-        }
+        const totalMonths = holdingPeriod * 12;
 
-        const totalCashInvested = initialCashOut + totalMonthlyOutflow;
+        // Calculate total monthly impact
+        for (let i = 1; i <= totalMonths; i++) {
+            const monthlyCost = fullMonthlyInstallment + mcstFee;
+            const netMonthly = monthlyRentalIncome - monthlyCost;
+            totalMonthlyNetCashflow += netMonthly;
+        }
 
         // --- 3. Sale Proceeds & Final Calculations ---
 
         // Projected Sale Price
-        // Years Pre-TOP
-        const yearsPreTop = monthsToTop / 12;
-        let valueAtTop = purchasePrice * Math.pow(1 + (appreciationPreTop / 100), yearsPreTop);
-
-        // Years Post-TOP
-        const yearsPostTop = monthsTopToSale / 12;
-        const finalValue = valueAtTop * Math.pow(1 + (appreciationPostTop / 100), yearsPostTop);
-
+        const finalValue = purchasePrice * Math.pow(1 + (appreciationRate / 100), holdingPeriod);
         setProjectedSalePrice(finalValue);
 
         // Seller Stamp Duty (SSD)
         // Holding Period = Sale Date - Purchase Date
-        const holdingPeriodYears = (sDate.getTime() - pDate.getTime()) / (1000 * 60 * 60 * 24 * 365.25);
         let ssdRate = 0;
-        if (holdingPeriodYears < 1) ssdRate = 0.16;
-        else if (holdingPeriodYears < 2) ssdRate = 0.12;
-        else if (holdingPeriodYears < 3) ssdRate = 0.08;
-        else if (holdingPeriodYears < 4) ssdRate = 0.04;
+        if (holdingPeriod < 1) ssdRate = 0.16;
+        else if (holdingPeriod < 2) ssdRate = 0.12;
+        else if (holdingPeriod < 3) ssdRate = 0.08;
+        else if (holdingPeriod < 4) ssdRate = 0.04;
         else ssdRate = 0;
 
         const ssd = finalValue * ssdRate;
@@ -174,54 +127,71 @@ export default function InvestmentRoiCalculator({ isOpen, onClose }: InvestmentR
         const agentFee = finalValue * (agentCommissionPercent / 100);
 
         // Calculate Outstanding Loan Principal at point of sale
-        // Post-TOP, we started paying principal.
-        // Principal paid = Full Installment - Interest
-        // Simplified: For the Pre-TOP period, assume Interest Only (no principal reduction).
-        // For Post-TOP period, standard amortization principal reduction.
         let outstandingLoan = loanAmount;
-
-        // Reduce principal for post-TOP months
-        for (let i = 1; i <= Math.floor(monthsTopToSale); i++) {
+        // Reduce principal for all months
+        for (let i = 1; i <= totalMonths; i++) {
             const interestPart = outstandingLoan * monthlyRate;
             const principalPart = fullMonthlyInstallment - interestPart;
             outstandingLoan -= principalPart;
         }
+        if (outstandingLoan < 0) outstandingLoan = 0;
 
-        // Net Proceeds from Sale
-        const netProceeds = finalValue - outstandingLoan - ssd - agentFee;
+        // Net Proceeds from Sale (Cash received from selling)
+        const netCashFromSale = finalValue - outstandingLoan - ssd - agentFee;
 
-        // Profit
-        // We already deducted cash outflows? No.
-        // Net Profit = (Net Proceeds) - (Total Cash Invested - PrincipalRepaid?)
-        // Easier way: Net Profit = (Total In) - (Total Out)
-        // Total In = Sale Price
-        // Total Out = Initial Cash + Monthly Outflows (Interest+Principal+MCST) + Outstanding Loan Payoff + SSD + AgentFee
-        // Wait, Monthly Outflows includes Principal. Outstanding Loan Payoff is the remainder.
-        // So Sum(Monthly) + Outstanding + Initial = Total Cost to acquire and hold.
+        // Total Cash Invested concept for ROI:
+        // Strictly, ROI = (Total Net Profit) / (Total Invested Capital)
+        // Total Invested Capital = Initial Cash Out + Any negative monthly cashflows (top-ups)
+        // This is a more accurate "Cash on Cash" ROI.
 
-        const totalCost = totalCashInvested + outstandingLoan + ssd + agentFee;
-        // Note: totalCashInvested includes the 'Downpayment'.
-        // The 'LoanAmount' was borrowing. We pay back 'OutstandingLoan'.
-        // The 'Principal' portion of monthly payments + 'OutstandingLoan' = Original Loan Amount.
-        // So effectively Cost = Downpayment + Bsd + Legal + TotalInterestPaid + MCST + SSD + AgentFee + OriginalLoanAmount?
-        // Let's stick to Cashflow:
-        // Cash Out = Initial (Down+BSD+Legal) + Monthly (Inc Interest+Principal+MCST).
-        // On Sale: We receive Sale Price. We pay back Outstanding Loan, SSD, Agent Fee.
-        // Net Cash In Hand = SalePrice - OutstandingLoan - SSD - Agent Fee.
-        // Net Profit = Net Cash In Hand - Total Cash Out (Initial + Monthly).
+        let totalCashInvested = initialCashOut;
+        let cumulativeCashflow = 0;
 
-        const netCashInHand = finalValue - outstandingLoan - ssd - agentFee;
-        const profit = netCashInHand - totalCashInvested;
+        // Let's refine the loop to track exact cash invested
+        // reset loan for distinct calculation loop if needed, but we can do simple sum for now
+        // if we assume constant rental and payment.
+
+        const monthlyNet = monthlyRentalIncome - (fullMonthlyInstallment + mcstFee);
+        if (monthlyNet < 0) {
+            // We are topping up every month
+            totalCashInvested += Math.abs(monthlyNet) * totalMonths;
+        } else {
+            // We are positive cashflow. This doesn't increase investment.
+            // It potentially returns capital?
+            // For ROI calculation, we typically use the denominator as the "Max Capital Employed".
+            // Since it's uniform, Initial is the max if monthly is positive.
+        }
+
+        // Total Profit = Net Cash From Sale + Sum of All Monthly Net Cashflows - Initial Cash Out
+        // Wait. 
+        // Net Position = (Cash In Hand at End) + (Cumulative Cashflow during hold) - (Initial Cash Out).
+        // Cash In Hand at End = netCashFromSale.
+        // Cumulative Cashflow = monthlyNet * totalMonths.
+        // Initial Cash Out = downpayment + renovation + fees.
+
+        const totalProfit = netCashFromSale + (monthlyNet * totalMonths) - initialCashOut;
+
+        // Does this match? 
+        // Example: Buy 1M. Down 250k. Fees 50k. Initial 300k.
+        // Monthly net = +1k. Hold 10 months. +10k.
+        // Sell for 1.1M. Outstanding 700k. Fees 20k.
+        // Net Cash Sale = 1.1M - 700k - 20k = 380k.
+        // Previous logic: Net Profit = 380k + 10k - 300k = 90k.
+        // Change in wealth: 
+        // Start: -300k.
+        // During: +10k.
+        // End: +380k.
+        // Net: +90k. Correct.
 
         setTotalCashOut(totalCashInvested);
         setOutstandingLoanState(outstandingLoan);
-        setNetProfit(profit);
-        setCashProceeds(netCashInHand);
+        setNetProfit(totalProfit);
+        setCashProceeds(netCashFromSale);
 
-        const roiVal = (profit / totalCashInvested) * 100;
+        const roiVal = (totalProfit / totalCashInvested) * 100;
         setRoi(roiVal);
 
-        const annualized = (Math.pow(1 + (roiVal / 100), 1 / holdingPeriodYears) - 1) * 100;
+        const annualized = (Math.pow(1 + (roiVal / 100), 1 / holdingPeriod) - 1) * 100;
         setAnnualizedRoi(annualized);
     };
 
@@ -231,7 +201,7 @@ export default function InvestmentRoiCalculator({ isOpen, onClose }: InvestmentR
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden animate-in fade-in zoom-in duration-200 max-h-[90vh] overflow-y-auto">
                 <div className="flex justify-between items-center p-6 border-b border-gray-100 dark:border-gray-700 sticky top-0 bg-white dark:bg-gray-800 z-10">
-                    <h3 className="text-xl font-bold">New Launch ROI Simulator (BUC)</h3>
+                    <h3 className="text-xl font-bold">Resale ROI Simulator</h3>
                     <button
                         onClick={onClose}
                         className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors"
@@ -276,16 +246,12 @@ export default function InvestmentRoiCalculator({ isOpen, onClose }: InvestmentR
                                     <input type="date" value={purchaseDate} onChange={e => setPurchaseDate(e.target.value)} className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-sm" />
                                 </div>
                                 <div>
-                                    <label className="block text-xs font-bold text-gray-600 dark:text-gray-300 mb-1">Expected TOP (Month/Year)</label>
-                                    <input type="month" value={topDate} onChange={e => setTopDate(e.target.value)} className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-sm" />
-                                </div>
-                                <div>
                                     <label className="block text-xs font-bold text-gray-600 dark:text-gray-300 mb-1">Holding Period (Years)</label>
                                     <div className="flex items-center gap-4">
                                         <input
                                             type="range"
                                             min="1"
-                                            max="10"
+                                            max="20"
                                             step="1"
                                             value={holdingPeriod}
                                             onChange={e => setHoldingPeriod(Number(e.target.value))}
@@ -301,32 +267,33 @@ export default function InvestmentRoiCalculator({ isOpen, onClose }: InvestmentR
                             <h4 className="text-sm font-black uppercase text-gray-400 tracking-wider mb-3">Assumptions</h4>
                             <div className="grid grid-cols-2 gap-3">
                                 <div className="p-3 bg-yellow-50 dark:bg-yellow-900/10 rounded-lg border border-yellow-200 dark:border-yellow-800/30">
-                                    <label className="block text-xs font-bold text-yellow-700 dark:text-yellow-500 mb-1">Apprec. Pre-TOP (%)</label>
+                                    <label className="block text-xs font-bold text-yellow-700 dark:text-yellow-500 mb-1">Appreciation (%)</label>
                                     <input
                                         type="number"
                                         step="0.5"
-                                        value={appreciationPreTop}
-                                        onChange={e => setAppreciationPreTop(Number(e.target.value))}
+                                        value={appreciationRate}
+                                        onChange={e => setAppreciationRate(Number(e.target.value))}
                                         className="w-full p-2 rounded border border-yellow-200 dark:border-yellow-800 bg-white dark:bg-gray-800 text-sm font-bold text-gray-800 dark:text-white"
                                     />
                                 </div>
                                 <div className="p-3 bg-yellow-50 dark:bg-yellow-900/10 rounded-lg border border-yellow-200 dark:border-yellow-800/30">
-                                    <label className="block text-xs font-bold text-yellow-700 dark:text-yellow-500 mb-1">Apprec. Post-TOP (%)</label>
+                                    <label className="block text-xs font-bold text-yellow-700 dark:text-yellow-500 mb-1">Monthly Rent ($)</label>
                                     <input
                                         type="number"
-                                        step="0.5"
-                                        value={appreciationPostTop}
-                                        onChange={e => setAppreciationPostTop(Number(e.target.value))}
+                                        value={monthlyRentalIncome}
+                                        onChange={e => setMonthlyRentalIncome(Number(e.target.value))}
                                         className="w-full p-2 rounded border border-yellow-200 dark:border-yellow-800 bg-white dark:bg-gray-800 text-sm font-bold text-gray-800 dark:text-white"
                                     />
                                 </div>
+                            </div>
+                            <div className="grid grid-cols-2 gap-3">
                                 <div>
                                     <label className="block text-xs font-bold text-gray-600 dark:text-gray-300 mb-1">MCST Fee ($/mo)</label>
                                     <input type="number" value={mcstFee} onChange={e => setMcstFee(Number(e.target.value))} className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-sm" />
                                 </div>
                                 <div>
-                                    <label className="block text-xs font-bold text-gray-600 dark:text-gray-300 mb-1">Agent Comm (%)</label>
-                                    <input type="number" value={agentCommissionPercent} onChange={e => setAgentCommissionPercent(Number(e.target.value))} className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-sm" />
+                                    <label className="block text-xs font-bold text-gray-600 dark:text-gray-300 mb-1">Reno Cost ($)</label>
+                                    <input type="number" value={renovationCost} onChange={e => setRenovationCost(Number(e.target.value))} className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-sm" />
                                 </div>
                             </div>
                         </section>
@@ -339,13 +306,13 @@ export default function InvestmentRoiCalculator({ isOpen, onClose }: InvestmentR
                         <div className="space-y-6 flex-1">
                             <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
                                 <div className="flex justify-between items-baseline mb-1">
-                                    <p className="text-xs text-gray-500 uppercase font-bold">Total Cash Outlay</p>
+                                    <p className="text-xs text-gray-500 uppercase font-bold">Total Cash Invested</p>
                                     <span className="text-[10px] text-gray-500 bg-gray-100 dark:bg-gray-700 dark:text-gray-300 px-1.5 py-0.5 rounded font-bold" title="Remaining loan amount at point of sale">
                                         Loan Bal: ${outstandingLoanState.toLocaleString(undefined, { maximumFractionDigits: 0 })}
                                     </span>
                                 </div>
                                 <p className="text-2xl font-bold text-gray-800 dark:text-white">${totalCashOut.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
-                                <p className="text-[10px] text-gray-400 mt-1">Includes Downpayment, BSD, Legal, Interest, MCST & Principal Repaid</p>
+                                <p className="text-[10px] text-gray-400 mt-1">Initial (Down+Fees+Reno) + Monthly Top-ups (if any)</p>
                             </div>
 
                             <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
@@ -367,7 +334,7 @@ export default function InvestmentRoiCalculator({ isOpen, onClose }: InvestmentR
                             <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
                                 <p className="text-xs text-gray-500 uppercase font-bold mb-1">Cash/CPF Proceeds</p>
                                 <p className="text-lg font-bold text-gray-800 dark:text-white">${cashProceeds.toLocaleString(undefined, { maximumFractionDigits: 0 })}</p>
-                                <p className="text-[10px] text-gray-400 mt-1">Cash you get back after paying loan & fees</p>
+                                <p className="text-[10px] text-gray-400 mt-1">Cash you get back after paying loan & fees (from sale)</p>
                             </div>
 
                             <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-100 dark:border-green-800 flex items-center justify-between">
