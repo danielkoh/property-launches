@@ -105,77 +105,196 @@ export default function HomeClient() {
                 </div>
             </header>
             <main className="flex-1">
-                <section className="bg-white dark:bg-background-dark pt-12 pb-20 px-6 lg:px-20 border-b border-gray-100 dark:border-gray-800">
+                <section id="featured-launches" className="bg-white dark:bg-background-dark py-20 px-6 lg:px-20 border-b border-gray-100 dark:border-gray-800">
                     <div className="max-w-[1280px] mx-auto">
-                        <div className="grid lg:grid-cols-12 gap-12 items-center bg-gray-50 dark:bg-gray-800/40 rounded-[2.5rem] p-8 lg:p-16 border border-gray-100 dark:border-gray-700">
-                            <div className="lg:col-span-8 flex flex-col gap-6">
-                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider w-fit">
-                                    <span className="material-symbols-outlined text-sm">groups</span>
-                                    Join Our Community
+                        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                            <div>
+                                <div className="flex items-center gap-2 text-primary mb-2">
+                                    <span className="material-symbols-outlined">analytics</span>
+                                    <span className="text-sm font-bold uppercase tracking-widest">
+                                        Market Insights
+                                    </span>
                                 </div>
-                                <h1 className="text-4xl lg:text-6xl font-black text-[#111418] dark:text-white leading-[1.1] tracking-tight">
-                                    Curated <span className="text-primary">Developer Deals</span>{" "}
-                                    Direct to Your Phone
-                                </h1>
-                                <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed">
-                                    Be part of Daniel's property investor community.
-                                    Receive (near) instant notifications on price drops, fire sales, and
-                                    VVIP preview slots.
+                                <h2 className="text-3xl font-black">Featured New Launches</h2>
+                                <p className="text-gray-500">
+                                    New launches that even I feel like buying.
                                 </p>
-                                <div className="flex flex-col sm:flex-row gap-4 mt-4">
-                                    <a
-                                        href="https://t.me/danielproperty_sg"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex items-center justify-center gap-3 bg-[#0088cc] text-white px-8 py-4 rounded-xl font-black text-lg shadow-xl hover:brightness-110 transition-all cursor-pointer"
-                                        onClick={() => trackEvent("conversion", "engagement", "join_telegram_hero")}
-                                    >
-                                        <span className="material-symbols-outlined">send</span>
-                                        Join Telegram Channel
-                                    </a>
-                                    <div className="flex flex-col justify-center">
-                                        <div className="bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">
-                                            Hot
+                            </div>
+                            <div className="flex gap-2">
+                                <button className="p-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all cursor-pointer">
+                                    <span className="material-symbols-outlined">arrow_back</span>
+                                </button>
+                                <button className="p-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all cursor-pointer">
+                                    <span className="material-symbols-outlined">arrow_forward</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <div className="group bg-background-light dark:bg-gray-800/50 rounded-2xl overflow-hidden border border-transparent hover:border-primary/20 transition-all shadow-sm cursor-pointer">
+                                <div className="relative aspect-video overflow-hidden">
+                                    <img
+                                        alt="Luxury condo"
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        src="/alana.png"
+                                    />
+                                    <div className="absolute top-4 left-4 bg-primary text-white text-[10px] font-black uppercase px-2 py-1 rounded flex items-center gap-1">
+                                        <span className="material-symbols-outlined text-[12px]">
+                                            bolt
+                                        </span>{" "}
+                                        Spacious Living
+                                    </div>
+                                    <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded">
+                                        D28, 99 years
+                                    </div>
+                                </div>
+                                <div className="p-6">
+                                    <h3 className="text-xl font-bold mb-1">Alana</h3>
+                                    <p className="text-gray-500 text-sm mb-4 flex items-center gap-1">
+                                        <span className="material-symbols-outlined text-sm">
+                                            location_on
+                                        </span>{" "}
+                                        102 Sunrise Terrace
+                                    </p>
+                                    <div className="flex justify-between items-center py-4 border-y border-gray-200 dark:border-gray-700">
+                                        <div>
+                                            <p className="text-xs text-gray-400 uppercase font-bold">
+                                                Starting From
+                                            </p>
+                                            <p className="text-lg font-black text-primary">
+                                                $3,585,120
+                                            </p>
+                                        </div>
+                                        <div className="text-right">
+                                            <p className="text-xs text-gray-400 uppercase font-bold">
+                                                Status
+                                            </p>
+                                            <p className="text-lg font-black">Available</p>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="flex flex-wrap gap-x-8 gap-y-3 mt-4">
-                                    <div className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-300">
-                                        <span className="material-symbols-outlined text-primary text-lg">
-                                            local_offer
-                                        </span>
-                                        Direct Developer Pricing
-                                    </div>
-                                    <div className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-300">
-                                        <span className="material-symbols-outlined text-primary text-lg">
-                                            verified_user
-                                        </span>
-                                        0% Agent Commission
-                                    </div>
-                                    <div className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-300">
-                                        <span className="material-symbols-outlined text-primary text-lg">
-                                            assignment_turned_in
-                                        </span>
-                                        Verified Project Lists
-                                    </div>
+                                    <a
+                                        href="https://96278266-alana.eraprojects.sg/site-plans"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-full mt-6 py-3 bg-white dark:bg-gray-700 text-[#111418] dark:text-white rounded-lg font-bold text-sm border border-gray-200 dark:border-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center gap-2 cursor-pointer"
+                                        onClick={() => trackEvent("outbound_link", "engagement", "view_floor_plans_alana")}
+                                    >
+                                        <span className="material-symbols-outlined text-sm">
+                                            floor
+                                        </span>{" "}
+                                        View Floor Plans
+                                    </a>
                                 </div>
                             </div>
-                            <div className="lg:col-span-4 flex justify-center lg:justify-end">
-                                <div className="bg-white dark:bg-gray-800 p-6 rounded-3xl shadow-2xl border border-gray-100 dark:border-gray-700 w-full max-w-[320px] text-center">
-                                    <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 mb-4 border-2 border-dashed border-gray-200 dark:border-gray-700 aspect-square flex items-center justify-center relative overflow-hidden group">
-                                        <img
-                                            alt="QR Code"
-                                            className="w-full h-full object-contain"
-                                            src="/telegram_qr.jpg"
-                                        />
-                                    </div>
-                                    <p className="text-primary font-black text-xl mb-1 flex items-center justify-center gap-2">
-                                        <span className="material-symbols-outlined">
-                                            qr_code_scanner
-                                        </span>{" "}
-                                        Scan to Join
-                                    </p>
 
+                            {/* Linked Pinery Residences Here if we want to add it as a card, but adhering to mockup first */}
+
+                            {/* Linked Pinery Residences Here if we want to add it as a card, but adhering to mockup first */}
+                            <a
+                                href="/pinery"
+                                className="block group bg-background-light dark:bg-gray-800/50 rounded-2xl overflow-hidden border border-transparent hover:border-primary/20 transition-all shadow-sm cursor-pointer"
+                                onClick={() => trackEvent("navigation", "engagement", "view_project_pinery")}
+                            >
+                                <div className="relative aspect-video overflow-hidden">
+                                    <img
+                                        alt="Pinery Residences"
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        src="/hero.png"
+                                    />
+                                    <div className="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-black uppercase px-2 py-1 rounded flex items-center gap-1">
+                                        <span className="material-symbols-outlined text-[12px]">
+                                            schedule
+                                        </span>{" "}
+                                        Preview Soon
+                                    </div>
+                                    <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded">
+                                        D18 • 99 Years
+                                    </div>
+                                </div>
+                                <div className="p-6">
+                                    <h3 className="text-xl font-bold mb-1">Pinery Residences</h3>
+                                    <p className="text-gray-500 text-sm mb-4 flex items-center gap-1">
+                                        <span className="material-symbols-outlined text-sm">
+                                            location_on
+                                        </span>{" "}
+                                        Tampines Street 94
+                                    </p>
+                                    <div className="flex justify-between items-center py-4 border-y border-gray-200 dark:border-gray-700">
+                                        <div>
+                                            <p className="text-xs text-gray-400 uppercase font-bold">
+                                                Starting From
+                                            </p>
+                                            <p className="text-lg font-black text-primary">
+                                                TBD
+                                            </p>
+                                        </div>
+                                        <div className="text-right">
+                                            <p className="text-xs text-gray-400 uppercase font-bold">
+                                                Status
+                                            </p>
+                                            <p className="text-lg font-black">Register Interest</p>
+                                        </div>
+                                    </div>
+                                    <button className="w-full mt-6 py-3 bg-white dark:bg-gray-700 text-[#111418] dark:text-white rounded-lg font-bold text-sm border border-gray-200 dark:border-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center gap-2 cursor-pointer">
+                                        <span className="material-symbols-outlined text-sm">
+                                            app_registration
+                                        </span>{" "}
+                                        View Project Details
+                                    </button>
+                                </div>
+                            </a>
+                            <div className="group bg-background-light dark:bg-gray-800/50 rounded-2xl overflow-hidden border border-transparent hover:border-primary/20 transition-all shadow-sm cursor-pointer">
+                                <div className="relative aspect-video overflow-hidden">
+                                    <img
+                                        alt="Skyscraper facade"
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        src="/arina.png"
+                                    />
+                                    <div className="absolute top-4 left-4 bg-black text-white text-[10px] font-black uppercase px-2 py-1 rounded flex items-center gap-1">
+                                        <span className="material-symbols-outlined text-[12px]">
+                                            priority_high
+                                        </span>{" "}
+                                        Star Buy
+                                    </div>
+                                    <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded">
+                                        D15, Freehold
+                                    </div>
+                                </div>
+                                <div className="p-6">
+                                    <h3 className="text-xl font-bold mb-1">Arina East</h3>
+                                    <p className="text-gray-500 text-sm mb-4 flex items-center gap-1">
+                                        <span className="material-symbols-outlined text-sm">
+                                            location_on
+                                        </span>{" "}
+                                        Tanjong Rhu Road
+                                    </p>
+                                    <div className="flex justify-between items-center py-4 border-y border-gray-200 dark:border-gray-700">
+                                        <div>
+                                            <p className="text-xs text-gray-400 uppercase font-bold">
+                                                Starting From
+                                            </p>
+                                            <p className="text-lg font-black text-primary">
+                                                $1,328,000
+                                            </p>
+                                        </div>
+                                        <div className="text-right">
+                                            <p className="text-xs text-gray-400 uppercase font-bold">
+                                                Status
+                                            </p>
+                                            <p className="text-lg font-black">Available</p>
+                                        </div>
+                                    </div>
+                                    <a
+                                        href="https://96278266-arina-east-residences.eraprojects.sg/units"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="w-full mt-6 py-3 bg-white dark:bg-gray-700 text-[#111418] dark:text-white rounded-lg font-bold text-sm border border-gray-200 dark:border-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center gap-2 cursor-pointer"
+                                        onClick={() => trackEvent("outbound_link", "engagement", "enquire_arina_price")}
+                                    >
+                                        <span className="material-symbols-outlined text-sm">
+                                            payments
+                                        </span>{" "}
+                                        Enquire Price List
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -371,196 +490,77 @@ export default function HomeClient() {
                         </div>
                     </div>
                 </section >
-                <section id="featured-launches" className="bg-white dark:bg-background-dark py-20 px-6 lg:px-20">
+                <section className="bg-white dark:bg-background-dark py-20 px-6 lg:px-20">
                     <div className="max-w-[1280px] mx-auto">
-                        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-                            <div>
-                                <div className="flex items-center gap-2 text-primary mb-2">
-                                    <span className="material-symbols-outlined">analytics</span>
-                                    <span className="text-sm font-bold uppercase tracking-widest">
-                                        Market Insights
-                                    </span>
+                        <div className="grid lg:grid-cols-12 gap-12 items-center bg-gray-50 dark:bg-gray-800/40 rounded-[2.5rem] p-8 lg:p-16 border border-gray-100 dark:border-gray-700">
+                            <div className="lg:col-span-8 flex flex-col gap-6">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider w-fit">
+                                    <span className="material-symbols-outlined text-sm">groups</span>
+                                    Join Our Community
                                 </div>
-                                <h2 className="text-3xl font-black">Featured New Launches</h2>
-                                <p className="text-gray-500">
-                                    New launches that even I feel like buying.
+                                <h1 className="text-4xl lg:text-6xl font-black text-[#111418] dark:text-white leading-[1.1] tracking-tight">
+                                    Curated <span className="text-primary">Developer Deals</span>{" "}
+                                    Direct to Your Phone
+                                </h1>
+                                <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed">
+                                    Be part of Daniel's property investor community.
+                                    Receive (near) instant notifications on price drops, fire sales, and
+                                    VVIP preview slots.
                                 </p>
-                            </div>
-                            <div className="flex gap-2">
-                                <button className="p-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all cursor-pointer">
-                                    <span className="material-symbols-outlined">arrow_back</span>
-                                </button>
-                                <button className="p-2 rounded-lg border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all cursor-pointer">
-                                    <span className="material-symbols-outlined">arrow_forward</span>
-                                </button>
-                            </div>
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            <div className="group bg-background-light dark:bg-gray-800/50 rounded-2xl overflow-hidden border border-transparent hover:border-primary/20 transition-all shadow-sm cursor-pointer">
-                                <div className="relative aspect-video overflow-hidden">
-                                    <img
-                                        alt="Luxury condo"
-                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                        src="/alana.png"
-                                    />
-                                    <div className="absolute top-4 left-4 bg-primary text-white text-[10px] font-black uppercase px-2 py-1 rounded flex items-center gap-1">
-                                        <span className="material-symbols-outlined text-[12px]">
-                                            bolt
-                                        </span>{" "}
-                                        Spacious Living
-                                    </div>
-                                    <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded">
-                                        D28, 99 years
-                                    </div>
-                                </div>
-                                <div className="p-6">
-                                    <h3 className="text-xl font-bold mb-1">Alana</h3>
-                                    <p className="text-gray-500 text-sm mb-4 flex items-center gap-1">
-                                        <span className="material-symbols-outlined text-sm">
-                                            location_on
-                                        </span>{" "}
-                                        102 Sunrise Terrace
-                                    </p>
-                                    <div className="flex justify-between items-center py-4 border-y border-gray-200 dark:border-gray-700">
-                                        <div>
-                                            <p className="text-xs text-gray-400 uppercase font-bold">
-                                                Starting From
-                                            </p>
-                                            <p className="text-lg font-black text-primary">
-                                                $3,585,120
-                                            </p>
-                                        </div>
-                                        <div className="text-right">
-                                            <p className="text-xs text-gray-400 uppercase font-bold">
-                                                Status
-                                            </p>
-                                            <p className="text-lg font-black">Available</p>
-                                        </div>
-                                    </div>
+                                <div className="flex flex-col sm:flex-row gap-4 mt-4">
                                     <a
-                                        href="https://96278266-alana.eraprojects.sg/site-plans"
+                                        href="https://t.me/danielproperty_sg"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="w-full mt-6 py-3 bg-white dark:bg-gray-700 text-[#111418] dark:text-white rounded-lg font-bold text-sm border border-gray-200 dark:border-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center gap-2 cursor-pointer"
-                                        onClick={() => trackEvent("outbound_link", "engagement", "view_floor_plans_alana")}
+                                        className="flex items-center justify-center gap-3 bg-[#0088cc] text-white px-8 py-4 rounded-xl font-black text-lg shadow-xl hover:brightness-110 transition-all cursor-pointer"
+                                        onClick={() => trackEvent("conversion", "engagement", "join_telegram_hero")}
                                     >
-                                        <span className="material-symbols-outlined text-sm">
-                                            floor
-                                        </span>{" "}
-                                        View Floor Plans
+                                        <span className="material-symbols-outlined">send</span>
+                                        Join Telegram Channel
                                     </a>
+                                    <div className="flex flex-col justify-center">
+                                        <div className="bg-red-500 text-white text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider">
+                                            Hot
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="flex flex-wrap gap-x-8 gap-y-3 mt-4">
+                                    <div className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-300">
+                                        <span className="material-symbols-outlined text-primary text-lg">
+                                            local_offer
+                                        </span>
+                                        Direct Developer Pricing
+                                    </div>
+                                    <div className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-300">
+                                        <span className="material-symbols-outlined text-primary text-lg">
+                                            verified_user
+                                        </span>
+                                        0% Agent Commission
+                                    </div>
+                                    <div className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-300">
+                                        <span className="material-symbols-outlined text-primary text-lg">
+                                            assignment_turned_in
+                                        </span>
+                                        Verified Project Lists
+                                    </div>
                                 </div>
                             </div>
-
-                            {/* Linked Pinery Residences Here if we want to add it as a card, but adhering to mockup first */}
-
-                            {/* Linked Pinery Residences Here if we want to add it as a card, but adhering to mockup first */}
-                            <a
-                                href="/pinery"
-                                className="block group bg-background-light dark:bg-gray-800/50 rounded-2xl overflow-hidden border border-transparent hover:border-primary/20 transition-all shadow-sm cursor-pointer"
-                                onClick={() => trackEvent("navigation", "engagement", "view_project_pinery")}
-                            >
-                                <div className="relative aspect-video overflow-hidden">
-                                    <img
-                                        alt="Pinery Residences"
-                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                        src="/hero.png"
-                                    />
-                                    <div className="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-black uppercase px-2 py-1 rounded flex items-center gap-1">
-                                        <span className="material-symbols-outlined text-[12px]">
-                                            schedule
-                                        </span>{" "}
-                                        Preview Soon
+                            <div className="lg:col-span-4 flex justify-center lg:justify-end">
+                                <div className="bg-white dark:bg-gray-800 p-6 rounded-3xl shadow-2xl border border-gray-100 dark:border-gray-700 w-full max-w-[320px] text-center">
+                                    <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 mb-4 border-2 border-dashed border-gray-200 dark:border-gray-700 aspect-square flex items-center justify-center relative overflow-hidden group">
+                                        <img
+                                            alt="QR Code"
+                                            className="w-full h-full object-contain"
+                                            src="/telegram_qr.jpg"
+                                        />
                                     </div>
-                                    <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded">
-                                        D18 • 99 Years
-                                    </div>
-                                </div>
-                                <div className="p-6">
-                                    <h3 className="text-xl font-bold mb-1">Pinery Residences</h3>
-                                    <p className="text-gray-500 text-sm mb-4 flex items-center gap-1">
-                                        <span className="material-symbols-outlined text-sm">
-                                            location_on
+                                    <p className="text-primary font-black text-xl mb-1 flex items-center justify-center gap-2">
+                                        <span className="material-symbols-outlined">
+                                            qr_code_scanner
                                         </span>{" "}
-                                        Tampines Street 94
+                                        Scan to Join
                                     </p>
-                                    <div className="flex justify-between items-center py-4 border-y border-gray-200 dark:border-gray-700">
-                                        <div>
-                                            <p className="text-xs text-gray-400 uppercase font-bold">
-                                                Starting From
-                                            </p>
-                                            <p className="text-lg font-black text-primary">
-                                                TBD
-                                            </p>
-                                        </div>
-                                        <div className="text-right">
-                                            <p className="text-xs text-gray-400 uppercase font-bold">
-                                                Status
-                                            </p>
-                                            <p className="text-lg font-black">Register Interest</p>
-                                        </div>
-                                    </div>
-                                    <button className="w-full mt-6 py-3 bg-white dark:bg-gray-700 text-[#111418] dark:text-white rounded-lg font-bold text-sm border border-gray-200 dark:border-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center gap-2 cursor-pointer">
-                                        <span className="material-symbols-outlined text-sm">
-                                            app_registration
-                                        </span>{" "}
-                                        View Project Details
-                                    </button>
-                                </div>
-                            </a>
-                            <div className="group bg-background-light dark:bg-gray-800/50 rounded-2xl overflow-hidden border border-transparent hover:border-primary/20 transition-all shadow-sm cursor-pointer">
-                                <div className="relative aspect-video overflow-hidden">
-                                    <img
-                                        alt="Skyscraper facade"
-                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                        src="/arina.png"
-                                    />
-                                    <div className="absolute top-4 left-4 bg-black text-white text-[10px] font-black uppercase px-2 py-1 rounded flex items-center gap-1">
-                                        <span className="material-symbols-outlined text-[12px]">
-                                            priority_high
-                                        </span>{" "}
-                                        Star Buy
-                                    </div>
-                                    <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded">
-                                        D15, Freehold
-                                    </div>
-                                </div>
-                                <div className="p-6">
-                                    <h3 className="text-xl font-bold mb-1">Arina East</h3>
-                                    <p className="text-gray-500 text-sm mb-4 flex items-center gap-1">
-                                        <span className="material-symbols-outlined text-sm">
-                                            location_on
-                                        </span>{" "}
-                                        Tanjong Rhu Road
-                                    </p>
-                                    <div className="flex justify-between items-center py-4 border-y border-gray-200 dark:border-gray-700">
-                                        <div>
-                                            <p className="text-xs text-gray-400 uppercase font-bold">
-                                                Starting From
-                                            </p>
-                                            <p className="text-lg font-black text-primary">
-                                                $1,328,000
-                                            </p>
-                                        </div>
-                                        <div className="text-right">
-                                            <p className="text-xs text-gray-400 uppercase font-bold">
-                                                Status
-                                            </p>
-                                            <p className="text-lg font-black">Available</p>
-                                        </div>
-                                    </div>
-                                    <a
-                                        href="https://96278266-arina-east-residences.eraprojects.sg/units"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="w-full mt-6 py-3 bg-white dark:bg-gray-700 text-[#111418] dark:text-white rounded-lg font-bold text-sm border border-gray-200 dark:border-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center gap-2 cursor-pointer"
-                                        onClick={() => trackEvent("outbound_link", "engagement", "enquire_arina_price")}
-                                    >
-                                        <span className="material-symbols-outlined text-sm">
-                                            payments
-                                        </span>{" "}
-                                        Enquire Price List
-                                    </a>
+
                                 </div>
                             </div>
                         </div>
