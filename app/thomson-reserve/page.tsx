@@ -10,13 +10,25 @@ export default function ThomsonReservePage() {
     <div className="min-h-screen bg-[#FAFAFA] text-[#111418] font-inter pb-24">
       {/* Hero Section */}
       <section className="relative w-full h-[60vh] md:h-[80vh] flex items-end pb-12">
-        <div className="absolute inset-0 w-full h-full">
+        {/* Background Image & Overlay */}
+        <div className="absolute inset-0 w-full h-full z-0">
           <img 
             src="/thomson-reserve/thomson-reserve_p26_img1.jpeg" 
             alt="Thomson Reserve Hero" 
             className="w-full h-full object-cover brightness-75"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#101922] to-transparent opacity-80" />
+        </div>
+
+        {/* Top Navigation */}
+        <div className="absolute top-0 left-0 w-full p-6 z-50">
+          <a 
+            href="https://newlaunch.bluebed.ai" 
+            className="inline-flex items-center gap-2 text-white hover:text-white transition-colors backdrop-blur-md bg-black/40 px-5 py-2.5 rounded-full text-sm font-bold shadow-lg hover:bg-black/60 border border-white/20"
+          >
+            <span className="material-symbols-outlined text-base">arrow_back</span>
+            Back to All Launches
+          </a>
         </div>
         <div className="relative z-10 px-6 w-full max-w-5xl mx-auto">
           <span className="inline-block bg-[#C5A059] text-white text-[10px] font-black uppercase px-2 py-1 rounded mb-4">
