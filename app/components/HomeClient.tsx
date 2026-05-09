@@ -130,30 +130,34 @@ export default function HomeClient() {
                             </div>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            <div className="group bg-background-light dark:bg-gray-800/50 rounded-2xl overflow-hidden border border-transparent hover:border-primary/20 transition-all shadow-sm cursor-pointer">
+                            <a
+                                href="/thomson-reserve"
+                                className="block group bg-background-light dark:bg-gray-800/50 rounded-2xl overflow-hidden border border-transparent hover:border-primary/20 transition-all shadow-sm cursor-pointer"
+                                onClick={() => trackEvent("navigation", "engagement", "view_project_thomson_reserve")}
+                            >
                                 <div className="relative aspect-video overflow-hidden">
                                     <img
-                                        alt="Luxury condo"
+                                        alt="Thomson Reserve"
                                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                        src="/alana.png"
+                                        src="/thomson-reserve/thomson-reserve_p26_img1.jpeg"
                                     />
-                                    <div className="absolute top-4 left-4 bg-primary text-white text-[10px] font-black uppercase px-2 py-1 rounded flex items-center gap-1">
+                                    <div className="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-black uppercase px-2 py-1 rounded flex items-center gap-1">
                                         <span className="material-symbols-outlined text-[12px]">
-                                            bolt
+                                            schedule
                                         </span>{" "}
-                                        Spacious Living
+                                        Target Preview: Sep / Oct 2026
                                     </div>
                                     <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded">
-                                        D28, 99 years
+                                        D20 • 99 Years
                                     </div>
                                 </div>
                                 <div className="p-6">
-                                    <h3 className="text-xl font-bold mb-1">Alana</h3>
+                                    <h3 className="text-xl font-bold mb-1">Thomson Reserve</h3>
                                     <p className="text-gray-500 text-sm mb-4 flex items-center gap-1">
                                         <span className="material-symbols-outlined text-sm">
                                             location_on
                                         </span>{" "}
-                                        102 Sunrise Terrace
+                                        Bright Hill Drive
                                     </p>
                                     <div className="flex justify-between items-center py-4 border-y border-gray-200 dark:border-gray-700">
                                         <div>
@@ -161,30 +165,24 @@ export default function HomeClient() {
                                                 Starting From
                                             </p>
                                             <p className="text-lg font-black text-primary">
-                                                $3,585,120
+                                                TBD
                                             </p>
                                         </div>
                                         <div className="text-right">
                                             <p className="text-xs text-gray-400 uppercase font-bold">
                                                 Status
                                             </p>
-                                            <p className="text-lg font-black">Available</p>
+                                            <p className="text-lg font-black">Register Interest</p>
                                         </div>
                                     </div>
-                                    <a
-                                        href="https://96278266-alana.eraprojects.sg/site-plans"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="w-full mt-6 py-3 bg-white dark:bg-gray-700 text-[#111418] dark:text-white rounded-lg font-bold text-sm border border-gray-200 dark:border-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center gap-2 cursor-pointer"
-                                        onClick={() => trackEvent("outbound_link", "engagement", "view_floor_plans_alana")}
-                                    >
+                                    <button className="w-full mt-6 py-3 bg-white dark:bg-gray-700 text-[#111418] dark:text-white rounded-lg font-bold text-sm border border-gray-200 dark:border-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center gap-2 cursor-pointer">
                                         <span className="material-symbols-outlined text-sm">
-                                            floor
+                                            app_registration
                                         </span>{" "}
-                                        View Floor Plans
-                                    </a>
+                                        View Project Details
+                                    </button>
                                 </div>
-                            </div>
+                            </a>
 
                             {/* Linked Pinery Residences Here if we want to add it as a card, but adhering to mockup first */}
 
