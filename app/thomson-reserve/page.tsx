@@ -55,7 +55,7 @@ export default function ThomsonReservePage() {
           <div className="flex-1 min-w-[45%] md:min-w-0">
             <span className="material-symbols-outlined text-[#C5A059] text-4xl mb-2">train</span>
             <h3 className="font-bold text-xl">Doorstep MRT</h3>
-            <p className="text-sm text-gray-500">Upper Thomson</p>
+            <p className="text-sm text-gray-500">Upper Thomson (TE8)</p>
           </div>
           <div className="hidden md:block w-px h-16 bg-gray-200"></div>
           <div className="flex-1 min-w-[45%] md:min-w-0">
@@ -78,22 +78,18 @@ export default function ThomsonReservePage() {
             <h3 className="text-2xl font-bold mb-8 flex items-center gap-3 text-[#1A202C]">
               <span className="material-symbols-outlined text-[#C5A059] text-3xl">info</span> Project Fact Sheet
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="border-b md:border-b-0 md:border-r border-gray-100 pb-4 md:pb-0 px-4">
-                <p className="text-sm text-gray-500 mb-1">Project Name</p>
-                <p className="font-semibold text-lg">Thomson Reserve</p>
-              </div>
-              <div className="border-b md:border-b-0 md:border-r border-gray-100 pb-4 md:pb-0 px-4">
-                <p className="text-sm text-gray-500 mb-1">Address</p>
-                <p className="font-semibold text-lg">Bright Hill Drive</p>
+                <p className="text-sm text-gray-500 mb-1">Developer</p>
+                <p className="font-semibold text-base">UOL Group, SingLand & CapitaLand Development</p>
               </div>
               <div className="border-b md:border-b-0 md:border-r border-gray-100 pb-4 md:pb-0 px-4">
                 <p className="text-sm text-gray-500 mb-1">Site Area</p>
                 <p className="font-semibold text-lg">~540,434 SQFT</p>
               </div>
               <div className="px-4">
-                <p className="text-sm text-gray-500 mb-1">Estimated TOP</p>
-                <p className="font-semibold text-lg">TBC</p>
+                <p className="text-sm text-gray-500 mb-1">Tenure</p>
+                <p className="font-semibold text-lg">99 Years Leasehold</p>
               </div>
             </div>
           </div>
@@ -105,7 +101,7 @@ export default function ThomsonReservePage() {
           <div>
             <h2 className="text-3xl font-playfair font-bold text-[#1A202C] mb-6">Seamless Connectivity & Lifestyle</h2>
             <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-              With <strong>Upper Thomson MRT at your doorstep</strong>, the city is closer than ever. Enjoy a direct and effortless commute—just 5 stops to the Orchard shopping belt, and 9 to 11 stops to the CBD and Marina Bay. 
+              With <strong>Upper Thomson MRT (TE8) at your doorstep</strong>, the city is closer than ever. Enjoy a direct and effortless commute—just 5 stops to the Orchard shopping belt, and 9 to 11 stops to the CBD and Marina Bay. 
             </p>
             <p className="text-gray-600 text-lg leading-relaxed mb-6">
               Embrace an integrated lifestyle with a direct link to Thomson Plaza for all your dining and retail needs, while remaining surrounded by the pristine greenery of the nearby MacRitchie Reservoir.
@@ -115,7 +111,7 @@ export default function ThomsonReservePage() {
                 <span className="material-symbols-outlined text-[#C5A059]">school</span> Elite Education: Ai Tong School
               </h4>
               <p className="text-sm text-gray-600">
-                Thomson Reserve is situated <strong>within 1KM to Ai Tong School</strong>, one of Singapore's most popular primary schools. Based on recent ballot history, families residing within 1KM stand a significantly better chance during the highly competitive registration phases.
+                Thomson Reserve is situated <strong>within 1KM to Ai Tong School</strong>, one of Singapore's most popular primary schools. Families residing within 1KM stand a significantly better chance during the highly competitive registration phases.
               </p>
             </div>
           </div>
@@ -162,9 +158,9 @@ export default function ThomsonReservePage() {
       {/* Developer Track Record Section */}
       <section className="px-6 py-20 bg-[#f8f9fa] border-y border-gray-100">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-3xl font-playfair font-bold text-[#1A202C] mb-6">A Premium Development By UOL, SingLand, CapitaLand & Kheng Leong Co.</h2>
+          <h2 className="text-3xl font-playfair font-bold text-[#1A202C] mb-6">A Premium Development By UOL, SingLand & CapitaLand Development</h2>
           <p className="text-gray-600 max-w-3xl mx-auto mb-10 text-lg">
-            Crafted by UOL Group, Singapore Land Group (SingLand), CapitaLand Development, and Kheng Leong Co., renowned developers with an exceptional track record of delivering iconic, high-quality residences across Singapore. Their stellar portfolio includes highly sought-after projects:
+            Crafted by UOL Group, Singapore Land Group (SingLand), and CapitaLand Development, renowned developers with an exceptional track record of delivering iconic, high-quality residences across Singapore. Their stellar portfolio includes:
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             {['Watten House', 'Upperhouse', 'Parktown Residence', "J'den", 'Lydenwoods', 'Skye at Holland'].map((project) => (
@@ -176,26 +172,104 @@ export default function ThomsonReservePage() {
         </div>
       </section>
 
+      {/* Facilities Section */}
+      <section className="px-6 py-20 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div className="max-w-2xl">
+              <h2 className="text-4xl font-playfair font-bold text-[#1A202C] mb-4">World-Class Facilities</h2>
+              <p className="text-gray-600 text-lg">
+                Thomson Reserve is designed as a sanctuary of wellness and recreation. 
+                From the grand clubhouse to the competitive tennis courts, every amenity 
+                is crafted to elevate your daily living experience.
+              </p>
+            </div>
+            <div className="bg-[#f8f9fa] px-6 py-3 rounded-2xl border border-gray-100 hidden md:block">
+              <span className="text-[#C5A059] font-bold text-sm uppercase tracking-wider">Estimated 1,268 Units</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="space-y-4">
+              <div className="rounded-3xl overflow-hidden aspect-[4/3] shadow-lg">
+                <img src="/thomson-reserve/thomson-reserve_p13_img5.png" alt="Swimming Pool" className="w-full h-full object-cover" />
+              </div>
+              <h4 className="font-bold text-xl text-[#1A202C]">Leisure & Lap Pools</h4>
+              <p className="text-gray-500 text-sm leading-relaxed">Dive into tranquility with our expansive swimming pool and dedicated kids' play zone.</p>
+            </div>
+            <div className="space-y-4">
+              <div className="rounded-3xl overflow-hidden aspect-[4/3] shadow-lg">
+                <img src="/thomson-reserve/thomson-reserve_p14_img2.png" alt="Clubhouse" className="w-full h-full object-cover" />
+              </div>
+              <h4 className="font-bold text-xl text-[#1A202C]">The Grand Clubhouse</h4>
+              <p className="text-gray-500 text-sm leading-relaxed">A social hub for residents, featuring multi-purpose function rooms and a state-of-the-art gym.</p>
+            </div>
+            <div className="space-y-4">
+              <div className="rounded-3xl overflow-hidden aspect-[4/3] shadow-lg">
+                <img src="/thomson-reserve/thomson-reserve_p14_img3.png" alt="Tennis Court" className="w-full h-full object-cover" />
+              </div>
+              <h4 className="font-bold text-xl text-[#1A202C]">Active Sports Zones</h4>
+              <p className="text-gray-500 text-sm leading-relaxed">Stay active with full-sized tennis courts, multi-purpose courts, and outdoor fitness corners.</p>
+            </div>
+          </div>
+
+          <div className="mt-16 bg-[#1A202C] rounded-[40px] p-8 md:p-12 text-white relative overflow-hidden">
+            <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div>
+                <span className="inline-block text-[#C5A059] font-bold text-xs uppercase tracking-[0.2em] mb-4">Nature at Your Doorstep</span>
+                <h3 className="text-3xl md:text-4xl font-playfair font-bold mb-6">Bordered by Windsor Nature Park</h3>
+                <p className="text-gray-300 text-lg leading-relaxed mb-8">
+                  Step out of your home and into the pristine greenery of Windsor Nature Park and MacRitchie Reservoir. 
+                  Enjoy seamless access to some of Singapore's most beautiful nature trails and fresh air.
+                </p>
+                <div className="flex gap-4">
+                    <div className="flex flex-col">
+                        <span className="text-2xl font-bold text-[#C5A059]">Direct</span>
+                        <span className="text-xs text-gray-400 uppercase">Nature Access</span>
+                    </div>
+                    <div className="w-px h-10 bg-gray-700"></div>
+                    <div className="flex flex-col">
+                        <span className="text-2xl font-bold text-[#C5A059]">Panoramic</span>
+                        <span className="text-xs text-gray-400 uppercase">Greenery Views</span>
+                    </div>
+                </div>
+              </div>
+              <div className="rounded-3xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
+                <img src="/thomson-reserve/thomson-reserve_p12_img2.png" alt="Nature Surroundings" className="w-full h-full object-cover" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Advantage Section */}
       <section className="px-6 py-20 max-w-5xl mx-auto text-center">
         <span className="material-symbols-outlined text-[#C5A059] text-5xl mb-4">trending_up</span>
         <h2 className="text-3xl font-playfair font-bold text-[#1A202C] mb-6">Strong Entry Price Advantage</h2>
         <div className="bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-gray-100 max-w-4xl mx-auto text-left mb-10">
             <p className="text-gray-600 mb-8 text-lg leading-relaxed text-center">
-              Acquired at an incredibly attractive land price of <strong>$1,178 psf ppr</strong>, Thomson Reserve offers significant upside potential. 
+              Acquired at an incredibly attractive land price of <strong>$1,178 psf ppr</strong>, Thomson Reserve offers significant upside potential compared to current market benchmarks.
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-[#FAFAFA] p-6 rounded-2xl border border-gray-200">
-                    <h4 className="font-bold text-[#1A202C] mb-3 text-lg">Compared to Recent Sites</h4>
-                    <p className="text-gray-600 leading-relaxed">A recent site in Lentor (3 MRT stations further from the city) was acquired at a much higher land rate of <strong>$1,278 psf ppr</strong>.</p>
+                    <h4 className="font-bold text-[#1A202C] mb-3 text-lg">Benchmark Resale Prices</h4>
+                    <p className="text-gray-600 leading-relaxed mb-2">Nearby completed developments are already transacting at significant premiums:</p>
+                    <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• <strong>Jadescape:</strong> Avg ~$2,356 PSF</li>
+                        <li>• <strong>Thomson Three:</strong> Avg ~$2,210 PSF</li>
+                    </ul>
                 </div>
                 <div className="bg-[#FAFAFA] p-6 rounded-2xl border border-gray-200">
-                    <h4 className="font-bold text-[#1A202C] mb-3 text-lg">Compared to Sub-Sale</h4>
-                    <p className="text-gray-600 leading-relaxed">Lentor Modern sub-sale transactions have already achieved <strong>$2,588 psf</strong> (for non-harmonized space), which translates to an estimated <strong>$2,717 psf</strong> for harmonized layouts.</p>
+                    <h4 className="font-bold text-[#1A202C] mb-3 text-lg">Future Growth Benchmarks</h4>
+                    <p className="text-gray-600 leading-relaxed mb-2">Comparisons to recent sites and sub-sales show a clear value gap:</p>
+                    <ul className="text-sm text-gray-600 space-y-1">
+                        <li>• <strong>Lentor Site:</strong> Acquired at $1,278 PSF PPR</li>
+                        <li>• <strong>Lentor Modern:</strong> Sub-sales up to $2,568 PSF</li>
+                    </ul>
                 </div>
             </div>
             <p className="text-[#1A202C] font-semibold text-center mt-10 text-xl">
-              Thomson Reserve will undoubtedly be one of the most attractively priced new launches in the Rest of Central Region (RCR).
+              Thomson Reserve stands as one of the most attractively priced new launches in the Rest of Central Region (RCR).
             </p>
         </div>
         <button 
