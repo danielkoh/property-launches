@@ -131,6 +131,60 @@ export default function HomeClient() {
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                             <a
+                                href="/dunearn-house"
+                                className="block group bg-background-light dark:bg-gray-800/50 rounded-2xl overflow-hidden border border-transparent hover:border-primary/20 transition-all shadow-sm cursor-pointer"
+                                onClick={() => trackEvent("navigation", "engagement", "view_project_dunearn_house")}
+                            >
+                                <div className="relative aspect-video overflow-hidden">
+                                    <img
+                                        alt="Dunearn House"
+                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        src="/dunearn-house/page_01.png"
+                                    />
+                                    <div className="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-black uppercase px-2 py-1 rounded flex items-center gap-1">
+                                        <span className="material-symbols-outlined text-[12px]">
+                                            schedule
+                                        </span>{" "}
+                                        Target Preview: July 2026
+                                    </div>
+                                    <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded">
+                                        D11 • 99 Years
+                                    </div>
+                                </div>
+                                <div className="p-6">
+                                    <h3 className="text-xl font-bold mb-1">Dunearn House</h3>
+                                    <p className="text-gray-500 text-sm mb-4 flex items-center gap-1">
+                                        <span className="material-symbols-outlined text-sm">
+                                            location_on
+                                        </span>{" "}
+                                        Dunearn Road / Swiss Club Subzone
+                                    </p>
+                                    <div className="flex justify-between items-center py-4 border-y border-gray-200 dark:border-gray-700">
+                                        <div>
+                                            <p className="text-xs text-gray-400 uppercase font-bold">
+                                                Starting From
+                                            </p>
+                                            <p className="text-lg font-black text-primary">
+                                                TBD
+                                            </p>
+                                        </div>
+                                        <div className="text-right">
+                                            <p className="text-xs text-gray-400 uppercase font-bold">
+                                                Status
+                                            </p>
+                                            <p className="text-lg font-black">Register Interest</p>
+                                        </div>
+                                    </div>
+                                    <button className="w-full mt-6 py-3 bg-white dark:bg-gray-700 text-[#111418] dark:text-white rounded-lg font-bold text-sm border border-gray-200 dark:border-gray-600 hover:bg-primary hover:text-white hover:border-primary transition-all flex items-center justify-center gap-2 cursor-pointer">
+                                        <span className="material-symbols-outlined text-sm">
+                                            app_registration
+                                        </span>{" "}
+                                        View Project Details
+                                    </button>
+                                </div>
+                            </a>
+
+                            <a
                                 href="/thomson-reserve"
                                 className="block group bg-background-light dark:bg-gray-800/50 rounded-2xl overflow-hidden border border-transparent hover:border-primary/20 transition-all shadow-sm cursor-pointer"
                                 onClick={() => trackEvent("navigation", "engagement", "view_project_thomson_reserve")}
