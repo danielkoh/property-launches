@@ -45,14 +45,14 @@ export default function RegistrationForm() {
 
     if (state.success) {
         return (
-            <div className="flex flex-col items-center justify-center py-12 text-center">
-                <div className="bg-pinery-primary/20 p-4 rounded-full text-pinery-primary mb-4">
+            <div className="flex flex-col items-center justify-center py-10 text-center">
+                <div className="bg-primary/20 p-4 rounded-full text-primary mb-4">
                     <span className="material-symbols-outlined text-4xl">check_circle</span>
                 </div>
-                <h3 className="text-2xl font-bold text-forest-green dark:text-white mb-2">
+                <h3 className="text-2xl font-bold text-[#1c1917] dark:text-white mb-2">
                     Registration Successful!
                 </h3>
-                <p className="text-slate-600 dark:text-slate-400">
+                <p className="text-stone-600 dark:text-stone-400 text-sm">
                     Thank you for registering. Our sales team will contact you shortly with
                     the exclusive project information.
                 </p>
@@ -61,74 +61,74 @@ export default function RegistrationForm() {
     }
 
     return (
-        <form action={formAction} className="flex flex-col gap-5">
+        <form action={formAction} className="flex flex-col gap-4">
             {state.error && (
                 <div className="bg-red-50 text-red-600 p-3 rounded-lg text-sm font-medium border border-red-100">
                     {state.error}
                 </div>
             )}
-            <div className="flex flex-col gap-2">
-                <label className="text-sm font-bold text-slate-700 dark:text-slate-300">
+            <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-bold text-stone-700 dark:text-stone-300">
                     Full Name
                 </label>
                 <input
                     name="name"
-                    className="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-forest-green focus:ring-2 focus:ring-pinery-primary focus:border-transparent outline-none transition-all"
+                    className="w-full px-4 py-2.5 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-850 text-[#1c1917] dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-sm"
                     placeholder="Enter your name"
                     type="text"
                     required
                 />
             </div>
-            <div className="flex flex-col gap-2">
-                <label className="text-sm font-bold text-slate-700 dark:text-slate-300">
+            <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-bold text-stone-700 dark:text-stone-300">
                     Email Address
                 </label>
                 <input
                     name="email"
-                    className="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-forest-green focus:ring-2 focus:ring-pinery-primary focus:border-transparent outline-none transition-all"
+                    className="w-full px-4 py-2.5 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-850 text-[#1c1917] dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-sm"
                     placeholder="email@example.com"
                     type="email"
                     required
                 />
             </div>
-            <div className="flex flex-col gap-2">
-                <label className="text-sm font-bold text-slate-700 dark:text-slate-300">
+            <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-bold text-stone-700 dark:text-stone-300">
                     Phone Number
                 </label>
                 <input
                     name="phone"
-                    className="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-forest-green focus:ring-2 focus:ring-pinery-primary focus:border-transparent outline-none transition-all"
+                    className="w-full px-4 py-2.5 rounded-lg border border-stone-200 dark:border-stone-700 bg-white dark:bg-stone-850 text-[#1c1917] dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-sm"
                     placeholder="+65 XXXX XXXX"
                     type="tel"
                     required
                 />
             </div>
-            <div className="flex items-start gap-3 mt-2">
+            <div className="flex items-start gap-3 mt-1">
                 <input
                     name="consent"
-                    className="mt-1 rounded border-slate-300 text-pinery-primary focus:ring-pinery-primary"
+                    className="mt-1 rounded border-stone-350 text-primary focus:ring-primary"
                     type="checkbox"
                     required
                 />
-                <label className="text-xs text-slate-500 leading-tight">
+                <label className="text-[11px] text-stone-500 leading-tight">
                     I consent to receive marketing updates and communications
                 </label>
             </div>
             <button
                 disabled={isPending}
-                className="bg-pinery-primary hover:bg-pinery-primary/90 text-forest-green font-black py-4 rounded-lg shadow-lg shadow-pinery-primary/20 transition-all active:scale-[0.98] mt-4 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center"
+                className="bg-primary hover:bg-primary-hover text-white font-black py-3 rounded-lg shadow-lg shadow-primary/20 transition-all active:scale-[0.98] mt-2 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center text-sm"
                 type="submit"
             >
                 {isPending ? (
                     <span className="flex items-center gap-2">
-                        <span className="w-4 h-4 border-2 border-forest-green border-t-transparent rounded-full animate-spin"></span>
+                        <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
                         SUBMITTING...
                     </span>
                 ) : (
                     "GET VVIP ACCESS NOW"
                 )}
             </button>
-            <p className="text-center text-[10px] text-slate-400 mt-2">
+            <p className="text-center text-[10px] text-stone-400 mt-1">
                 No spam. Your privacy is our priority. Terms and conditions apply.
             </p>
         </form>

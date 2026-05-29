@@ -59,7 +59,7 @@ export default function HomeClient() {
 
     return (
         <div className="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden bg-background-light dark:bg-background-dark text-[#111418] dark:text-white font-display">
-            <header className="sticky top-0 z-50 bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-solid border-[#f0f2f4] dark:border-gray-800 px-6 lg:px-20 py-4">
+            <header className="sticky top-0 z-50 bg-white/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-solid border-[#f0f2f4] dark:border-gray-800 px-6 lg:px-12 py-3">
                 <div className="max-w-[1280px] mx-auto flex items-center justify-between">
                     <div className="flex items-center gap-10">
                         <div className="flex items-center gap-2 text-primary">
@@ -105,7 +105,7 @@ export default function HomeClient() {
                 </div>
             </header>
             <main className="flex-1">
-                <section id="featured-launches" className="bg-white dark:bg-background-dark py-20 px-6 lg:px-20 border-b border-gray-100 dark:border-gray-800">
+                <section id="featured-launches" className="bg-white dark:bg-background-dark py-10 lg:py-14 px-6 lg:px-12 border-b border-gray-100 dark:border-gray-800">
                     <div className="max-w-[1280px] mx-auto">
                         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                             <div>
@@ -352,7 +352,7 @@ export default function HomeClient() {
                         </div>
                     </div>
                 </section>
-                <section id="investment-tools" className="py-16 px-6 lg:px-20 bg-background-light dark:bg-background-dark/50">
+                <section id="investment-tools" className="py-8 lg:py-10 px-6 lg:px-12 bg-background-light dark:bg-background-dark/50">
                     <div className="max-w-[1280px] mx-auto">
                         <div className="flex items-center gap-4 mb-10">
                             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
@@ -542,7 +542,7 @@ export default function HomeClient() {
                         </div>
                     </div>
                 </section >
-                <section className="bg-white dark:bg-background-dark py-20 px-6 lg:px-20">
+                <section className="bg-white dark:bg-background-dark py-10 lg:py-14 px-6 lg:px-12">
                     <div className="max-w-[1280px] mx-auto">
                         <div className="grid lg:grid-cols-12 gap-12 items-center bg-gray-50 dark:bg-gray-800/40 rounded-[2.5rem] p-8 lg:p-16 border border-gray-100 dark:border-gray-700">
                             <div className="lg:col-span-8 flex flex-col gap-6">
@@ -618,7 +618,7 @@ export default function HomeClient() {
                         </div>
                     </div>
                 </section>
-                <section id="vvip-registration" className="py-20 px-6 lg:px-20 bg-gray-50 dark:bg-background-dark">
+                <section id="vvip-registration" className="py-10 lg:py-14 px-6 lg:px-12 bg-gray-50 dark:bg-background-dark">
                     <div className="max-w-[1280px] mx-auto bg-white dark:bg-gray-800/30 rounded-[2.5rem] overflow-hidden shadow-xl border border-gray-100 dark:border-gray-700">
                         <div className="grid lg:grid-cols-2">
                             <div className="p-8 lg:p-16 bg-primary text-white flex flex-col justify-center">
@@ -638,7 +638,7 @@ export default function HomeClient() {
                     </div>
                 </section>
             </main >
-            <footer className="bg-[#111418] text-white py-16 px-6 lg:px-20 border-t border-gray-800">
+            <footer className="bg-[#111418] text-white py-8 lg:py-12 px-6 lg:px-12 border-t border-gray-800">
                 <div className="max-w-[1280px] mx-auto">
                     <div className="flex flex-col md:flex-row justify-between gap-12 mb-12">
                         <div className="max-w-xs">
