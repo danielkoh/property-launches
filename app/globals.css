@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* Prevent stray horizontal scrolling on mobile.
+   `clip` (rather than `hidden`) keeps the sticky header working and
+   does not create an extra scroll container. */
+html,
+body {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
 @theme {
   --font-display: var(--font-inter), sans-serif;
 
