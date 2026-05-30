@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import NumberField from "./NumberField";
 
 interface EcViabilityCalculatorProps {
     isOpen: boolean;
@@ -208,11 +209,13 @@ export default function EcViabilityCalculator({ isOpen, onClose }: EcViabilityCa
                                     <label className="block text-xs font-bold text-gray-600 dark:text-gray-300 mb-1">
                                         Household Income ($/mo)
                                     </label>
-                                    <input
-                                        type="number"
+                                    <NumberField
                                         value={householdIncome}
-                                        onChange={e => setHouseholdIncome(Number(e.target.value))}
-                                        className={`w-full p-2 rounded border ring-offset-0 focus:ring-0 text-sm ${householdIncome > 16000 ? 'border-red-300 bg-red-50 text-red-900' : 'border-gray-200 bg-gray-50 dark:border-gray-600 dark:bg-gray-700'}`}
+                                        onChange={setHouseholdIncome}
+                                        format
+                                        min={0}
+                                        aria-label="Household income per month"
+                                        className={`w-full p-2 rounded border text-sm focus:outline-none focus:ring-2 ${householdIncome > 16000 ? 'border-red-300 bg-red-50 text-red-900 focus:ring-red-300' : 'border-gray-200 bg-gray-50 dark:border-gray-600 dark:bg-gray-700 focus:ring-primary/50'}`}
                                     />
                                     {householdIncome > 16000 && (
                                         <p className="text-[10px] text-red-500 mt-1">Exceeds $16,000 ceiling</p>
@@ -238,11 +241,13 @@ export default function EcViabilityCalculator({ isOpen, onClose }: EcViabilityCa
                             <div className="space-y-3">
                                 <div>
                                     <label className="block text-xs font-bold text-gray-600 dark:text-gray-300 mb-1">Target EC Price ($)</label>
-                                    <input
-                                        type="number"
+                                    <NumberField
                                         value={purchasePrice}
-                                        onChange={e => setPurchasePrice(Number(e.target.value))}
-                                        className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-sm"
+                                        onChange={setPurchasePrice}
+                                        format
+                                        min={0}
+                                        aria-label="Target EC price"
+                                        className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
                                     />
                                 </div>
                                 <div className="grid grid-cols-2 gap-3">
@@ -250,22 +255,26 @@ export default function EcViabilityCalculator({ isOpen, onClose }: EcViabilityCa
                                         <label className="block text-xs font-bold text-gray-600 dark:text-gray-300 mb-1">
                                             Cash Savings ($)
                                         </label>
-                                        <input
-                                            type="number"
+                                        <NumberField
                                             value={cashAvailable}
-                                            onChange={e => setCashAvailable(Number(e.target.value))}
-                                            className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-sm"
+                                            onChange={setCashAvailable}
+                                            format
+                                            min={0}
+                                            aria-label="Cash savings"
+                                            className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
                                         />
                                     </div>
                                     <div>
                                         <label className="block text-xs font-bold text-gray-600 dark:text-gray-300 mb-1">
                                             CPF OA ($)
                                         </label>
-                                        <input
-                                            type="number"
+                                        <NumberField
                                             value={cpfAvailable}
-                                            onChange={e => setCpfAvailable(Number(e.target.value))}
-                                            className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-sm"
+                                            onChange={setCpfAvailable}
+                                            format
+                                            min={0}
+                                            aria-label="CPF OA balance"
+                                            className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
                                         />
                                     </div>
                                 </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import NumberField from "./NumberField";
 
 interface ProgressionPlannerProps {
     isOpen: boolean;
@@ -117,13 +118,13 @@ export default function ProgressionPlanner({ isOpen, onClose }: ProgressionPlann
                     </button>
                 </div>
 
-                <div className="flex-1 overflow-hidden grid grid-cols-1 md:grid-cols-3">
+                <div className="flex-1 min-h-0 overflow-y-auto md:overflow-hidden grid grid-cols-1 md:grid-cols-3">
                     {/* LEFT: Inputs */}
-                    <div className="p-6 bg-gray-50 dark:bg-gray-900 border-r border-gray-100 dark:border-gray-700 overflow-y-auto">
+                    <div className="p-6 bg-gray-50 dark:bg-gray-900 border-b md:border-b-0 md:border-r border-gray-100 dark:border-gray-700 md:overflow-y-auto">
                         <section className="space-y-6">
                             <div>
                                 <label className="block text-xs font-bold text-gray-600 dark:text-gray-300 mb-1">Property Price ($)</label>
-                                <input type="number" value={purchasePrice} onChange={e => setPurchasePrice(Number(e.target.value))} className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm font-bold" />
+                                <NumberField value={purchasePrice} onChange={setPurchasePrice} format min={0} aria-label="Property Price" className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-800 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-primary/50" />
                             </div>
 
                             <div>
@@ -153,7 +154,7 @@ export default function ProgressionPlanner({ isOpen, onClose }: ProgressionPlann
                     </div>
 
                     {/* RIGHT: Timeline Visualization */}
-                    <div className="col-span-1 md:col-span-2 overflow-y-auto p-6 bg-white dark:bg-gray-800">
+                    <div className="col-span-1 md:col-span-2 md:overflow-y-auto p-6 bg-white dark:bg-gray-800">
                         <div className="space-y-0 relative">
                             {/* Vertical Line */}
                             <div className="absolute left-6 top-4 bottom-4 w-0.5 bg-gray-100 dark:bg-gray-700 z-0"></div>

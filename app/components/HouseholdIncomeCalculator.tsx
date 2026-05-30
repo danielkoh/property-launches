@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import NumberField from "./NumberField";
 
 interface HouseholdIncomeCalculatorProps {
     isOpen: boolean;
@@ -87,15 +88,12 @@ export default function HouseholdIncomeCalculator({ isOpen, onClose }: Household
                             <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1">
                                 Property Price ($)
                             </label>
-                            <input
-                                type="text"
-                                value={price.toLocaleString()}
-                                onChange={(e) => {
-                                    const value = e.target.value.replace(/,/g, '');
-                                    if (!isNaN(Number(value))) {
-                                        setPrice(Number(value));
-                                    }
-                                }}
+                            <NumberField
+                                value={price}
+                                onChange={setPrice}
+                                format
+                                min={0}
+                                aria-label="Property Price"
                                 className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary/50"
                             />
                         </div>
@@ -105,10 +103,13 @@ export default function HouseholdIncomeCalculator({ isOpen, onClose }: Household
                                 <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1">
                                     Downpayment (%)
                                 </label>
-                                <input
-                                    type="number"
+                                <NumberField
                                     value={downpaymentPercent}
-                                    onChange={(e) => setDownpaymentPercent(Number(e.target.value))}
+                                    onChange={setDownpaymentPercent}
+                                    decimal
+                                    min={0}
+                                    max={100}
+                                    aria-label="Downpayment percentage"
                                     className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary/50"
                                 />
                             </div>
@@ -130,11 +131,13 @@ export default function HouseholdIncomeCalculator({ isOpen, onClose }: Household
                             <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1">
                                 Other Monthly Debt Payments ($)
                             </label>
-                            <input
-                                type="number"
+                            <NumberField
                                 value={monthlyDebt}
-                                onChange={(e) => setMonthlyDebt(Number(e.target.value))}
+                                onChange={setMonthlyDebt}
+                                format
+                                min={0}
                                 placeholder="Car loans, study loans, credit cards..."
+                                aria-label="Other monthly debt payments"
                                 className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary/50"
                             />
                             <p className="text-[10px] text-gray-400 mt-1">Include car loans, study loans, credit card min payments etc.</p>
@@ -152,8 +155,10 @@ export default function HouseholdIncomeCalculator({ isOpen, onClose }: Household
                                 onChange={(e) => setTenure(Number(e.target.value))}
                                 className="w-full accent-primary h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
                             />
-                            <div className="text-right text-sm font-bold text-primary mt-1">
-                                {tenure} Years
+                            <div className="flex justify-between items-center text-xs text-gray-400 mt-1">
+                                <span>5 yrs</span>
+                                <span className="text-sm font-bold text-primary">{tenure} Years</span>
+                                <span>35 yrs</span>
                             </div>
                         </div>
                     </div>

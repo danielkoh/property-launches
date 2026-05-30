@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import NumberField from "./NumberField";
 
 interface StampDutyCalculatorProps {
     isOpen: boolean;
@@ -141,10 +142,12 @@ export default function StampDutyCalculator({ isOpen, onClose }: StampDutyCalcul
                             <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1">
                                 Purchase Price ($)
                             </label>
-                            <input
-                                type="number"
+                            <NumberField
                                 value={price}
-                                onChange={(e) => setPrice(Number(e.target.value))}
+                                onChange={setPrice}
+                                format
+                                min={0}
+                                aria-label="Purchase Price"
                                 className="w-full px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-primary/50"
                             />
                         </div>
@@ -185,7 +188,7 @@ export default function StampDutyCalculator({ isOpen, onClose }: StampDutyCalcul
                         {residency !== "ENTITY" && (
                             <div>
                                 <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1">
-                                    Number of Attributes Owned
+                                    Number of Properties Owned
                                 </label>
                                 <p className="text-xs text-gray-500 mb-2">Count of residential properties currently owned in Singapore.</p>
                                 <div className="flex bg-gray-100 dark:bg-gray-700 rounded-lg p-1">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import NumberField from "./NumberField";
 
 interface InvestmentRoiCalculatorProps {
     isOpen: boolean;
@@ -61,6 +62,9 @@ export default function InvestmentRoiCalculator({ isOpen, onClose }: InvestmentR
     ]);
 
     const calculateRoi = () => {
+        // Keep the last good result on screen while a price field is being cleared.
+        if (purchasePrice <= 0) return;
+
         const pDate = new Date(purchaseDate);
 
         // Handle TOP Date (YYYY-MM) safely
@@ -249,21 +253,21 @@ export default function InvestmentRoiCalculator({ isOpen, onClose }: InvestmentR
                             <div className="space-y-3">
                                 <div>
                                     <label className="block text-xs font-bold text-gray-600 dark:text-gray-300 mb-1">Price ($)</label>
-                                    <input type="number" value={purchasePrice} onChange={e => setPurchasePrice(Number(e.target.value))} className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-sm" />
+                                    <NumberField value={purchasePrice} onChange={setPurchasePrice} format min={0} aria-label="Price" className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50" />
                                 </div>
                                 <div className="grid grid-cols-2 gap-3">
                                     <div>
                                         <label className="block text-xs font-bold text-gray-600 dark:text-gray-300 mb-1">Downpay %</label>
-                                        <input type="number" value={downpaymentPercent} onChange={e => setDownpaymentPercent(Number(e.target.value))} className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-sm" />
+                                        <NumberField value={downpaymentPercent} onChange={setDownpaymentPercent} decimal min={0} max={100} aria-label="Downpayment percentage" className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50" />
                                     </div>
                                     <div>
                                         <label className="block text-xs font-bold text-gray-600 dark:text-gray-300 mb-1">Loan Tenure (Y)</label>
-                                        <input type="number" value={loanTenure} onChange={e => setLoanTenure(Number(e.target.value))} className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-sm" />
+                                        <NumberField value={loanTenure} onChange={setLoanTenure} min={1} max={35} aria-label="Loan tenure in years" className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50" />
                                     </div>
                                 </div>
                                 <div>
                                     <label className="block text-xs font-bold text-gray-600 dark:text-gray-300 mb-1">Interest Rate (%)</label>
-                                    <input type="number" step="0.1" value={interestRate} onChange={e => setInterestRate(Number(e.target.value))} className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-sm" />
+                                    <NumberField value={interestRate} onChange={setInterestRate} decimal min={0} aria-label="Interest rate" className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50" />
                                 </div>
                             </div>
                         </section>
@@ -302,31 +306,31 @@ export default function InvestmentRoiCalculator({ isOpen, onClose }: InvestmentR
                             <div className="grid grid-cols-2 gap-3">
                                 <div className="p-3 bg-yellow-50 dark:bg-yellow-900/10 rounded-lg border border-yellow-200 dark:border-yellow-800/30">
                                     <label className="block text-xs font-bold text-yellow-700 dark:text-yellow-500 mb-1">Apprec. Pre-TOP (%)</label>
-                                    <input
-                                        type="number"
-                                        step="0.5"
+                                    <NumberField
                                         value={appreciationPreTop}
-                                        onChange={e => setAppreciationPreTop(Number(e.target.value))}
-                                        className="w-full p-2 rounded border border-yellow-200 dark:border-yellow-800 bg-white dark:bg-gray-800 text-sm font-bold text-gray-800 dark:text-white"
+                                        onChange={setAppreciationPreTop}
+                                        decimal
+                                        aria-label="Appreciation pre-TOP"
+                                        className="w-full p-2 rounded border border-yellow-200 dark:border-yellow-800 bg-white dark:bg-gray-800 text-sm font-bold text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50"
                                     />
                                 </div>
                                 <div className="p-3 bg-yellow-50 dark:bg-yellow-900/10 rounded-lg border border-yellow-200 dark:border-yellow-800/30">
                                     <label className="block text-xs font-bold text-yellow-700 dark:text-yellow-500 mb-1">Apprec. Post-TOP (%)</label>
-                                    <input
-                                        type="number"
-                                        step="0.5"
+                                    <NumberField
                                         value={appreciationPostTop}
-                                        onChange={e => setAppreciationPostTop(Number(e.target.value))}
-                                        className="w-full p-2 rounded border border-yellow-200 dark:border-yellow-800 bg-white dark:bg-gray-800 text-sm font-bold text-gray-800 dark:text-white"
+                                        onChange={setAppreciationPostTop}
+                                        decimal
+                                        aria-label="Appreciation post-TOP"
+                                        className="w-full p-2 rounded border border-yellow-200 dark:border-yellow-800 bg-white dark:bg-gray-800 text-sm font-bold text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary/50"
                                     />
                                 </div>
                                 <div>
                                     <label className="block text-xs font-bold text-gray-600 dark:text-gray-300 mb-1">MCST Fee ($/mo)</label>
-                                    <input type="number" value={mcstFee} onChange={e => setMcstFee(Number(e.target.value))} className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-sm" />
+                                    <NumberField value={mcstFee} onChange={setMcstFee} format min={0} aria-label="MCST fee per month" className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50" />
                                 </div>
                                 <div>
                                     <label className="block text-xs font-bold text-gray-600 dark:text-gray-300 mb-1">Agent Comm (%)</label>
-                                    <input type="number" value={agentCommissionPercent} onChange={e => setAgentCommissionPercent(Number(e.target.value))} className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-sm" />
+                                    <NumberField value={agentCommissionPercent} onChange={setAgentCommissionPercent} decimal min={0} aria-label="Agent commission percentage" className="w-full p-2 rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50" />
                                 </div>
                             </div>
                         </section>
