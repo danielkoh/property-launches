@@ -48,5 +48,29 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <HomeClient />;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "New Launch Singapore",
+    "url": "https://property-launches.vercel.app",
+    "logo": "https://property-launches.vercel.app/bluebed_icon.png",
+    "sameAs": [
+      "https://www.facebook.com/profile.php?id=61585740746558"
+    ],
+    "author": {
+      "@type": "Person",
+      "name": "Daniel Koh",
+      "url": "https://bluebed.ai"
+    }
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <HomeClient />
+    </>
+  );
 }

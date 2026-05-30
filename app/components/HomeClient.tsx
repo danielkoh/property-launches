@@ -83,6 +83,53 @@ export default function HomeClient() {
                                 <span className="material-symbols-outlined text-lg">query_stats</span>{" "}
                                 Investment Tools
                             </a>
+                            <div className="relative group py-2">
+                                <a
+                                    className="text-sm font-semibold hover:text-primary transition-colors flex items-center gap-1 cursor-pointer"
+                                    href="/articles"
+                                >
+                                    <span className="material-symbols-outlined text-lg">article</span>{" "}
+                                    Market Insights
+                                    <span className="material-symbols-outlined text-sm transition-transform group-hover:rotate-180">keyboard_arrow_down</span>
+                                </a>
+                                <div className="absolute left-1/2 -translate-x-1/2 top-full hidden group-hover:block pt-2 w-72 z-50">
+                                    <div className="bg-white dark:bg-background-dark border border-[#f0f2f4] dark:border-gray-800 rounded-xl shadow-xl py-2 animate-in fade-in slide-in-from-top-1 duration-200">
+                                        <div className="px-4 py-1.5 border-b border-[#f0f2f4] dark:border-gray-800">
+                                            <p className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">
+                                                Featured Analysis
+                                            </p>
+                                        </div>
+                                        <div className="max-h-[300px] overflow-y-auto">
+                                            <a href="/articles/the-five-dragons-of-singapore" className="flex flex-col px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-800/50 text-left transition-colors">
+                                                <span className="text-sm font-bold text-slate-800 dark:text-white line-clamp-1">The Five Dragons of Singapore</span>
+                                                <span className="text-[11px] text-gray-500 dark:text-gray-400 line-clamp-1">Landform Geomancy Atlas</span>
+                                            </a>
+                                            <a href="/articles/ocr-strata-landed-phenom" className="flex flex-col px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-800/50 text-left transition-colors">
+                                                <span className="text-sm font-bold text-slate-800 dark:text-white line-clamp-1">OCR Strata Landed Phenom</span>
+                                                <span className="text-[11px] text-gray-500 dark:text-gray-400 line-clamp-1">How Sellers Secured Up to $1.45M</span>
+                                            </a>
+                                            <a href="/articles/resale-vs-new-launch" className="flex flex-col px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-800/50 text-left transition-colors">
+                                                <span className="text-sm font-bold text-slate-800 dark:text-white line-clamp-1">Resale vs. New Launch</span>
+                                                <span className="text-[11px] text-gray-500 dark:text-gray-400 line-clamp-1">Upgrader&apos;s Equity Comparison</span>
+                                            </a>
+                                            <a href="/articles/florence-vs-chuan-park" className="flex flex-col px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-800/50 text-left transition-colors">
+                                                <span className="text-sm font-bold text-slate-800 dark:text-white line-clamp-1">Florence vs. Chuan Park</span>
+                                                <span className="text-[11px] text-gray-500 dark:text-gray-400 line-clamp-1">District 19 Capital Gains</span>
+                                            </a>
+                                            <a href="/articles/d19-sub-areas-analysis" className="flex flex-col px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-800/50 text-left transition-colors">
+                                                <span className="text-sm font-bold text-slate-800 dark:text-white line-clamp-1">D19 Sub-Area Matrix</span>
+                                                <span className="text-[11px] text-gray-500 dark:text-gray-400 line-clamp-1">Hougang, Serangoon, Sengkang Matrix</span>
+                                            </a>
+                                        </div>
+                                        <div className="border-t border-[#f0f2f4] dark:border-gray-800 mt-1 pt-1">
+                                            <a href="/articles" className="flex items-center justify-between px-4 py-2 hover:bg-gray-50 dark:hover:bg-gray-800/50 text-xs font-bold text-primary transition-colors">
+                                                <span>All Insights & Analysis</span>
+                                                <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <a
                                 className="text-sm font-semibold hover:text-primary transition-colors flex items-center gap-1.5"
                                 href="#vvip-registration"
@@ -640,7 +687,7 @@ export default function HomeClient() {
             </main >
             <footer className="bg-[#111418] text-white py-8 lg:py-12 px-6 lg:px-12 border-t border-gray-800">
                 <div className="max-w-[1280px] mx-auto">
-                    <div className="flex flex-col md:flex-row justify-between gap-12 mb-12">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
                         <div className="max-w-xs">
                             <div className="flex flex-col gap-1 mb-6">
                                 <h5 className="font-bold text-white mb-2">
@@ -669,8 +716,58 @@ export default function HomeClient() {
                                 www.era.com.sg
                             </a>
                         </div>
-                        <div className="flex flex-col gap-6 justify-end text-left sm:text-right">
-
+                        <div className="flex flex-col gap-4 text-left">
+                            <h5 className="font-bold text-white mb-2">
+                                Market Insights
+                            </h5>
+                            <ul className="space-y-3 text-sm text-gray-400">
+                                <li>
+                                    <a href="/articles" className="hover:text-primary transition-colors flex items-center gap-1.5">
+                                        <span className="material-symbols-outlined text-sm">article</span> All Insights & Analysis
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/articles/the-five-dragons-of-singapore" className="hover:text-primary transition-colors flex items-center gap-1.5">
+                                        <span className="material-symbols-outlined text-sm">explore</span> The Five Dragons of Singapore
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/articles/ocr-strata-landed-phenom" className="hover:text-primary transition-colors flex items-center gap-1.5">
+                                        <span className="material-symbols-outlined text-sm">trending_up</span> OCR Strata Landed Phenom
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/articles/resale-vs-new-launch" className="hover:text-primary transition-colors flex items-center gap-1.5">
+                                        <span className="material-symbols-outlined text-sm">calculate</span> Resale vs. New Launch
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/articles/florence-vs-chuan-park" className="hover:text-primary transition-colors flex items-center gap-1.5">
+                                        <span className="material-symbols-outlined text-sm">swap_horiz</span> Florence vs. Chuan Park
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/articles/d19-sub-areas-analysis" className="hover:text-primary transition-colors flex items-center gap-1.5">
+                                        <span className="material-symbols-outlined text-sm">grid_view</span> D19 Sub-Area Matrix
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="flex flex-col gap-6 justify-end text-left md:text-right">
+                            <div className="flex items-center gap-4 md:justify-end">
+                                <a
+                                    className="text-gray-400 hover:text-primary transition-colors flex items-center gap-2 text-sm font-bold"
+                                    href="https://www.facebook.com/profile.php?id=61585740746558"
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                    title="Follow us on Facebook"
+                                >
+                                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                    </svg>
+                                    Facebook Page
+                                </a>
+                            </div>
                             <div>
                                 <a
                                     className="text-sm text-gray-500 hover:text-primary transition-colors"
